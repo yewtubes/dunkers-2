@@ -1,0 +1,9 @@
+{
+  "name": "dunkers-2-selfhost",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local host and independent compatibility backend for the Dunkers 2 WebGL build",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node server.mjs", "test": "node --test test/*.test.mjs" }
+}

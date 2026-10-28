@@ -1,0 +1,6 @@
+storage/
+node_modules/
+research/*
+!research/build-manifest.json
+!research/original-embed.html
+*.download

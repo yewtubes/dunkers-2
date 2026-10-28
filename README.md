@@ -90,5 +90,10 @@ for the new implementation.
 hashes. The four extracted Unity files are unmodified. `tools/extract-build.py`
 can re-download and verify them when the original host is available.
 
+The initial GitHub import workflow downloads the large files, verifies those
+hashes, and commits them to main. If that workflow is unavailable, run
+`python3 tools/extract-build.py` and `python3 tools/recover-metadata.py` once
+before `npm start`. Subsequent play uses the local files and local backend.
+
 The original game and assets remain the work of their respective owners. No
 license to those assets is supplied by this package.

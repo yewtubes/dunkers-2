@@ -1,0 +1,5102 @@
+[
+  {
+    "name": "MainGameDataHolder",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "enableGatchaSystem",
+        "typeIndex": 6805,
+        "index": 7293
+      },
+      {
+        "name": "enableDebugLogs",
+        "typeIndex": 6808,
+        "index": 7294
+      },
+      {
+        "name": "EnableDebugLogs",
+        "typeIndex": 6812,
+        "index": 7295
+      },
+      {
+        "name": "i",
+        "typeIndex": 9508,
+        "index": 7296
+      },
+      {
+        "name": "_gameSettings",
+        "typeIndex": 6614,
+        "index": 7297
+      },
+      {
+        "name": "ProfileData",
+        "typeIndex": 10038,
+        "index": 7298
+      },
+      {
+        "name": "Notifications",
+        "typeIndex": 9968,
+        "index": 7299
+      },
+      {
+        "name": "OnProfileDataLoaded",
+        "typeIndex": 14455,
+        "index": 7300
+      },
+      {
+        "name": "OnUserChestsUpdated",
+        "typeIndex": 14459,
+        "index": 7301
+      },
+      {
+        "name": "OnNotificationsUpdated",
+        "typeIndex": 14453,
+        "index": 7302
+      },
+      {
+        "name": "OnRewardChestsUpdated",
+        "typeIndex": 14457,
+        "index": 7303
+      },
+      {
+        "name": "OnCurrencyChanged",
+        "typeIndex": 14451,
+        "index": 7304
+      },
+      {
+        "name": "OnStatsChanged",
+        "typeIndex": 14461,
+        "index": 7305
+      },
+      {
+        "name": "OnItemUnlocked",
+        "typeIndex": 1337,
+        "index": 7306
+      },
+      {
+        "name": "OnUserChampionshipUpdated",
+        "typeIndex": 12477,
+        "index": 7307
+      },
+      {
+        "name": "OnPlayersPerTeamUpdated",
+        "typeIndex": 12477,
+        "index": 7308
+      },
+      {
+        "name": "OnUserLeveledUp",
+        "typeIndex": 12477,
+        "index": 7309
+      },
+      {
+        "name": "OnTeamUpdated",
+        "typeIndex": 12477,
+        "index": 7310
+      },
+      {
+        "name": "OnUserTournamentUpdated",
+        "typeIndex": 12477,
+        "index": 7311
+      },
+      {
+        "name": "OnPlayerUpgraded",
+        "typeIndex": 12477,
+        "index": 7312
+      },
+      {
+        "name": "OnSeasonPassUpdated",
+        "typeIndex": 12477,
+        "index": 7313
+      },
+      {
+        "name": "OnLuckyShootoutUpdated",
+        "typeIndex": 12477,
+        "index": 7314
+      },
+      {
+        "name": "OnTournamentRewardsUpdated",
+        "typeIndex": 12477,
+        "index": 7315
+      },
+      {
+        "name": "displayedBundles",
+        "typeIndex": 3560,
+        "index": 7316
+      },
+      {
+        "name": "useDebug",
+        "typeIndex": 6808,
+        "index": 7317
+      },
+      {
+        "name": "profileFilePath",
+        "typeIndex": 11420,
+        "index": 7318
+      },
+      {
+        "name": "notificationsFilePath",
+        "typeIndex": 11420,
+        "index": 7319
+      },
+      {
+        "name": "playersFilePath",
+        "typeIndex": 11420,
+        "index": 7320
+      },
+      {
+        "name": "jerseysFilePath",
+        "typeIndex": 11420,
+        "index": 7321
+      },
+      {
+        "name": "pantsFilePath",
+        "typeIndex": 11420,
+        "index": 7322
+      },
+      {
+        "name": "bootsFilePath",
+        "typeIndex": 11420,
+        "index": 7323
+      },
+      {
+        "name": "emblemsFilePath",
+        "typeIndex": 11420,
+        "index": 7324
+      },
+      {
+        "name": "accessoryFilePath",
+        "typeIndex": 11420,
+        "index": 7325
+      },
+      {
+        "name": "basketballFilePath",
+        "typeIndex": 11420,
+        "index": 7326
+      },
+      {
+        "name": "kitsFilePath",
+        "typeIndex": 11420,
+        "index": 7327
+      },
+      {
+        "name": "teamFilePath",
+        "typeIndex": 11420,
+        "index": 7328
+      },
+      {
+        "name": "chest1Path",
+        "typeIndex": 11420,
+        "index": 7329
+      },
+      {
+        "name": "chest2Path",
+        "typeIndex": 11420,
+        "index": 7330
+      },
+      {
+        "name": "chest3Path",
+        "typeIndex": 11420,
+        "index": 7331
+      },
+      {
+        "name": "chest4Path",
+        "typeIndex": 11420,
+        "index": 7332
+      },
+      {
+        "name": "rewardChestsPath",
+        "typeIndex": 11420,
+        "index": 7333
+      },
+      {
+        "name": "tournamentPath",
+        "typeIndex": 11420,
+        "index": 7334
+      },
+      {
+        "name": "tournamentResultsPath",
+        "typeIndex": 11420,
+        "index": 7335
+      },
+      {
+        "name": "tierWinningsPath",
+        "typeIndex": 11420,
+        "index": 7336
+      },
+      {
+        "name": "seasonPassPath",
+        "typeIndex": 11420,
+        "index": 7337
+      },
+      {
+        "name": "freeRewardSetPath",
+        "typeIndex": 11420,
+        "index": 7338
+      },
+      {
+        "name": "goldenRewardSetPath",
+        "typeIndex": 11420,
+        "index": 7339
+      },
+      {
+        "name": "tournamentRewardsPath",
+        "typeIndex": 11420,
+        "index": 7340
+      },
+      {
+        "name": "championshipPath",
+        "typeIndex": 11420,
+        "index": 7341
+      },
+      {
+        "name": "championshipResultsPath",
+        "typeIndex": 11420,
+        "index": 7342
+      },
+      {
+        "name": "cupResultsPath",
+        "typeIndex": 11420,
+        "index": 7343
+      },
+      {
+        "name": "delimiter",
+        "typeIndex": 7049,
+        "index": 7344
+      },
+      {
+        "name": "ForceItemsUnlocked",
+        "typeIndex": 6808,
+        "index": 7345
+      },
+      {
+        "name": "chanceOfLockedPlayer",
+        "typeIndex": 11224,
+        "index": 7346
+      },
+      {
+        "name": "minRookieQuantity",
+        "typeIndex": 9012,
+        "index": 7347
+      },
+      {
+        "name": "maxRookieQuantity",
+        "typeIndex": 9012,
+        "index": 7348
+      },
+      {
+        "name": "minProQuantity",
+        "typeIndex": 9012,
+        "index": 7349
+      },
+      {
+        "name": "maxProQuantity",
+        "typeIndex": 9012,
+        "index": 7350
+      },
+      {
+        "name": "minEliteQuantity",
+        "typeIndex": 9012,
+        "index": 7351
+      },
+      {
+        "name": "maxEliteQuantity",
+        "typeIndex": 9012,
+        "index": 7352
+      },
+      {
+        "name": "min2v2Level",
+        "typeIndex": 9012,
+        "index": 7353
+      },
+      {
+        "name": "min3v3Level",
+        "typeIndex": 9012,
+        "index": 7354
+      },
+      {
+        "name": "playersUnlocked",
+        "typeIndex": 9012,
+        "index": 7355
+      },
+      {
+        "name": "bonus2v2",
+        "typeIndex": 9008,
+        "index": 7356
+      },
+      {
+        "name": "bonus3v3",
+        "typeIndex": 9008,
+        "index": 7357
+      },
+      {
+        "name": "gameResultTracker",
+        "typeIndex": 8278,
+        "index": 7358
+      },
+      {
+        "name": "initialised",
+        "typeIndex": 6805,
+        "index": 7359
+      },
+      {
+        "name": "rewardItem",
+        "typeIndex": 9150,
+        "index": 7360
+      },
+      {
+        "name": "rewardAdRequested",
+        "typeIndex": 6805,
+        "index": 7361
+      },
+      {
+        "name": "serverProfileData",
+        "typeIndex": 11420,
+        "index": 7362
+      },
+      {
+        "name": "aba",
+        "typeIndex": 11438,
+        "index": 7363
+      },
+      {
+        "name": "prefix",
+        "typeIndex": 11438,
+        "index": 7364
+      },
+      {
+        "name": "isOpponentEmoteStyleStored",
+        "typeIndex": 6808,
+        "index": 7365
+      },
+      {
+        "name": "opponentEmoteCharStyle",
+        "typeIndex": 10066,
+        "index": 7366
+      },
+      {
+        "name": "opponentEmoteResponseTimeStyle",
+        "typeIndex": 10811,
+        "index": 7367
+      },
+      {
+        "name": "isOpponentPlayStyleStored",
+        "typeIndex": 6808,
+        "index": 7368
+      },
+      {
+        "name": "opponentAIPlayStyle",
+        "typeIndex": 6246,
+        "index": 7369
+      },
+      {
+        "name": "lastGamePlayedType",
+        "typeIndex": 15679,
+        "index": 7370
+      },
+      {
+        "name": "newUser",
+        "typeIndex": 6808,
+        "index": 7371
+      },
+      {
+        "name": "FORCE_DRAFT_AD_AVAILABLE",
+        "typeIndex": 6808,
+        "index": 7372
+      }
+    ],
+    "methods": [
+      {
+        "name": "get_GatchSystemEnabled",
+        "index": 9788,
+        "token": 100664887
+      },
+      {
+        "name": "get_GameSettings",
+        "index": 9789,
+        "token": 100664888
+      },
+      {
+        "name": "add_OnProfileDataLoaded",
+        "index": 9790,
+        "token": 100664889
+      },
+      {
+        "name": "remove_OnProfileDataLoaded",
+        "index": 9791,
+        "token": 100664890
+      },
+      {
+        "name": "add_OnUserChestsUpdated",
+        "index": 9792,
+        "token": 100664891
+      },
+      {
+        "name": "remove_OnUserChestsUpdated",
+        "index": 9793,
+        "token": 100664892
+      },
+      {
+        "name": "add_OnNotificationsUpdated",
+        "index": 9794,
+        "token": 100664893
+      },
+      {
+        "name": "remove_OnNotificationsUpdated",
+        "index": 9795,
+        "token": 100664894
+      },
+      {
+        "name": "add_OnRewardChestsUpdated",
+        "index": 9796,
+        "token": 100664895
+      },
+      {
+        "name": "remove_OnRewardChestsUpdated",
+        "index": 9797,
+        "token": 100664896
+      },
+      {
+        "name": "add_OnCurrencyChanged",
+        "index": 9798,
+        "token": 100664897
+      },
+      {
+        "name": "remove_OnCurrencyChanged",
+        "index": 9799,
+        "token": 100664898
+      },
+      {
+        "name": "add_OnStatsChanged",
+        "index": 9800,
+        "token": 100664899
+      },
+      {
+        "name": "remove_OnStatsChanged",
+        "index": 9801,
+        "token": 100664900
+      },
+      {
+        "name": "add_OnItemUnlocked",
+        "index": 9802,
+        "token": 100664901
+      },
+      {
+        "name": "remove_OnItemUnlocked",
+        "index": 9803,
+        "token": 100664902
+      },
+      {
+        "name": "get_isDebug",
+        "index": 9804,
+        "token": 100664903
+      },
+      {
+        "name": "get_Initialised",
+        "index": 9805,
+        "token": 100664904
+      },
+      {
+        "name": "Awake",
+        "index": 9806,
+        "token": 100664905
+      },
+      {
+        "name": "OnDestroy",
+        "index": 9807,
+        "token": 100664906
+      },
+      {
+        "name": "Start",
+        "index": 9808,
+        "token": 100664907
+      },
+      {
+        "name": "DelayLogin",
+        "index": 9809,
+        "token": 100664908
+      },
+      {
+        "name": "DataManager_OnDataRetrieved",
+        "index": 9810,
+        "token": 100664909
+      },
+      {
+        "name": "LoadProfile",
+        "index": 9811,
+        "token": 100664910
+      },
+      {
+        "name": "FinishInitialisation",
+        "index": 9812,
+        "token": 100664911
+      },
+      {
+        "name": "OnSceneLoaded",
+        "index": 9813,
+        "token": 100664912
+      },
+      {
+        "name": "AddNotification",
+        "index": 9814,
+        "token": 100664913
+      },
+      {
+        "name": "DeleteNotification",
+        "index": 9815,
+        "token": 100664914
+      },
+      {
+        "name": "SaveNotifications",
+        "index": 9816,
+        "token": 100664915
+      },
+      {
+        "name": "LoadNotifications",
+        "index": 9817,
+        "token": 100664916
+      },
+      {
+        "name": "DELETE_ALL_DATA",
+        "index": 9818,
+        "token": 100664917
+      },
+      {
+        "name": "CreateNewProfileData",
+        "index": 9819,
+        "token": 100664918
+      },
+      {
+        "name": "ResetProfileData",
+        "index": 9820,
+        "token": 100664919
+      },
+      {
+        "name": "SelectDefaultUserFlag",
+        "index": 9821,
+        "token": 100664920
+      },
+      {
+        "name": "ProfileData_CurrencyChanged",
+        "index": 9822,
+        "token": 100664921
+      },
+      {
+        "name": "ProfileData_StatsChanged",
+        "index": 9823,
+        "token": 100664922
+      },
+      {
+        "name": "SaveProfileData",
+        "index": 9824,
+        "token": 100664923
+      },
+      {
+        "name": "SaveProfileData",
+        "index": 9825,
+        "token": 100664924
+      },
+      {
+        "name": "LoadProfileData",
+        "index": 9826,
+        "token": 100664925
+      },
+      {
+        "name": "UpdatePlayersUnlocked",
+        "index": 9827,
+        "token": 100664926
+      },
+      {
+        "name": "TryOnProfileDataLoaded",
+        "index": 9828,
+        "token": 100664927
+      },
+      {
+        "name": "LoadTournamentRewards",
+        "index": 9829,
+        "token": 100664928
+      },
+      {
+        "name": "SaveTournamentRewards",
+        "index": 9830,
+        "token": 100664929
+      },
+      {
+        "name": "UpdateTournamentRewardSet",
+        "index": 9831,
+        "token": 100664930
+      },
+      {
+        "name": "GetTournamentReward",
+        "index": 9832,
+        "token": 100664931
+      },
+      {
+        "name": "LoadRewardChests",
+        "index": 9833,
+        "token": 100664932
+      },
+      {
+        "name": "SaveRewardChests",
+        "index": 9834,
+        "token": 100664933
+      },
+      {
+        "name": "SaveUserChests",
+        "index": 9835,
+        "token": 100664934
+      },
+      {
+        "name": "LoadUserChests",
+        "index": 9836,
+        "token": 100664935
+      },
+      {
+        "name": "AddUserChest",
+        "index": 9837,
+        "token": 100664936
+      },
+      {
+        "name": "RefreshChest",
+        "index": 9838,
+        "token": 100664937
+      },
+      {
+        "name": "TeamUpdated",
+        "index": 9839,
+        "token": 100664938
+      },
+      {
+        "name": "LoadUserTeam",
+        "index": 9840,
+        "token": 100664939
+      },
+      {
+        "name": "AddTournamentGame",
+        "index": 9841,
+        "token": 100664940
+      },
+      {
+        "name": "ForfeitSeries",
+        "index": 9842,
+        "token": 100664941
+      },
+      {
+        "name": "AdvanceTournamentRound",
+        "index": 9843,
+        "token": 100664942
+      },
+      {
+        "name": "ResetCurrentRound",
+        "index": 9844,
+        "token": 100664943
+      },
+      {
+        "name": "AddRound",
+        "index": 9845,
+        "token": 100664944
+      },
+      {
+        "name": "SetActiveRoundOpponent",
+        "index": 9846,
+        "token": 100664945
+      },
+      {
+        "name": "SetRoundStatus",
+        "index": 9847,
+        "token": 100664946
+      },
+      {
+        "name": "LoadUserTournament",
+        "index": 9848,
+        "token": 100664947
+      },
+      {
+        "name": "SaveUserTournament",
+        "index": 9849,
+        "token": 100664948
+      },
+      {
+        "name": "TournamentCompleted",
+        "index": 9850,
+        "token": 100664949
+      },
+      {
+        "name": "DeleteUserTournament",
+        "index": 9851,
+        "token": 100664950
+      },
+      {
+        "name": "LoadSeasonPass",
+        "index": 9852,
+        "token": 100664951
+      },
+      {
+        "name": "SaveSeasonPass",
+        "index": 9853,
+        "token": 100664952
+      },
+      {
+        "name": "AssignStarterTeam",
+        "index": 9854,
+        "token": 100664953
+      },
+      {
+        "name": "SaveUserTeam",
+        "index": 9855,
+        "token": 100664954
+      },
+      {
+        "name": "UserTeamToString",
+        "index": 9856,
+        "token": 100664955
+      },
+      {
+        "name": "StringToUserTeam",
+        "index": 9857,
+        "token": 100664956
+      },
+      {
+        "name": "AddWinnings",
+        "index": 9858,
+        "token": 100664957
+      },
+      {
+        "name": "SetWinnings",
+        "index": 9859,
+        "token": 100664958
+      },
+      {
+        "name": "SaveTierWinnings",
+        "index": 9860,
+        "token": 100664959
+      },
+      {
+        "name": "LoadTierWinnings",
+        "index": 9861,
+        "token": 100664960
+      },
+      {
+        "name": "SaveUserPlayers",
+        "index": 9862,
+        "token": 100664961
+      },
+      {
+        "name": "LoadUserPlayers",
+        "index": 9863,
+        "token": 100664962
+      },
+      {
+        "name": "GetPlayer",
+        "index": 9864,
+        "token": 100664963
+      },
+      {
+        "name": "AddPlayerQuantity",
+        "index": 9865,
+        "token": 100664964
+      },
+      {
+        "name": "UpgradePlayer",
+        "index": 9866,
+        "token": 100664965
+      },
+      {
+        "name": "UpgradePlayer_IgnoreQuantity",
+        "index": 9867,
+        "token": 100664966
+      },
+      {
+        "name": "RemovePlayerQuantity",
+        "index": 9868,
+        "token": 100664967
+      },
+      {
+        "name": "IncreasePlayerLevel",
+        "index": 9869,
+        "token": 100664968
+      },
+      {
+        "name": "SaveUserJerseys",
+        "index": 9870,
+        "token": 100664969
+      },
+      {
+        "name": "SaveUserAcccesories",
+        "index": 9871,
+        "token": 100664970
+      },
+      {
+        "name": "LoadUserTournamentResults",
+        "index": 9872,
+        "token": 100664971
+      },
+      {
+        "name": "SaveUserTournamentResults",
+        "index": 9873,
+        "token": 100664972
+      },
+      {
+        "name": "LoadUserJerseys",
+        "index": 9874,
+        "token": 100664973
+      },
+      {
+        "name": "UnlockJersey",
+        "index": 9875,
+        "token": 100664974
+      },
+      {
+        "name": "UnlockAccessory",
+        "index": 9876,
+        "token": 100664975
+      },
+      {
+        "name": "UnlockBasketball",
+        "index": 9877,
+        "token": 100664976
+      },
+      {
+        "name": "SaveUserPants",
+        "index": 9878,
+        "token": 100664977
+      },
+      {
+        "name": "LoadUserPants",
+        "index": 9879,
+        "token": 100664978
+      },
+      {
+        "name": "SaveUserBoots",
+        "index": 9880,
+        "token": 100664979
+      },
+      {
+        "name": "LoadUserBoots",
+        "index": 9881,
+        "token": 100664980
+      },
+      {
+        "name": "LoadUserEmblems",
+        "index": 9882,
+        "token": 100664981
+      },
+      {
+        "name": "LoadUserAccessories",
+        "index": 9883,
+        "token": 100664982
+      },
+      {
+        "name": "SaveUserEmblems",
+        "index": 9884,
+        "token": 100664983
+      },
+      {
+        "name": "LoadUserBasketballs",
+        "index": 9885,
+        "token": 100664984
+      },
+      {
+        "name": "SaveUserBasketballs",
+        "index": 9886,
+        "token": 100664985
+      },
+      {
+        "name": "GetRandomLockedStarterPlayer",
+        "index": 9887,
+        "token": 100664986
+      },
+      {
+        "name": "GetRandomLockedStarterJersey",
+        "index": 9888,
+        "token": 100664987
+      },
+      {
+        "name": "GetRandomLockedStarterPants",
+        "index": 9889,
+        "token": 100664988
+      },
+      {
+        "name": "GetRandomLockedStarterBoots",
+        "index": 9890,
+        "token": 100664989
+      },
+      {
+        "name": "GetRandomPlayer",
+        "index": 9891,
+        "token": 100664990
+      },
+      {
+        "name": "GetRandomLockedPlayer",
+        "index": 9892,
+        "token": 100664991
+      },
+      {
+        "name": "GetRandomLockedJersey",
+        "index": 9893,
+        "token": 100664992
+      },
+      {
+        "name": "GetRandomLockedPants",
+        "index": 9894,
+        "token": 100664993
+      },
+      {
+        "name": "GetRandomLockedBoots",
+        "index": 9895,
+        "token": 100664994
+      },
+      {
+        "name": "GetRandomLockedEmblem",
+        "index": 9896,
+        "token": 100664995
+      },
+      {
+        "name": "GetRandomLockedBasketball",
+        "index": 9897,
+        "token": 100664996
+      },
+      {
+        "name": "GetRandomLockedAccessorySet",
+        "index": 9898,
+        "token": 100664997
+      },
+      {
+        "name": "GetRandomLockedItem",
+        "index": 9899,
+        "token": 100664998
+      },
+      {
+        "name": "GetRandomLockedItem",
+        "index": 9900,
+        "token": 100664999
+      },
+      {
+        "name": "GetRandomLockedKit",
+        "index": 9901,
+        "token": 100665000
+      },
+      {
+        "name": "UnlockBoots",
+        "index": 9902,
+        "token": 100665001
+      },
+      {
+        "name": "UnlockEmblem",
+        "index": 9903,
+        "token": 100665002
+      },
+      {
+        "name": "UnlockPants",
+        "index": 9904,
+        "token": 100665003
+      },
+      {
+        "name": "SaveUserKits",
+        "index": 9905,
+        "token": 100665004
+      },
+      {
+        "name": "LoadUserKits",
+        "index": 9906,
+        "token": 100665005
+      },
+      {
+        "name": "UnlockKit",
+        "index": 9907,
+        "token": 100665006
+      },
+      {
+        "name": "PurchaseItem",
+        "index": 9908,
+        "token": 100665007
+      },
+      {
+        "name": "GetRandomRewardItem",
+        "index": 9909,
+        "token": 100665008
+      },
+      {
+        "name": "RewardAdCompleted",
+        "index": 9910,
+        "token": 100665009
+      },
+      {
+        "name": "UnlockItem",
+        "index": 9911,
+        "token": 100665010
+      },
+      {
+        "name": "GetStarterGear",
+        "index": 9912,
+        "token": 100665011
+      },
+      {
+        "name": "ToggleItemLocks",
+        "index": 9913,
+        "token": 100665012
+      },
+      {
+        "name": "UnlockAllItems",
+        "index": 9914,
+        "token": 100665013
+      },
+      {
+        "name": "AwardLevelReward",
+        "index": 9915,
+        "token": 100665014
+      },
+      {
+        "name": "RandomLevelReward",
+        "index": 9916,
+        "token": 100665015
+      },
+      {
+        "name": "AddCoins",
+        "index": 9917,
+        "token": 100665016
+      },
+      {
+        "name": "AddCash",
+        "index": 9918,
+        "token": 100665017
+      },
+      {
+        "name": "AddDraftPoints",
+        "index": 9919,
+        "token": 100665018
+      },
+      {
+        "name": "AddXP",
+        "index": 9920,
+        "token": 100665019
+      },
+      {
+        "name": "AddLevelUpNotification",
+        "index": 9921,
+        "token": 100665020
+      },
+      {
+        "name": "AddPackRewards",
+        "index": 9922,
+        "token": 100665021
+      },
+      {
+        "name": "AddPackRewardNotification",
+        "index": 9923,
+        "token": 100665022
+      },
+      {
+        "name": "AddBallSteal",
+        "index": 9924,
+        "token": 100665023
+      },
+      {
+        "name": "AddPointScored",
+        "index": 9925,
+        "token": 100665024
+      },
+      {
+        "name": "AddGamesPlayed",
+        "index": 9926,
+        "token": 100665025
+      },
+      {
+        "name": "AddGamesWon",
+        "index": 9927,
+        "token": 100665026
+      },
+      {
+        "name": "ResetGameSettings",
+        "index": 9928,
+        "token": 100665027
+      },
+      {
+        "name": "SetFullGameSettings",
+        "index": 9929,
+        "token": 100665028
+      },
+      {
+        "name": "SetPlayersPerTeamGameSettings",
+        "index": 9930,
+        "token": 100665029
+      },
+      {
+        "name": "SetGameLengthGameSettings",
+        "index": 9931,
+        "token": 100665030
+      },
+      {
+        "name": "SetScoreLimitGameSettings",
+        "index": 9932,
+        "token": 100665031
+      },
+      {
+        "name": "SetBuzzerBeaterGameSettings",
+        "index": 9933,
+        "token": 100665032
+      },
+      {
+        "name": "CheckItemUnlocked",
+        "index": 9934,
+        "token": 100665033
+      },
+      {
+        "name": "UnlockedItem",
+        "index": 9935,
+        "token": 100665034
+      },
+      {
+        "name": "SetUserTargetedAds",
+        "index": 9936,
+        "token": 100665035
+      },
+      {
+        "name": "LoadUserChampionship",
+        "index": 9937,
+        "token": 100665036
+      },
+      {
+        "name": "SaveUserChampionship",
+        "index": 9938,
+        "token": 100665037
+      },
+      {
+        "name": "ResetUserChampionship",
+        "index": 9939,
+        "token": 100665038
+      },
+      {
+        "name": "ResetChampionshipLives",
+        "index": 9940,
+        "token": 100665039
+      },
+      {
+        "name": "StartChampionship",
+        "index": 9941,
+        "token": 100665040
+      },
+      {
+        "name": "GetNextBowlId",
+        "index": 9942,
+        "token": 100665041
+      },
+      {
+        "name": "GetCurrentLives",
+        "index": 9943,
+        "token": 100665042
+      },
+      {
+        "name": "ForfeitChampionship",
+        "index": 9944,
+        "token": 100665043
+      },
+      {
+        "name": "UseChampionshipLife",
+        "index": 9945,
+        "token": 100665044
+      },
+      {
+        "name": "ChampionshipGameWon",
+        "index": 9946,
+        "token": 100665045
+      },
+      {
+        "name": "ChampionshipFinished",
+        "index": 9947,
+        "token": 100665046
+      },
+      {
+        "name": "CupGameWon",
+        "index": 9948,
+        "token": 100665047
+      },
+      {
+        "name": "CupWon",
+        "index": 9949,
+        "token": 100665048
+      },
+      {
+        "name": "ContinueChampionship",
+        "index": 9950,
+        "token": 100665049
+      },
+      {
+        "name": "LoadChampionshipResults",
+        "index": 9951,
+        "token": 100665050
+      },
+      {
+        "name": "SaveUserChampionshipResults",
+        "index": 9952,
+        "token": 100665051
+      },
+      {
+        "name": "LoadCupResults",
+        "index": 9953,
+        "token": 100665052
+      },
+      {
+        "name": "SaveCupResults",
+        "index": 9954,
+        "token": 100665053
+      },
+      {
+        "name": "SaveAllData",
+        "index": 9955,
+        "token": 100665054
+      },
+      {
+        "name": "SaveToServer",
+        "index": 9956,
+        "token": 100665055
+      },
+      {
+        "name": "LoadServerProfile",
+        "index": 9957,
+        "token": 100665056
+      },
+      {
+        "name": "SaveLocal",
+        "index": 9958,
+        "token": 100665057
+      },
+      {
+        "name": "LoadLocalFromJSON_ScriptableObject",
+        "index": 9959,
+        "token": 100665058
+      },
+      {
+        "name": "LoadLocalFromJSON_String",
+        "index": 9960,
+        "token": 100665059
+      },
+      {
+        "name": "EncryptLocalData",
+        "index": 9961,
+        "token": 100665060
+      },
+      {
+        "name": "GetBonus",
+        "index": 9962,
+        "token": 100665061
+      },
+      {
+        "name": "DataManager_OnUserNotificationsReceived",
+        "index": 9963,
+        "token": 100665062
+      },
+      {
+        "name": "DataManager_OnPromoBundleReceived",
+        "index": 9964,
+        "token": 100665063
+      },
+      {
+        "name": "StoreOpponentEmoteStyle",
+        "index": 9965,
+        "token": 100665064
+      },
+      {
+        "name": "ResetOpponentEmoteStyle",
+        "index": 9966,
+        "token": 100665065
+      },
+      {
+        "name": "StoreOpponentAIPlayStyle",
+        "index": 9967,
+        "token": 100665066
+      },
+      {
+        "name": "IsAnyTournamentRunning",
+        "index": 9968,
+        "token": 100665067
+      },
+      {
+        "name": "GoldenShotPurchased",
+        "index": 9969,
+        "token": 100665068
+      },
+      {
+        "name": "ResetFreeShot",
+        "index": 9970,
+        "token": 100665069
+      },
+      {
+        "name": "UseMiniGameShot",
+        "index": 9971,
+        "token": 100665070
+      },
+      {
+        "name": "GetNextRewardSets",
+        "index": 9972,
+        "token": 100665071
+      },
+      {
+        "name": "GenerateRewardSet",
+        "index": 9973,
+        "token": 100665072
+      },
+      {
+        "name": "SaveRewardSet",
+        "index": 9974,
+        "token": 100665073
+      },
+      {
+        "name": "LoadRewardSet",
+        "index": 9975,
+        "token": 100665074
+      },
+      {
+        "name": ".ctor",
+        "index": 9976,
+        "token": 100665075
+      },
+      {
+        "name": "<GetRandomLockedKit>b__205_0",
+        "index": 9977,
+        "token": 100665076
+      }
+    ]
+  },
+  {
+    "name": "LoginManager",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "i",
+        "typeIndex": 9476,
+        "index": 8010
+      },
+      {
+        "name": "ServerURL",
+        "typeIndex": 11424,
+        "index": 8011
+      },
+      {
+        "name": "checkURL",
+        "typeIndex": 11424,
+        "index": 8012
+      },
+      {
+        "name": "checkURLResult",
+        "typeIndex": 11424,
+        "index": 8013
+      },
+      {
+        "name": "transactionTimeout",
+        "typeIndex": 9012,
+        "index": 8014
+      },
+      {
+        "name": "connectionActive",
+        "typeIndex": 6808,
+        "index": 8015
+      },
+      {
+        "name": "loggedIn",
+        "typeIndex": 6812,
+        "index": 8016
+      },
+      {
+        "name": "backgroundAnimator",
+        "typeIndex": 6372,
+        "index": 8017
+      },
+      {
+        "name": "mainMenuAnimator",
+        "typeIndex": 6372,
+        "index": 8018
+      },
+      {
+        "name": "ball",
+        "typeIndex": 8270,
+        "index": 8019
+      },
+      {
+        "name": "logo",
+        "typeIndex": 8270,
+        "index": 8020
+      },
+      {
+        "name": "curve",
+        "typeIndex": 6342,
+        "index": 8021
+      },
+      {
+        "name": "loginTimer",
+        "typeIndex": 11221,
+        "index": 8022
+      },
+      {
+        "name": "loginCoroutine",
+        "typeIndex": 7344,
+        "index": 8023
+      },
+      {
+        "name": "checkConnectionCoroutine",
+        "typeIndex": 7344,
+        "index": 8024
+      },
+      {
+        "name": "connectToServerTime",
+        "typeIndex": 11221,
+        "index": 8025
+      },
+      {
+        "name": "fetchProfileTime",
+        "typeIndex": 11221,
+        "index": 8026
+      },
+      {
+        "name": "loadingTime",
+        "typeIndex": 11221,
+        "index": 8027
+      },
+      {
+        "name": "finishedLogin",
+        "typeIndex": 6805,
+        "index": 8028
+      },
+      {
+        "name": "OnLoginSuccess",
+        "typeIndex": 12477,
+        "index": 8029
+      }
+    ],
+    "methods": [
+      {
+        "name": "Awake",
+        "index": 10641,
+        "token": 100665740
+      },
+      {
+        "name": "Start",
+        "index": 10642,
+        "token": 100665741
+      },
+      {
+        "name": "OnEnable",
+        "index": 10643,
+        "token": 100665742
+      },
+      {
+        "name": "InitiateLogin",
+        "index": 10644,
+        "token": 100665743
+      },
+      {
+        "name": "Login",
+        "index": 10645,
+        "token": 100665744
+      },
+      {
+        "name": "CheckConnection",
+        "index": 10646,
+        "token": 100665745
+      },
+      {
+        "name": "FinishLogin",
+        "index": 10647,
+        "token": 100665746
+      },
+      {
+        "name": "GetURL",
+        "index": 10648,
+        "token": 100665747
+      },
+      {
+        "name": "DelayCheckConnection",
+        "index": 10649,
+        "token": 100665748
+      },
+      {
+        "name": ".ctor",
+        "index": 10650,
+        "token": 100665749
+      },
+      {
+        "name": "<DelayCheckConnection>b__28_0",
+        "index": 10651,
+        "token": 100665750
+      }
+    ]
+  },
+  {
+    "name": "JsonTableHeader",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "TableName",
+        "typeIndex": 11424,
+        "index": 8572
+      },
+      {
+        "name": "Items",
+        "typeIndex": 5983,
+        "index": 8573
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11002,
+        "token": 100666101
+      }
+    ]
+  },
+  {
+    "name": "GameServerDataProvider",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "enableServerProcessing",
+        "typeIndex": 6808,
+        "index": 8574
+      },
+      {
+        "name": "showErrorMessagesInStatus",
+        "typeIndex": 6808,
+        "index": 8575
+      },
+      {
+        "name": "overrideServerURL",
+        "typeIndex": 11424,
+        "index": 8576
+      },
+      {
+        "name": "connectionTimerSeconds",
+        "typeIndex": 11221,
+        "index": 8577
+      },
+      {
+        "name": "connectionProgressChecks",
+        "typeIndex": 11221,
+        "index": 8578
+      },
+      {
+        "name": "connectionStatusInterval",
+        "typeIndex": 11221,
+        "index": 8579
+      },
+      {
+        "name": "connectionIntervalCounter",
+        "typeIndex": 9008,
+        "index": 8580
+      },
+      {
+        "name": "checkConnectionFailTolerance",
+        "typeIndex": 9008,
+        "index": 8581
+      },
+      {
+        "name": "checkConnectionTimerWorkingSeconds",
+        "typeIndex": 9008,
+        "index": 8582
+      },
+      {
+        "name": "checkConnectionTimerFailedSeconds",
+        "typeIndex": 9008,
+        "index": 8583
+      },
+      {
+        "name": "checkConnectionTimerSeconds",
+        "typeIndex": 9008,
+        "index": 8584
+      },
+      {
+        "name": "checkConnectionFails",
+        "typeIndex": 9008,
+        "index": 8585
+      },
+      {
+        "name": "checkURLResult",
+        "typeIndex": 11420,
+        "index": 8586
+      },
+      {
+        "name": "checkURL",
+        "typeIndex": 11420,
+        "index": 8587
+      },
+      {
+        "name": "SendEventDataURL",
+        "typeIndex": 11420,
+        "index": 8588
+      },
+      {
+        "name": "authenticateURL",
+        "typeIndex": 11420,
+        "index": 8589
+      },
+      {
+        "name": "loginURL",
+        "typeIndex": 11420,
+        "index": 8590
+      },
+      {
+        "name": "OnConnected",
+        "typeIndex": 2012,
+        "index": 8591
+      },
+      {
+        "name": "OnConnectionFailed",
+        "typeIndex": 2012,
+        "index": 8592
+      },
+      {
+        "name": "OnBackupProfile",
+        "typeIndex": 13654,
+        "index": 8593
+      },
+      {
+        "name": "OnDeleteProfile",
+        "typeIndex": 13654,
+        "index": 8594
+      },
+      {
+        "name": "OnProfileReceived",
+        "typeIndex": 13654,
+        "index": 8595
+      },
+      {
+        "name": "OnGoneOffline",
+        "typeIndex": 1236,
+        "index": 8596
+      },
+      {
+        "name": "LoginStatusUpdate",
+        "typeIndex": 13654,
+        "index": 8597
+      },
+      {
+        "name": "OnServerTimeReceived",
+        "typeIndex": 13654,
+        "index": 8598
+      },
+      {
+        "name": "OnLeaderboardReceived",
+        "typeIndex": 13646,
+        "index": 8599
+      },
+      {
+        "name": "OnProfileBackedUp",
+        "typeIndex": 13644,
+        "index": 8600
+      },
+      {
+        "name": "OnProfileDeleted",
+        "typeIndex": 13644,
+        "index": 8601
+      },
+      {
+        "name": "OnPromoBundleReceived",
+        "typeIndex": 13650,
+        "index": 8602
+      },
+      {
+        "name": "OnServerProfilesReceived",
+        "typeIndex": 13652,
+        "index": 8603
+      },
+      {
+        "name": "OnUserNotificationsReceived",
+        "typeIndex": 13656,
+        "index": 8604
+      },
+      {
+        "name": "OnAssetUpdateTimeReceived",
+        "typeIndex": 13640,
+        "index": 8605
+      },
+      {
+        "name": "OnLeaderboardRewardsReceived",
+        "typeIndex": 13648,
+        "index": 8606
+      },
+      {
+        "name": "transactionTimeout",
+        "typeIndex": 9012,
+        "index": 8607
+      }
+    ],
+    "methods": [
+      {
+        "name": "get_ServerURL",
+        "index": 11004,
+        "token": 100666103
+      },
+      {
+        "name": "add_OnConnected",
+        "index": 11005,
+        "token": 100666104
+      },
+      {
+        "name": "remove_OnConnected",
+        "index": 11006,
+        "token": 100666105
+      },
+      {
+        "name": "add_OnConnectionFailed",
+        "index": 11007,
+        "token": 100666106
+      },
+      {
+        "name": "remove_OnConnectionFailed",
+        "index": 11008,
+        "token": 100666107
+      },
+      {
+        "name": "add_OnBackupProfile",
+        "index": 11009,
+        "token": 100666108
+      },
+      {
+        "name": "remove_OnBackupProfile",
+        "index": 11010,
+        "token": 100666109
+      },
+      {
+        "name": "add_OnDeleteProfile",
+        "index": 11011,
+        "token": 100666110
+      },
+      {
+        "name": "remove_OnDeleteProfile",
+        "index": 11012,
+        "token": 100666111
+      },
+      {
+        "name": "add_OnProfileReceived",
+        "index": 11013,
+        "token": 100666112
+      },
+      {
+        "name": "remove_OnProfileReceived",
+        "index": 11014,
+        "token": 100666113
+      },
+      {
+        "name": "add_OnGoneOffline",
+        "index": 11015,
+        "token": 100666114
+      },
+      {
+        "name": "remove_OnGoneOffline",
+        "index": 11016,
+        "token": 100666115
+      },
+      {
+        "name": "add_LoginStatusUpdate",
+        "index": 11017,
+        "token": 100666116
+      },
+      {
+        "name": "remove_LoginStatusUpdate",
+        "index": 11018,
+        "token": 100666117
+      },
+      {
+        "name": "add_OnServerTimeReceived",
+        "index": 11019,
+        "token": 100666118
+      },
+      {
+        "name": "remove_OnServerTimeReceived",
+        "index": 11020,
+        "token": 100666119
+      },
+      {
+        "name": "add_OnLeaderboardReceived",
+        "index": 11021,
+        "token": 100666120
+      },
+      {
+        "name": "remove_OnLeaderboardReceived",
+        "index": 11022,
+        "token": 100666121
+      },
+      {
+        "name": "add_OnProfileBackedUp",
+        "index": 11023,
+        "token": 100666122
+      },
+      {
+        "name": "remove_OnProfileBackedUp",
+        "index": 11024,
+        "token": 100666123
+      },
+      {
+        "name": "add_OnProfileDeleted",
+        "index": 11025,
+        "token": 100666124
+      },
+      {
+        "name": "remove_OnProfileDeleted",
+        "index": 11026,
+        "token": 100666125
+      },
+      {
+        "name": "add_OnPromoBundleReceived",
+        "index": 11027,
+        "token": 100666126
+      },
+      {
+        "name": "remove_OnPromoBundleReceived",
+        "index": 11028,
+        "token": 100666127
+      },
+      {
+        "name": "add_OnServerProfilesReceived",
+        "index": 11029,
+        "token": 100666128
+      },
+      {
+        "name": "remove_OnServerProfilesReceived",
+        "index": 11030,
+        "token": 100666129
+      },
+      {
+        "name": "add_OnUserNotificationsReceived",
+        "index": 11031,
+        "token": 100666130
+      },
+      {
+        "name": "remove_OnUserNotificationsReceived",
+        "index": 11032,
+        "token": 100666131
+      },
+      {
+        "name": "add_OnAssetUpdateTimeReceived",
+        "index": 11033,
+        "token": 100666132
+      },
+      {
+        "name": "remove_OnAssetUpdateTimeReceived",
+        "index": 11034,
+        "token": 100666133
+      },
+      {
+        "name": "add_OnLeaderboardRewardsReceived",
+        "index": 11035,
+        "token": 100666134
+      },
+      {
+        "name": "remove_OnLeaderboardRewardsReceived",
+        "index": 11036,
+        "token": 100666135
+      },
+      {
+        "name": "UpdateStatus",
+        "index": 11037,
+        "token": 100666136
+      },
+      {
+        "name": "Awake",
+        "index": 11038,
+        "token": 100666137
+      },
+      {
+        "name": "OnDestroy",
+        "index": 11039,
+        "token": 100666138
+      },
+      {
+        "name": "Start",
+        "index": 11040,
+        "token": 100666139
+      },
+      {
+        "name": "SendFlagEvent",
+        "index": 11041,
+        "token": 100666140
+      },
+      {
+        "name": "SendIntEvent",
+        "index": 11042,
+        "token": 100666141
+      },
+      {
+        "name": "SendInt2Event",
+        "index": 11043,
+        "token": 100666142
+      },
+      {
+        "name": "SendStringEvent",
+        "index": 11044,
+        "token": 100666143
+      },
+      {
+        "name": "SendIntStringEvent",
+        "index": 11045,
+        "token": 100666144
+      },
+      {
+        "name": "GetURL",
+        "index": 11046,
+        "token": 100666145
+      },
+      {
+        "name": "SendURL",
+        "index": 11047,
+        "token": 100666146
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11048,
+        "token": 100666147
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11049,
+        "token": 100666148
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11050,
+        "token": 100666149
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11051,
+        "token": 100666150
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11052,
+        "token": 100666151
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11053,
+        "token": 100666152
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11054,
+        "token": 100666153
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 11055,
+        "token": 100666154
+      },
+      {
+        "name": "SendEventToServer",
+        "index": 11056,
+        "token": 100666155
+      },
+      {
+        "name": "DataManager_OnLogin",
+        "index": 11057,
+        "token": 100666156
+      },
+      {
+        "name": "DataManager_OnBackupProfile",
+        "index": 11058,
+        "token": 100666157
+      },
+      {
+        "name": "DataManager_OnDeleteProfile",
+        "index": 11059,
+        "token": 100666158
+      },
+      {
+        "name": "DataManager_OnRequestProfile",
+        "index": 11060,
+        "token": 100666159
+      },
+      {
+        "name": "DataManager_OnRequestLeaderboard",
+        "index": 11061,
+        "token": 100666160
+      },
+      {
+        "name": "DataManager_OnReportWinnings",
+        "index": 11062,
+        "token": 100666161
+      },
+      {
+        "name": "DataManager_OnGetServerTime",
+        "index": 11063,
+        "token": 100666162
+      },
+      {
+        "name": "DataManager_OnClaimPromoBundle",
+        "index": 11064,
+        "token": 100666163
+      },
+      {
+        "name": "DataManager_OnGetProfiles",
+        "index": 11065,
+        "token": 100666164
+      },
+      {
+        "name": "DataManager_OnRequestNotifications",
+        "index": 11066,
+        "token": 100666165
+      },
+      {
+        "name": "DataManager_OnAcknowledgeUserNotification",
+        "index": 11067,
+        "token": 100666166
+      },
+      {
+        "name": "DataManager_OnRequestAssets",
+        "index": 11068,
+        "token": 100666167
+      },
+      {
+        "name": "DataManager_OnGetAssetUpdateTime",
+        "index": 11069,
+        "token": 100666168
+      },
+      {
+        "name": "ProcessServerJSONData",
+        "index": 11070,
+        "token": 100666169
+      },
+      {
+        "name": ".ctor",
+        "index": 11071,
+        "token": 100666170
+      },
+      {
+        "name": "<SendEventToServer>b__89_0",
+        "index": 11072,
+        "token": 100666171
+      }
+    ]
+  },
+  {
+    "name": "OfflineProfileData",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "avatarGraphic",
+        "typeIndex": 6545,
+        "index": 8632
+      },
+      {
+        "name": "requiresSetup",
+        "typeIndex": 6808,
+        "index": 8633
+      },
+      {
+        "name": "userProfile",
+        "typeIndex": 12565,
+        "index": 8634
+      },
+      {
+        "name": "userPlayers",
+        "typeIndex": 1710,
+        "index": 8635
+      },
+      {
+        "name": "unlockedJerseys",
+        "typeIndex": 3560,
+        "index": 8636
+      },
+      {
+        "name": "unlockedPants",
+        "typeIndex": 3560,
+        "index": 8637
+      },
+      {
+        "name": "unlockedBoots",
+        "typeIndex": 3560,
+        "index": 8638
+      },
+      {
+        "name": "unlockedEmblems",
+        "typeIndex": 3560,
+        "index": 8639
+      },
+      {
+        "name": "unlockedKits",
+        "typeIndex": 3560,
+        "index": 8640
+      },
+      {
+        "name": "unlockedAccessories",
+        "typeIndex": 3560,
+        "index": 8641
+      },
+      {
+        "name": "unlockedBasketballs",
+        "typeIndex": 3560,
+        "index": 8642
+      },
+      {
+        "name": "userChests",
+        "typeIndex": 3748,
+        "index": 8643
+      },
+      {
+        "name": "rewardChests",
+        "typeIndex": 3560,
+        "index": 8644
+      },
+      {
+        "name": "tournamentRewards",
+        "typeIndex": 1673,
+        "index": 8645
+      },
+      {
+        "name": "userTeam",
+        "typeIndex": 12571,
+        "index": 8646
+      },
+      {
+        "name": "opponentUserTeam",
+        "typeIndex": 12571,
+        "index": 8647
+      },
+      {
+        "name": "opponentUsername",
+        "typeIndex": 11424,
+        "index": 8648
+      },
+      {
+        "name": "opponentFlagKey",
+        "typeIndex": 11424,
+        "index": 8649
+      },
+      {
+        "name": "matchBall",
+        "typeIndex": 6669,
+        "index": 8650
+      },
+      {
+        "name": "opponentBall",
+        "typeIndex": 6808,
+        "index": 8651
+      },
+      {
+        "name": "userTeamKit",
+        "typeIndex": 9247,
+        "index": 8652
+      },
+      {
+        "name": "userTournament",
+        "typeIndex": 12576,
+        "index": 8653
+      },
+      {
+        "name": "userSeasonPass",
+        "typeIndex": 12567,
+        "index": 8654
+      },
+      {
+        "name": "userTournamentsWon",
+        "typeIndex": 1688,
+        "index": 8655
+      },
+      {
+        "name": "TierWinnings",
+        "typeIndex": 5819,
+        "index": 8656
+      },
+      {
+        "name": "maxLevelReached",
+        "typeIndex": 6808,
+        "index": 8657
+      },
+      {
+        "name": "userChampionship",
+        "typeIndex": 12551,
+        "index": 8658
+      },
+      {
+        "name": "championships",
+        "typeIndex": 1688,
+        "index": 8659
+      },
+      {
+        "name": "cups",
+        "typeIndex": 1688,
+        "index": 8660
+      },
+      {
+        "name": "profileSprite",
+        "typeIndex": 11305,
+        "index": 8661
+      }
+    ],
+    "methods": [
+      {
+        "name": "get_NextXPLevel",
+        "index": 11105,
+        "token": 100666204
+      },
+      {
+        "name": "get_XPRequiredToLevelUp",
+        "index": 11106,
+        "token": 100666205
+      },
+      {
+        "name": "AddChampionshipWon",
+        "index": 11107,
+        "token": 100666206
+      },
+      {
+        "name": "CheckChampionshipWon",
+        "index": 11108,
+        "token": 100666207
+      },
+      {
+        "name": "AddCupsWon",
+        "index": 11109,
+        "token": 100666208
+      },
+      {
+        "name": "AddChest",
+        "index": 11110,
+        "token": 100666209
+      },
+      {
+        "name": "AddExperiece",
+        "index": 11111,
+        "token": 100666210
+      },
+      {
+        "name": "TryLevelUp",
+        "index": 11112,
+        "token": 100666211
+      },
+      {
+        "name": "LevelUp",
+        "index": 11113,
+        "token": 100666212
+      },
+      {
+        "name": "FreeGiftAvailable",
+        "index": 11114,
+        "token": 100666213
+      },
+      {
+        "name": "AwardedFreeGift",
+        "index": 11115,
+        "token": 100666214
+      },
+      {
+        "name": "AwardedFreeDraftPoints",
+        "index": 11116,
+        "token": 100666215
+      },
+      {
+        "name": "AddCoins",
+        "index": 11117,
+        "token": 100666216
+      },
+      {
+        "name": "AddDraftPoints",
+        "index": 11118,
+        "token": 100666217
+      },
+      {
+        "name": "TrySpendDraftPoints",
+        "index": 11119,
+        "token": 100666218
+      },
+      {
+        "name": "TrySpendCoins",
+        "index": 11120,
+        "token": 100666219
+      },
+      {
+        "name": "AddCash",
+        "index": 11121,
+        "token": 100666220
+      },
+      {
+        "name": "TrySpendCash",
+        "index": 11122,
+        "token": 100666221
+      },
+      {
+        "name": "AddTotalShotsTaken",
+        "index": 11123,
+        "token": 100666222
+      },
+      {
+        "name": "AddTotalDunks",
+        "index": 11124,
+        "token": 100666223
+      },
+      {
+        "name": "AddDunks",
+        "index": 11125,
+        "token": 100666224
+      },
+      {
+        "name": "Add1v1GamesPlayed",
+        "index": 11126,
+        "token": 100666225
+      },
+      {
+        "name": "Add2v2GamesPlayed",
+        "index": 11127,
+        "token": 100666226
+      },
+      {
+        "name": "Add3v3GamesPlayed",
+        "index": 11128,
+        "token": 100666227
+      },
+      {
+        "name": "ResetDunks",
+        "index": 11129,
+        "token": 100666228
+      },
+      {
+        "name": "AddBallSteal",
+        "index": 11130,
+        "token": 100666229
+      },
+      {
+        "name": "AddPointScored",
+        "index": 11131,
+        "token": 100666230
+      },
+      {
+        "name": "AddGamesPlayed",
+        "index": 11132,
+        "token": 100666231
+      },
+      {
+        "name": "AddGamesWon",
+        "index": 11133,
+        "token": 100666232
+      },
+      {
+        "name": "AddTournamentWon",
+        "index": 11134,
+        "token": 100666233
+      },
+      {
+        "name": "CheckTournamentsWon",
+        "index": 11135,
+        "token": 100666234
+      },
+      {
+        "name": "GetUserPlayerRating",
+        "index": 11136,
+        "token": 100666235
+      },
+      {
+        "name": "GetTournamentRewards",
+        "index": 11137,
+        "token": 100666236
+      },
+      {
+        "name": "SetTournamentRewards",
+        "index": 11138,
+        "token": 100666237
+      },
+      {
+        "name": ".ctor",
+        "index": 11139,
+        "token": 100666238
+      },
+      {
+        "name": "<get_NextXPLevel>b__32_0",
+        "index": 11140,
+        "token": 100666239
+      },
+      {
+        "name": "<get_XPRequiredToLevelUp>b__34_0",
+        "index": 11141,
+        "token": 100666240
+      },
+      {
+        "name": "<LevelUp>b__44_0",
+        "index": 11142,
+        "token": 100666241
+      }
+    ]
+  },
+  {
+    "name": "AssetUpdateTime",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "AssetType",
+        "typeIndex": 11136,
+        "index": 9767
+      },
+      {
+        "name": "UpdatedAt",
+        "typeIndex": 11424,
+        "index": 9768
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11839,
+        "token": 100666938
+      }
+    ]
+  },
+  {
+    "name": "LeaderboardEntry",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "UserId",
+        "typeIndex": 9012,
+        "index": 10021
+      },
+      {
+        "name": "Rank",
+        "typeIndex": 9012,
+        "index": 10022
+      },
+      {
+        "name": "UserName",
+        "typeIndex": 11424,
+        "index": 10023
+      },
+      {
+        "name": "Winnings",
+        "typeIndex": 9012,
+        "index": 10024
+      },
+      {
+        "name": "Flag",
+        "typeIndex": 9012,
+        "index": 10025
+      },
+      {
+        "name": "Team",
+        "typeIndex": 9012,
+        "index": 10026
+      },
+      {
+        "name": "Kit",
+        "typeIndex": 9012,
+        "index": 10027
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11888,
+        "token": 100666987
+      }
+    ]
+  },
+  {
+    "name": "LeaderboardReward",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "Id",
+        "typeIndex": 9012,
+        "index": 10028
+      },
+      {
+        "name": "LeaderboardIndex",
+        "typeIndex": 9012,
+        "index": 10029
+      },
+      {
+        "name": "StartRank",
+        "typeIndex": 9012,
+        "index": 10030
+      },
+      {
+        "name": "EndRank",
+        "typeIndex": 9012,
+        "index": 10031
+      },
+      {
+        "name": "Coins",
+        "typeIndex": 9012,
+        "index": 10032
+      },
+      {
+        "name": "Cash",
+        "typeIndex": 9012,
+        "index": 10033
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11889,
+        "token": 100666988
+      }
+    ]
+  },
+  {
+    "name": "ProfileData",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "UserId",
+        "typeIndex": 9012,
+        "index": 10139
+      },
+      {
+        "name": "ProfileCSV",
+        "typeIndex": 11424,
+        "index": 10140
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11906,
+        "token": 100667005
+      }
+    ]
+  },
+  {
+    "name": "ProfileEvent",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "UserId",
+        "typeIndex": 9012,
+        "index": 10141
+      },
+      {
+        "name": "EventId",
+        "typeIndex": 9012,
+        "index": 10142
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11907,
+        "token": 100667006
+      }
+    ]
+  },
+  {
+    "name": "PromoBundle",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "Invalid",
+        "typeIndex": 9012,
+        "index": 10146
+      },
+      {
+        "name": "Coins",
+        "typeIndex": 9012,
+        "index": 10147
+      },
+      {
+        "name": "Cash",
+        "typeIndex": 9012,
+        "index": 10148
+      },
+      {
+        "name": "Players",
+        "typeIndex": 11424,
+        "index": 10149
+      },
+      {
+        "name": "Jerseys",
+        "typeIndex": 11424,
+        "index": 10150
+      },
+      {
+        "name": "Pants",
+        "typeIndex": 11424,
+        "index": 10151
+      },
+      {
+        "name": "Boots",
+        "typeIndex": 11424,
+        "index": 10152
+      },
+      {
+        "name": "Emblems",
+        "typeIndex": 11424,
+        "index": 10153
+      },
+      {
+        "name": "Balls",
+        "typeIndex": 11424,
+        "index": 10154
+      },
+      {
+        "name": "AccessorySets",
+        "typeIndex": 11424,
+        "index": 10155
+      },
+      {
+        "name": "XP",
+        "typeIndex": 9012,
+        "index": 10156
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11908,
+        "token": 100667007
+      }
+    ]
+  },
+  {
+    "name": "ServerProfile",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "Username",
+        "typeIndex": 11424,
+        "index": 10179
+      },
+      {
+        "name": "Flag",
+        "typeIndex": 9012,
+        "index": 10180
+      },
+      {
+        "name": "Level",
+        "typeIndex": 9012,
+        "index": 10181
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11937,
+        "token": 100667036
+      }
+    ]
+  },
+  {
+    "name": "ServerTime",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "Timestamp",
+        "typeIndex": 11424,
+        "index": 10182
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 11938,
+        "token": 100667037
+      }
+    ]
+  },
+  {
+    "name": "UserNotification",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "Id",
+        "typeIndex": 9012,
+        "index": 10230
+      },
+      {
+        "name": "Type",
+        "typeIndex": 9012,
+        "index": 10231
+      },
+      {
+        "name": "CreatedAt",
+        "typeIndex": 11424,
+        "index": 10232
+      },
+      {
+        "name": "Data",
+        "typeIndex": 11424,
+        "index": 10233
+      }
+    ],
+    "methods": [
+      {
+        "name": "SetCreatedAt",
+        "index": 11976,
+        "token": 100667075
+      },
+      {
+        "name": ".ctor",
+        "index": 11977,
+        "token": 100667076
+      }
+    ]
+  },
+  {
+    "name": "UserProfile",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "userName",
+        "typeIndex": 11424,
+        "index": 10257
+      },
+      {
+        "name": "userLevel",
+        "typeIndex": 9012,
+        "index": 10258
+      },
+      {
+        "name": "currentXP",
+        "typeIndex": 9012,
+        "index": 10259
+      },
+      {
+        "name": "currentCoins",
+        "typeIndex": 9012,
+        "index": 10260
+      },
+      {
+        "name": "currentCash",
+        "typeIndex": 9012,
+        "index": 10261
+      },
+      {
+        "name": "currentDunks",
+        "typeIndex": 9012,
+        "index": 10262
+      },
+      {
+        "name": "totalCoins",
+        "typeIndex": 9012,
+        "index": 10263
+      },
+      {
+        "name": "totalCash",
+        "typeIndex": 9012,
+        "index": 10264
+      },
+      {
+        "name": "gamesPlayed",
+        "typeIndex": 9012,
+        "index": 10265
+      },
+      {
+        "name": "gamesWon",
+        "typeIndex": 9012,
+        "index": 10266
+      },
+      {
+        "name": "totalPoints",
+        "typeIndex": 9012,
+        "index": 10267
+      },
+      {
+        "name": "totalSteals",
+        "typeIndex": 9012,
+        "index": 10268
+      },
+      {
+        "name": "totalDunks",
+        "typeIndex": 9012,
+        "index": 10269
+      },
+      {
+        "name": "totalShotsTaken",
+        "typeIndex": 9012,
+        "index": 10270
+      },
+      {
+        "name": "total1v1",
+        "typeIndex": 9012,
+        "index": 10271
+      },
+      {
+        "name": "total2v2",
+        "typeIndex": 9012,
+        "index": 10272
+      },
+      {
+        "name": "total3v3",
+        "typeIndex": 9012,
+        "index": 10273
+      },
+      {
+        "name": "targetedAds",
+        "typeIndex": 9012,
+        "index": 10274
+      },
+      {
+        "name": "newUserLevel",
+        "typeIndex": 9012,
+        "index": 10275
+      },
+      {
+        "name": "freeGiftLevel",
+        "typeIndex": 9012,
+        "index": 10276
+      },
+      {
+        "name": "lastFreeGiftTime",
+        "typeIndex": 11424,
+        "index": 10277
+      },
+      {
+        "name": "purchasedBundles",
+        "typeIndex": 11424,
+        "index": 10278
+      },
+      {
+        "name": "userStage",
+        "typeIndex": 9012,
+        "index": 10279
+      },
+      {
+        "name": "userFlag",
+        "typeIndex": 11424,
+        "index": 10280
+      },
+      {
+        "name": "freeShotsAvailable",
+        "typeIndex": 9012,
+        "index": 10281
+      },
+      {
+        "name": "goldenShotsAvailable",
+        "typeIndex": 9012,
+        "index": 10282
+      },
+      {
+        "name": "currentDraftPoints",
+        "typeIndex": 9012,
+        "index": 10283
+      },
+      {
+        "name": "totalDraftPoints",
+        "typeIndex": 9012,
+        "index": 10284
+      },
+      {
+        "name": "freeDraftPointsLevel",
+        "typeIndex": 9012,
+        "index": 10285
+      },
+      {
+        "name": "lastFreeDraftPointsTime",
+        "typeIndex": 11424,
+        "index": 10286
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 12001,
+        "token": 100667100
+      }
+    ]
+  },
+  {
+    "name": "PopupPanelController",
+    "namespace": "Playback.UI",
+    "fields": [
+      {
+        "name": "PanelObject",
+        "typeIndex": 8270,
+        "index": 13714
+      },
+      {
+        "name": "InitialState",
+        "typeIndex": 6808,
+        "index": 13715
+      },
+      {
+        "name": "<CurrentState>k__BackingField",
+        "typeIndex": 6805,
+        "index": 13716
+      },
+      {
+        "name": "DisableBehaviours",
+        "typeIndex": 5885,
+        "index": 13717
+      },
+      {
+        "name": "EnabledObjects",
+        "typeIndex": 5756,
+        "index": 13718
+      },
+      {
+        "name": "SelectUIObjectOnShow",
+        "typeIndex": 8270,
+        "index": 13719
+      },
+      {
+        "name": "SelectUIObjectOnHide",
+        "typeIndex": 8270,
+        "index": 13720
+      },
+      {
+        "name": "CancelAxis",
+        "typeIndex": 11424,
+        "index": 13721
+      },
+      {
+        "name": "animator",
+        "typeIndex": 6372,
+        "index": 13722
+      },
+      {
+        "name": "animatorShowTrigger",
+        "typeIndex": 11424,
+        "index": 13723
+      },
+      {
+        "name": "animatorHideTrigger",
+        "typeIndex": 11424,
+        "index": 13724
+      },
+      {
+        "name": "animatorHideDuration",
+        "typeIndex": 11224,
+        "index": 13725
+      },
+      {
+        "name": "allowCancel",
+        "typeIndex": 6805,
+        "index": 13726
+      }
+    ],
+    "methods": [
+      {
+        "name": "get_CurrentState",
+        "index": 14515,
+        "token": 100669614
+      },
+      {
+        "name": "set_CurrentState",
+        "index": 14516,
+        "token": 100669615
+      },
+      {
+        "name": "Awake",
+        "index": 14517,
+        "token": 100669616
+      },
+      {
+        "name": "Update",
+        "index": 14518,
+        "token": 100669617
+      },
+      {
+        "name": "SetPanelState",
+        "index": 14519,
+        "token": 100669618
+      },
+      {
+        "name": "TogglePanel",
+        "index": 14520,
+        "token": 100669619
+      },
+      {
+        "name": "ShowPanel",
+        "index": 14521,
+        "token": 100669620
+      },
+      {
+        "name": "HidePanel",
+        "index": 14522,
+        "token": 100669621
+      },
+      {
+        "name": "DelayHidePanel",
+        "index": 14523,
+        "token": 100669622
+      },
+      {
+        "name": ".ctor",
+        "index": 14524,
+        "token": 100669623
+      }
+    ]
+  },
+  {
+    "name": "ScrollDirection",
+    "namespace": "Playback.UI",
+    "fields": [
+      {
+        "name": "value__",
+        "typeIndex": 9026,
+        "index": 13730
+      },
+      {
+        "name": "Left",
+        "typeIndex": 11030,
+        "index": 13731
+      },
+      {
+        "name": "Right",
+        "typeIndex": 11030,
+        "index": 13732
+      },
+      {
+        "name": "Up",
+        "typeIndex": 11030,
+        "index": 13733
+      },
+      {
+        "name": "Down",
+        "typeIndex": 11030,
+        "index": 13734
+      }
+    ],
+    "methods": []
+  },
+  {
+    "name": "ScrollingImage",
+    "namespace": "Playback.UI",
+    "fields": [
+      {
+        "name": "_transform",
+        "typeIndex": 10620,
+        "index": 13735
+      },
+      {
+        "name": "speed",
+        "typeIndex": 11224,
+        "index": 13736
+      },
+      {
+        "name": "direction",
+        "typeIndex": 11029,
+        "index": 13737
+      },
+      {
+        "name": "offset",
+        "typeIndex": 12708,
+        "index": 13738
+      },
+      {
+        "name": "ImageObject",
+        "typeIndex": 8270,
+        "index": 13739
+      },
+      {
+        "name": "first",
+        "typeIndex": 8269,
+        "index": 13740
+      },
+      {
+        "name": "second",
+        "typeIndex": 8269,
+        "index": 13741
+      },
+      {
+        "name": "leftEdge",
+        "typeIndex": 11221,
+        "index": 13742
+      },
+      {
+        "name": "rightEdge",
+        "typeIndex": 11221,
+        "index": 13743
+      },
+      {
+        "name": "topEdge",
+        "typeIndex": 11221,
+        "index": 13744
+      },
+      {
+        "name": "bottomEdge",
+        "typeIndex": 11221,
+        "index": 13745
+      }
+    ],
+    "methods": [
+      {
+        "name": "Awake",
+        "index": 14530,
+        "token": 100669629
+      },
+      {
+        "name": "Start",
+        "index": 14531,
+        "token": 100669630
+      },
+      {
+        "name": "Update",
+        "index": 14532,
+        "token": 100669631
+      },
+      {
+        "name": ".ctor",
+        "index": 14533,
+        "token": 100669632
+      }
+    ]
+  },
+  {
+    "name": "GameSettings",
+    "namespace": "Playback.Settings",
+    "fields": [
+      {
+        "name": "_instance",
+        "typeIndex": 8282,
+        "index": 13746
+      },
+      {
+        "name": "Bools",
+        "typeIndex": 1735,
+        "index": 13747
+      },
+      {
+        "name": "Ints",
+        "typeIndex": 1744,
+        "index": 13748
+      },
+      {
+        "name": "Floats",
+        "typeIndex": 1752,
+        "index": 13749
+      },
+      {
+        "name": "Strings",
+        "typeIndex": 1757,
+        "index": 13750
+      },
+      {
+        "name": "Vector2s",
+        "typeIndex": 1769,
+        "index": 13751
+      },
+      {
+        "name": "Vector3s",
+        "typeIndex": 1770,
+        "index": 13752
+      },
+      {
+        "name": "ScriptableObjects",
+        "typeIndex": 1751,
+        "index": 13753
+      },
+      {
+        "name": "GameObjects",
+        "typeIndex": 1741,
+        "index": 13754
+      }
+    ],
+    "methods": [
+      {
+        "name": "get_Instance",
+        "index": 14534,
+        "token": 100669633
+      },
+      {
+        "name": ".ctor",
+        "index": 14535,
+        "token": 100669634
+      },
+      {
+        "name": "Awake",
+        "index": 14536,
+        "token": 100669635
+      },
+      {
+        "name": "Start",
+        "index": 14537,
+        "token": 100669636
+      },
+      {
+        "name": "GetBool",
+        "index": 14538,
+        "token": 100669637
+      },
+      {
+        "name": "SetBool",
+        "index": 14539,
+        "token": 100669638
+      },
+      {
+        "name": "GetInt",
+        "index": 14540,
+        "token": 100669639
+      },
+      {
+        "name": "SetInt",
+        "index": 14541,
+        "token": 100669640
+      },
+      {
+        "name": "GetFloat",
+        "index": 14542,
+        "token": 100669641
+      },
+      {
+        "name": "SetFloat",
+        "index": 14543,
+        "token": 100669642
+      },
+      {
+        "name": "GetString",
+        "index": 14544,
+        "token": 100669643
+      },
+      {
+        "name": "SetString",
+        "index": 14545,
+        "token": 100669644
+      },
+      {
+        "name": "GetVector2",
+        "index": 14546,
+        "token": 100669645
+      },
+      {
+        "name": "SetVector2",
+        "index": 14547,
+        "token": 100669646
+      },
+      {
+        "name": "GetVector3",
+        "index": 14548,
+        "token": 100669647
+      },
+      {
+        "name": "SetVector3",
+        "index": 14549,
+        "token": 100669648
+      },
+      {
+        "name": "GetScriptableObject",
+        "index": 14550,
+        "token": 100669649
+      },
+      {
+        "name": "SetScriptableObject",
+        "index": 14551,
+        "token": 100669650
+      },
+      {
+        "name": "GetGameObject",
+        "index": 14552,
+        "token": 100669651
+      },
+      {
+        "name": "SetGameObject",
+        "index": 14553,
+        "token": 100669652
+      },
+      {
+        "name": "Save",
+        "index": 14554,
+        "token": 100669653
+      },
+      {
+        "name": "Load",
+        "index": 14555,
+        "token": 100669654
+      },
+      {
+        "name": "Deserialize",
+        "index": 14556,
+        "token": 100669655
+      },
+      {
+        "name": "Serialize",
+        "index": 14557,
+        "token": 100669656
+      }
+    ]
+  },
+  {
+    "name": "BallisticTrajectory",
+    "namespace": "Playback.Physics",
+    "fields": [],
+    "methods": [
+      {
+        "name": "HitTargetByAngle",
+        "index": 14558,
+        "token": 100669657
+      },
+      {
+        "name": "GetHorizontalVector",
+        "index": 14559,
+        "token": 100669658
+      },
+      {
+        "name": "GetVerticalVector",
+        "index": 14560,
+        "token": 100669659
+      }
+    ]
+  },
+  {
+    "name": "ColorExtensions",
+    "namespace": "Playback.Extensions",
+    "fields": [],
+    "methods": [
+      {
+        "name": "G",
+        "index": 14561,
+        "token": 100669660
+      },
+      {
+        "name": "B",
+        "index": 14562,
+        "token": 100669661
+      },
+      {
+        "name": "R",
+        "index": 14563,
+        "token": 100669662
+      },
+      {
+        "name": "A",
+        "index": 14564,
+        "token": 100669663
+      },
+      {
+        "name": "GetHue",
+        "index": 14565,
+        "token": 100669664
+      },
+      {
+        "name": "AdjustBrightness",
+        "index": 14566,
+        "token": 100669665
+      },
+      {
+        "name": "SetAlpha",
+        "index": 14567,
+        "token": 100669666
+      },
+      {
+        "name": "AdjustHSV",
+        "index": 14568,
+        "token": 100669667
+      }
+    ]
+  },
+  {
+    "name": "ColorUtils",
+    "namespace": "Playback.Extensions",
+    "fields": [],
+    "methods": [
+      {
+        "name": "FromArgb",
+        "index": 14569,
+        "token": 100669668
+      },
+      {
+        "name": "ColorFromInt",
+        "index": 14570,
+        "token": 100669669
+      },
+      {
+        "name": "ColorToInt",
+        "index": 14571,
+        "token": 100669670
+      },
+      {
+        "name": "ColorToHSV",
+        "index": 14572,
+        "token": 100669671
+      },
+      {
+        "name": "ColorFromHSV",
+        "index": 14573,
+        "token": 100669672
+      }
+    ]
+  },
+  {
+    "name": "IListExtensions",
+    "namespace": "Playback.Extensions",
+    "fields": [],
+    "methods": [
+      {
+        "name": "Shuffle",
+        "index": 14574,
+        "token": 100669673
+      }
+    ]
+  },
+  {
+    "name": "Maths",
+    "namespace": "Playback.Extensions",
+    "fields": [],
+    "methods": [
+      {
+        "name": "Normalize",
+        "index": 14575,
+        "token": 100669674
+      },
+      {
+        "name": "Normalize",
+        "index": 14576,
+        "token": 100669675
+      }
+    ]
+  },
+  {
+    "name": "StringExtensions",
+    "namespace": "Playback.Extensions",
+    "fields": [],
+    "methods": [
+      {
+        "name": "ToAbbreviatedString",
+        "index": 14577,
+        "token": 100669676
+      },
+      {
+        "name": "AddOrdinal",
+        "index": 14578,
+        "token": 100669677
+      }
+    ]
+  },
+  {
+    "name": "TransformExtensions",
+    "namespace": "Playback.Extensions",
+    "fields": [],
+    "methods": [
+      {
+        "name": "GetOrAddComponent",
+        "index": 14579,
+        "token": 100669678
+      }
+    ]
+  },
+  {
+    "name": "DataManager",
+    "namespace": "Playback.Data",
+    "fields": [
+      {
+        "name": "ForceOffline",
+        "typeIndex": 6808,
+        "index": 13755
+      },
+      {
+        "name": "instance",
+        "typeIndex": 7473,
+        "index": 13756
+      },
+      {
+        "name": "loginStatus",
+        "typeIndex": 11427,
+        "index": 13757
+      },
+      {
+        "name": "preventResendingNotificationAcknowledgements",
+        "typeIndex": 6808,
+        "index": 13758
+      },
+      {
+        "name": "DataProviders",
+        "typeIndex": 5719,
+        "index": 13759
+      },
+      {
+        "name": "ConnectOnStart",
+        "typeIndex": 6808,
+        "index": 13760
+      },
+      {
+        "name": "CurrentDataProvider",
+        "typeIndex": 7475,
+        "index": 13761
+      },
+      {
+        "name": "PlayerPrefsDataProviderIndex",
+        "typeIndex": 9012,
+        "index": 13762
+      },
+      {
+        "name": "CurrentDataProviderIndex",
+        "typeIndex": 9012,
+        "index": 13763
+      },
+      {
+        "name": "Connected",
+        "typeIndex": 6808,
+        "index": 13764
+      },
+      {
+        "name": "OfflineMode",
+        "typeIndex": 6808,
+        "index": 13765
+      },
+      {
+        "name": "googleCheck",
+        "typeIndex": 6805,
+        "index": 13766
+      },
+      {
+        "name": "OnConnected",
+        "typeIndex": 2012,
+        "index": 13767
+      },
+      {
+        "name": "OnConnectionFailed",
+        "typeIndex": 2012,
+        "index": 13768
+      },
+      {
+        "name": "OnGoneOffline",
+        "typeIndex": 1236,
+        "index": 13769
+      },
+      {
+        "name": "OnDataCreated",
+        "typeIndex": 2012,
+        "index": 13770
+      },
+      {
+        "name": "OnDataRetrieved",
+        "typeIndex": 2012,
+        "index": 13771
+      },
+      {
+        "name": "OnDataUpdated",
+        "typeIndex": 2012,
+        "index": 13772
+      },
+      {
+        "name": "OnDataDeleted",
+        "typeIndex": 2012,
+        "index": 13773
+      },
+      {
+        "name": "OnLogin",
+        "typeIndex": 13636,
+        "index": 13774
+      },
+      {
+        "name": "OnRequestProfile",
+        "typeIndex": 13622,
+        "index": 13775
+      },
+      {
+        "name": "OnBackupProfile",
+        "typeIndex": 13636,
+        "index": 13776
+      },
+      {
+        "name": "OnDeleteProfile",
+        "typeIndex": 13622,
+        "index": 13777
+      },
+      {
+        "name": "OnReportWinnings",
+        "typeIndex": 13624,
+        "index": 13778
+      },
+      {
+        "name": "OnRequestLeaderboard",
+        "typeIndex": 13626,
+        "index": 13779
+      },
+      {
+        "name": "OnGetServerTime",
+        "typeIndex": 13622,
+        "index": 13780
+      },
+      {
+        "name": "OnClaimPromoBundle",
+        "typeIndex": 13636,
+        "index": 13781
+      },
+      {
+        "name": "OnGetProfiles",
+        "typeIndex": 13624,
+        "index": 13782
+      },
+      {
+        "name": "OnRequestNotifications",
+        "typeIndex": 13622,
+        "index": 13783
+      },
+      {
+        "name": "OnAcknowledgeUserNotification",
+        "typeIndex": 13626,
+        "index": 13784
+      },
+      {
+        "name": "OnGetAssetUpdateTime",
+        "typeIndex": 13626,
+        "index": 13785
+      },
+      {
+        "name": "OnRequestAssets",
+        "typeIndex": 13626,
+        "index": 13786
+      },
+      {
+        "name": "OnProfileReceived",
+        "typeIndex": 13636,
+        "index": 13787
+      },
+      {
+        "name": "OnLeaderboardReceived",
+        "typeIndex": 13628,
+        "index": 13788
+      },
+      {
+        "name": "OnServerTimeReceived",
+        "typeIndex": 13636,
+        "index": 13789
+      },
+      {
+        "name": "OnProfileBackedUp",
+        "typeIndex": 13626,
+        "index": 13790
+      },
+      {
+        "name": "OnProfileDeleted",
+        "typeIndex": 13626,
+        "index": 13791
+      },
+      {
+        "name": "OnPromoBundleReceived",
+        "typeIndex": 13632,
+        "index": 13792
+      },
+      {
+        "name": "OnServerProfilesReceived",
+        "typeIndex": 13634,
+        "index": 13793
+      },
+      {
+        "name": "OnUserNotificationsReceived",
+        "typeIndex": 13638,
+        "index": 13794
+      },
+      {
+        "name": "OnAssetUpdateTimeReceived",
+        "typeIndex": 13620,
+        "index": 13795
+      },
+      {
+        "name": "OnLeaderboardRewardsReceived",
+        "typeIndex": 13630,
+        "index": 13796
+      },
+      {
+        "name": "MatchInProgress",
+        "typeIndex": 6808,
+        "index": 13797
+      }
+    ],
+    "methods": [
+      {
+        "name": "get_Instance",
+        "index": 14580,
+        "token": 100669679
+      },
+      {
+        "name": "add_OnConnected",
+        "index": 14581,
+        "token": 100669680
+      },
+      {
+        "name": "remove_OnConnected",
+        "index": 14582,
+        "token": 100669681
+      },
+      {
+        "name": "add_OnConnectionFailed",
+        "index": 14583,
+        "token": 100669682
+      },
+      {
+        "name": "remove_OnConnectionFailed",
+        "index": 14584,
+        "token": 100669683
+      },
+      {
+        "name": "add_OnGoneOffline",
+        "index": 14585,
+        "token": 100669684
+      },
+      {
+        "name": "remove_OnGoneOffline",
+        "index": 14586,
+        "token": 100669685
+      },
+      {
+        "name": "add_OnDataCreated",
+        "index": 14587,
+        "token": 100669686
+      },
+      {
+        "name": "remove_OnDataCreated",
+        "index": 14588,
+        "token": 100669687
+      },
+      {
+        "name": "add_OnDataRetrieved",
+        "index": 14589,
+        "token": 100669688
+      },
+      {
+        "name": "remove_OnDataRetrieved",
+        "index": 14590,
+        "token": 100669689
+      },
+      {
+        "name": "add_OnDataUpdated",
+        "index": 14591,
+        "token": 100669690
+      },
+      {
+        "name": "remove_OnDataUpdated",
+        "index": 14592,
+        "token": 100669691
+      },
+      {
+        "name": "add_OnDataDeleted",
+        "index": 14593,
+        "token": 100669692
+      },
+      {
+        "name": "remove_OnDataDeleted",
+        "index": 14594,
+        "token": 100669693
+      },
+      {
+        "name": "add_OnLogin",
+        "index": 14595,
+        "token": 100669694
+      },
+      {
+        "name": "remove_OnLogin",
+        "index": 14596,
+        "token": 100669695
+      },
+      {
+        "name": "add_OnRequestProfile",
+        "index": 14597,
+        "token": 100669696
+      },
+      {
+        "name": "remove_OnRequestProfile",
+        "index": 14598,
+        "token": 100669697
+      },
+      {
+        "name": "add_OnBackupProfile",
+        "index": 14599,
+        "token": 100669698
+      },
+      {
+        "name": "remove_OnBackupProfile",
+        "index": 14600,
+        "token": 100669699
+      },
+      {
+        "name": "add_OnDeleteProfile",
+        "index": 14601,
+        "token": 100669700
+      },
+      {
+        "name": "remove_OnDeleteProfile",
+        "index": 14602,
+        "token": 100669701
+      },
+      {
+        "name": "add_OnReportWinnings",
+        "index": 14603,
+        "token": 100669702
+      },
+      {
+        "name": "remove_OnReportWinnings",
+        "index": 14604,
+        "token": 100669703
+      },
+      {
+        "name": "add_OnRequestLeaderboard",
+        "index": 14605,
+        "token": 100669704
+      },
+      {
+        "name": "remove_OnRequestLeaderboard",
+        "index": 14606,
+        "token": 100669705
+      },
+      {
+        "name": "add_OnGetServerTime",
+        "index": 14607,
+        "token": 100669706
+      },
+      {
+        "name": "remove_OnGetServerTime",
+        "index": 14608,
+        "token": 100669707
+      },
+      {
+        "name": "add_OnClaimPromoBundle",
+        "index": 14609,
+        "token": 100669708
+      },
+      {
+        "name": "remove_OnClaimPromoBundle",
+        "index": 14610,
+        "token": 100669709
+      },
+      {
+        "name": "add_OnGetProfiles",
+        "index": 14611,
+        "token": 100669710
+      },
+      {
+        "name": "remove_OnGetProfiles",
+        "index": 14612,
+        "token": 100669711
+      },
+      {
+        "name": "add_OnRequestNotifications",
+        "index": 14613,
+        "token": 100669712
+      },
+      {
+        "name": "remove_OnRequestNotifications",
+        "index": 14614,
+        "token": 100669713
+      },
+      {
+        "name": "add_OnAcknowledgeUserNotification",
+        "index": 14615,
+        "token": 100669714
+      },
+      {
+        "name": "remove_OnAcknowledgeUserNotification",
+        "index": 14616,
+        "token": 100669715
+      },
+      {
+        "name": "add_OnGetAssetUpdateTime",
+        "index": 14617,
+        "token": 100669716
+      },
+      {
+        "name": "remove_OnGetAssetUpdateTime",
+        "index": 14618,
+        "token": 100669717
+      },
+      {
+        "name": "add_OnRequestAssets",
+        "index": 14619,
+        "token": 100669718
+      },
+      {
+        "name": "remove_OnRequestAssets",
+        "index": 14620,
+        "token": 100669719
+      },
+      {
+        "name": "add_OnProfileReceived",
+        "index": 14621,
+        "token": 100669720
+      },
+      {
+        "name": "remove_OnProfileReceived",
+        "index": 14622,
+        "token": 100669721
+      },
+      {
+        "name": "add_OnLeaderboardReceived",
+        "index": 14623,
+        "token": 100669722
+      },
+      {
+        "name": "remove_OnLeaderboardReceived",
+        "index": 14624,
+        "token": 100669723
+      },
+      {
+        "name": "add_OnServerTimeReceived",
+        "index": 14625,
+        "token": 100669724
+      },
+      {
+        "name": "remove_OnServerTimeReceived",
+        "index": 14626,
+        "token": 100669725
+      },
+      {
+        "name": "add_OnProfileBackedUp",
+        "index": 14627,
+        "token": 100669726
+      },
+      {
+        "name": "remove_OnProfileBackedUp",
+        "index": 14628,
+        "token": 100669727
+      },
+      {
+        "name": "add_OnProfileDeleted",
+        "index": 14629,
+        "token": 100669728
+      },
+      {
+        "name": "remove_OnProfileDeleted",
+        "index": 14630,
+        "token": 100669729
+      },
+      {
+        "name": "add_OnPromoBundleReceived",
+        "index": 14631,
+        "token": 100669730
+      },
+      {
+        "name": "remove_OnPromoBundleReceived",
+        "index": 14632,
+        "token": 100669731
+      },
+      {
+        "name": "add_OnServerProfilesReceived",
+        "index": 14633,
+        "token": 100669732
+      },
+      {
+        "name": "remove_OnServerProfilesReceived",
+        "index": 14634,
+        "token": 100669733
+      },
+      {
+        "name": "add_OnUserNotificationsReceived",
+        "index": 14635,
+        "token": 100669734
+      },
+      {
+        "name": "remove_OnUserNotificationsReceived",
+        "index": 14636,
+        "token": 100669735
+      },
+      {
+        "name": "add_OnAssetUpdateTimeReceived",
+        "index": 14637,
+        "token": 100669736
+      },
+      {
+        "name": "remove_OnAssetUpdateTimeReceived",
+        "index": 14638,
+        "token": 100669737
+      },
+      {
+        "name": "add_OnLeaderboardRewardsReceived",
+        "index": 14639,
+        "token": 100669738
+      },
+      {
+        "name": "remove_OnLeaderboardRewardsReceived",
+        "index": 14640,
+        "token": 100669739
+      },
+      {
+        "name": "Awake",
+        "index": 14641,
+        "token": 100669740
+      },
+      {
+        "name": "Start",
+        "index": 14642,
+        "token": 100669741
+      },
+      {
+        "name": "StartConnnectionDefault",
+        "index": 14643,
+        "token": 100669742
+      },
+      {
+        "name": "AttemptConnection",
+        "index": 14644,
+        "token": 100669743
+      },
+      {
+        "name": "GoOffline",
+        "index": 14645,
+        "token": 100669744
+      },
+      {
+        "name": "Handle_OnConnected",
+        "index": 14646,
+        "token": 100669745
+      },
+      {
+        "name": "Handle_OnConnectionFailed",
+        "index": 14647,
+        "token": 100669746
+      },
+      {
+        "name": "Login",
+        "index": 14648,
+        "token": 100669747
+      },
+      {
+        "name": "UserProfile_Backup",
+        "index": 14649,
+        "token": 100669748
+      },
+      {
+        "name": "UserProfile_Request",
+        "index": 14650,
+        "token": 100669749
+      },
+      {
+        "name": "UserProfile_Delete",
+        "index": 14651,
+        "token": 100669750
+      },
+      {
+        "name": "ReportWinnings",
+        "index": 14652,
+        "token": 100669751
+      },
+      {
+        "name": "RequestLeaderboard",
+        "index": 14653,
+        "token": 100669752
+      },
+      {
+        "name": "GetServerTime",
+        "index": 14654,
+        "token": 100669753
+      },
+      {
+        "name": "ClaimPromoBundle",
+        "index": 14655,
+        "token": 100669754
+      },
+      {
+        "name": "GetProfiles",
+        "index": 14656,
+        "token": 100669755
+      },
+      {
+        "name": "RequestNotifications",
+        "index": 14657,
+        "token": 100669756
+      },
+      {
+        "name": "AcknowledgeUserNotification",
+        "index": 14658,
+        "token": 100669757
+      },
+      {
+        "name": "GetAssetUpdateTime",
+        "index": 14659,
+        "token": 100669758
+      },
+      {
+        "name": "RequestAssets",
+        "index": 14660,
+        "token": 100669759
+      },
+      {
+        "name": "DataManager_OnProfileReceived",
+        "index": 14661,
+        "token": 100669760
+      },
+      {
+        "name": "DataManager_OnLeaderboardReceived",
+        "index": 14662,
+        "token": 100669761
+      },
+      {
+        "name": "DataManager_OnServerTimeReceived",
+        "index": 14663,
+        "token": 100669762
+      },
+      {
+        "name": "DataManager_OnProfileDeleted",
+        "index": 14664,
+        "token": 100669763
+      },
+      {
+        "name": "DataManager_OnProfileBackedUp",
+        "index": 14665,
+        "token": 100669764
+      },
+      {
+        "name": "DataManager_OnPromoBundleReceived",
+        "index": 14666,
+        "token": 100669765
+      },
+      {
+        "name": "DataManager_OnServerProfilesReceived",
+        "index": 14667,
+        "token": 100669766
+      },
+      {
+        "name": "DataManager_OnUserNotificationsReceived",
+        "index": 14668,
+        "token": 100669767
+      },
+      {
+        "name": "DataManager_OnLeaderboardRewardsReceived",
+        "index": 14669,
+        "token": 100669768
+      },
+      {
+        "name": "DataManager_OnAssetUpdateTimeReceived",
+        "index": 14670,
+        "token": 100669769
+      },
+      {
+        "name": ".ctor",
+        "index": 14671,
+        "token": 100669770
+      }
+    ]
+  },
+  {
+    "name": "EventID",
+    "namespace": "",
+    "fields": [
+      {
+        "name": "value__",
+        "typeIndex": 9026,
+        "index": 13833
+      },
+      {
+        "name": "Login",
+        "typeIndex": 13642,
+        "index": 13834
+      },
+      {
+        "name": "Logout",
+        "typeIndex": 13642,
+        "index": 13835
+      },
+      {
+        "name": "BackupProfile",
+        "typeIndex": 13642,
+        "index": 13836
+      },
+      {
+        "name": "RequestProfile",
+        "typeIndex": 13642,
+        "index": 13837
+      },
+      {
+        "name": "ReportWinnings",
+        "typeIndex": 13642,
+        "index": 13838
+      },
+      {
+        "name": "RequestLeaderboard",
+        "typeIndex": 13642,
+        "index": 13839
+      },
+      {
+        "name": "GetServerTime",
+        "typeIndex": 13642,
+        "index": 13840
+      },
+      {
+        "name": "DeleteProfile",
+        "typeIndex": 13642,
+        "index": 13841
+      },
+      {
+        "name": "ClaimPromoBundle",
+        "typeIndex": 13642,
+        "index": 13842
+      },
+      {
+        "name": "GetProfiles",
+        "typeIndex": 13642,
+        "index": 13843
+      },
+      {
+        "name": "RequestUserNotifications",
+        "typeIndex": 13642,
+        "index": 13844
+      },
+      {
+        "name": "AcknowledgeUserNotification",
+        "typeIndex": 13642,
+        "index": 13845
+      },
+      {
+        "name": "GetAssetUpdateTime",
+        "typeIndex": 13642,
+        "index": 13846
+      },
+      {
+        "name": "RequestAssets",
+        "typeIndex": 13642,
+        "index": 13847
+      }
+    ],
+    "methods": []
+  },
+  {
+    "name": "DataProvider",
+    "namespace": "Playback.Data",
+    "fields": [
+      {
+        "name": "DebuggingBase",
+        "typeIndex": 6805,
+        "index": 13798
+      },
+      {
+        "name": "LoggedIn",
+        "typeIndex": 6808,
+        "index": 13799
+      },
+      {
+        "name": "LoggingIn",
+        "typeIndex": 6808,
+        "index": 13800
+      },
+      {
+        "name": "LoginComplete",
+        "typeIndex": 6808,
+        "index": 13801
+      },
+      {
+        "name": "IsAvailable",
+        "typeIndex": 6808,
+        "index": 13802
+      },
+      {
+        "name": "overrideDeviceID",
+        "typeIndex": 11424,
+        "index": 13803
+      },
+      {
+        "name": "playerPrefsDeviceID",
+        "typeIndex": 11424,
+        "index": 13804
+      },
+      {
+        "name": "deviceID",
+        "typeIndex": 11424,
+        "index": 13805
+      },
+      {
+        "name": "userId",
+        "typeIndex": 9012,
+        "index": 13806
+      },
+      {
+        "name": "foundPlayerPrefsDeviceID",
+        "typeIndex": 6808,
+        "index": 13807
+      },
+      {
+        "name": "foundDeviceID",
+        "typeIndex": 6808,
+        "index": 13808
+      },
+      {
+        "name": "playerPrefsPassword",
+        "typeIndex": 11424,
+        "index": 13809
+      },
+      {
+        "name": "foundPlayerPrefsPassword",
+        "typeIndex": 6808,
+        "index": 13810
+      },
+      {
+        "name": "serverPassword",
+        "typeIndex": 11424,
+        "index": 13811
+      },
+      {
+        "name": "userPassword",
+        "typeIndex": 11424,
+        "index": 13812
+      },
+      {
+        "name": "IOS_KEYCHAIN_DEVICEID_KEY",
+        "typeIndex": 11424,
+        "index": 13813
+      },
+      {
+        "name": "PLAYER_PREF_DEVICEID_KEY",
+        "typeIndex": 11424,
+        "index": 13814
+      },
+      {
+        "name": "PLAYER_PREF_DISPLAYNAME_KEY",
+        "typeIndex": 11424,
+        "index": 13815
+      },
+      {
+        "name": "PLAYER_PREF_PASSWORD_KEY",
+        "typeIndex": 11424,
+        "index": 13816
+      },
+      {
+        "name": "playerDictionary",
+        "typeIndex": 1757,
+        "index": 13817
+      },
+      {
+        "name": "OnConnected",
+        "typeIndex": 2012,
+        "index": 13818
+      },
+      {
+        "name": "OnConnectionFailed",
+        "typeIndex": 2012,
+        "index": 13819
+      },
+      {
+        "name": "LoginStatusUpdate",
+        "typeIndex": 13654,
+        "index": 13820
+      },
+      {
+        "name": "OnProfileReceived",
+        "typeIndex": 13654,
+        "index": 13821
+      },
+      {
+        "name": "OnServerTimeReceived",
+        "typeIndex": 13654,
+        "index": 13822
+      },
+      {
+        "name": "OnBackupProfile",
+        "typeIndex": 13654,
+        "index": 13823
+      },
+      {
+        "name": "OnDeleteProfile",
+        "typeIndex": 13654,
+        "index": 13824
+      },
+      {
+        "name": "OnProfileBackedUp",
+        "typeIndex": 13644,
+        "index": 13825
+      },
+      {
+        "name": "OnProfileDeleted",
+        "typeIndex": 13644,
+        "index": 13826
+      },
+      {
+        "name": "OnLeaderboardReceived",
+        "typeIndex": 13646,
+        "index": 13827
+      },
+      {
+        "name": "OnPromoBundleReceived",
+        "typeIndex": 13650,
+        "index": 13828
+      },
+      {
+        "name": "OnServerProfilesReceived",
+        "typeIndex": 13652,
+        "index": 13829
+      },
+      {
+        "name": "OnUserNotificationsReceived",
+        "typeIndex": 13656,
+        "index": 13830
+      },
+      {
+        "name": "OnAssetUpdateTimeReceived",
+        "typeIndex": 13640,
+        "index": 13831
+      },
+      {
+        "name": "OnLeaderboardRewardsReceived",
+        "typeIndex": 13648,
+        "index": 13832
+      }
+    ],
+    "methods": [
+      {
+        "name": "GetPlayerPrefsID",
+        "index": 14692,
+        "token": 100669791
+      },
+      {
+        "name": "GetDeviceID",
+        "index": 14693,
+        "token": 100669792
+      },
+      {
+        "name": "SaveToPrefs",
+        "index": 14694,
+        "token": 100669793
+      },
+      {
+        "name": "LoadFromPrefs",
+        "index": 14695,
+        "token": 100669794
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14696,
+        "token": 100669795
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14697,
+        "token": 100669796
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14698,
+        "token": 100669797
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14699,
+        "token": 100669798
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14700,
+        "token": 100669799
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14701,
+        "token": 100669800
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14702,
+        "token": 100669801
+      },
+      {
+        "name": "SendEventLogData",
+        "index": 14703,
+        "token": 100669802
+      },
+      {
+        "name": "SendEventToServer",
+        "index": 14704,
+        "token": 100669803
+      },
+      {
+        "name": "SendIAPStartToServer",
+        "index": 14705,
+        "token": 100669804
+      },
+      {
+        "name": "SendIAPStartToServer",
+        "index": 14706,
+        "token": 100669805
+      },
+      {
+        "name": "SendIAPSuccessToServer",
+        "index": 14707,
+        "token": 100669806
+      },
+      {
+        "name": "SendIAPSuccessToServer",
+        "index": 14708,
+        "token": 100669807
+      },
+      {
+        "name": "SendIAPFailToServer",
+        "index": 14709,
+        "token": 100669808
+      },
+      {
+        "name": "SendIAPFailToServer",
+        "index": 14710,
+        "token": 100669809
+      },
+      {
+        "name": "Initialize",
+        "index": 14711,
+        "token": 100669810
+      },
+      {
+        "name": "add_OnConnected",
+        "index": 14712,
+        "token": 100669811
+      },
+      {
+        "name": "remove_OnConnected",
+        "index": 14713,
+        "token": 100669812
+      },
+      {
+        "name": "add_OnConnectionFailed",
+        "index": 14714,
+        "token": 100669813
+      },
+      {
+        "name": "remove_OnConnectionFailed",
+        "index": 14715,
+        "token": 100669814
+      },
+      {
+        "name": "add_LoginStatusUpdate",
+        "index": 14716,
+        "token": 100669815
+      },
+      {
+        "name": "remove_LoginStatusUpdate",
+        "index": 14717,
+        "token": 100669816
+      },
+      {
+        "name": "add_OnProfileReceived",
+        "index": 14718,
+        "token": 100669817
+      },
+      {
+        "name": "remove_OnProfileReceived",
+        "index": 14719,
+        "token": 100669818
+      },
+      {
+        "name": "add_OnServerTimeReceived",
+        "index": 14720,
+        "token": 100669819
+      },
+      {
+        "name": "remove_OnServerTimeReceived",
+        "index": 14721,
+        "token": 100669820
+      },
+      {
+        "name": "add_OnBackupProfile",
+        "index": 14722,
+        "token": 100669821
+      },
+      {
+        "name": "remove_OnBackupProfile",
+        "index": 14723,
+        "token": 100669822
+      },
+      {
+        "name": "add_OnDeleteProfile",
+        "index": 14724,
+        "token": 100669823
+      },
+      {
+        "name": "remove_OnDeleteProfile",
+        "index": 14725,
+        "token": 100669824
+      },
+      {
+        "name": "add_OnProfileBackedUp",
+        "index": 14726,
+        "token": 100669825
+      },
+      {
+        "name": "remove_OnProfileBackedUp",
+        "index": 14727,
+        "token": 100669826
+      },
+      {
+        "name": "add_OnProfileDeleted",
+        "index": 14728,
+        "token": 100669827
+      },
+      {
+        "name": "remove_OnProfileDeleted",
+        "index": 14729,
+        "token": 100669828
+      },
+      {
+        "name": "add_OnLeaderboardReceived",
+        "index": 14730,
+        "token": 100669829
+      },
+      {
+        "name": "remove_OnLeaderboardReceived",
+        "index": 14731,
+        "token": 100669830
+      },
+      {
+        "name": "add_OnPromoBundleReceived",
+        "index": 14732,
+        "token": 100669831
+      },
+      {
+        "name": "remove_OnPromoBundleReceived",
+        "index": 14733,
+        "token": 100669832
+      },
+      {
+        "name": "add_OnServerProfilesReceived",
+        "index": 14734,
+        "token": 100669833
+      },
+      {
+        "name": "remove_OnServerProfilesReceived",
+        "index": 14735,
+        "token": 100669834
+      },
+      {
+        "name": "add_OnUserNotificationsReceived",
+        "index": 14736,
+        "token": 100669835
+      },
+      {
+        "name": "remove_OnUserNotificationsReceived",
+        "index": 14737,
+        "token": 100669836
+      },
+      {
+        "name": "add_OnAssetUpdateTimeReceived",
+        "index": 14738,
+        "token": 100669837
+      },
+      {
+        "name": "remove_OnAssetUpdateTimeReceived",
+        "index": 14739,
+        "token": 100669838
+      },
+      {
+        "name": "add_OnLeaderboardRewardsReceived",
+        "index": 14740,
+        "token": 100669839
+      },
+      {
+        "name": "remove_OnLeaderboardRewardsReceived",
+        "index": 14741,
+        "token": 100669840
+      },
+      {
+        "name": ".ctor",
+        "index": 14742,
+        "token": 100669841
+      }
+    ]
+  },
+  {
+    "name": "DataEventArgs",
+    "namespace": "Playback.Data",
+    "fields": [
+      {
+        "name": "data",
+        "typeIndex": 9991,
+        "index": 13848
+      }
+    ],
+    "methods": []
+  },
+  {
+    "name": "GeoData",
+    "namespace": "Playback.Data",
+    "fields": [
+      {
+        "name": "Debugging",
+        "typeIndex": 6805,
+        "index": 13849
+      },
+      {
+        "name": "instance",
+        "typeIndex": 8317,
+        "index": 13850
+      },
+      {
+        "name": "countryAndContinentCodesJson",
+        "typeIndex": 11438,
+        "index": 13851
+      },
+      {
+        "name": "countries",
+        "typeIndex": 3786,
+        "index": 13852
+      },
+      {
+        "name": "isInitialized",
+        "typeIndex": 6808,
+        "index": 13853
+      }
+    ],
+    "methods": [
+      {
+        "name": "Awake",
+        "index": 14759,
+        "token": 100669858
+      },
+      {
+        "name": ".ctor",
+        "index": 14760,
+        "token": 100669859
+      }
+    ]
+  },
+  {
+    "name": "AES",
+    "namespace": "Playback.Data.Cryptography",
+    "fields": [
+      {
+        "name": "_saltBytes",
+        "typeIndex": 5668,
+        "index": 13861
+      },
+      {
+        "name": "_initVectorBytes",
+        "typeIndex": 5668,
+        "index": 13862
+      }
+    ],
+    "methods": [
+      {
+        "name": ".cctor",
+        "index": 14763,
+        "token": 100669862
+      },
+      {
+        "name": "Encrypt",
+        "index": 14764,
+        "token": 100669863
+      },
+      {
+        "name": "EncryptToBytes",
+        "index": 14765,
+        "token": 100669864
+      },
+      {
+        "name": "EncryptToBytes",
+        "index": 14766,
+        "token": 100669865
+      },
+      {
+        "name": "Decrypt",
+        "index": 14767,
+        "token": 100669866
+      },
+      {
+        "name": "Decrypt",
+        "index": 14768,
+        "token": 100669867
+      }
+    ]
+  },
+  {
+    "name": "AudioClipCollection",
+    "namespace": "Playback.Audio",
+    "fields": [
+      {
+        "name": "Name",
+        "typeIndex": 11424,
+        "index": 13863
+      },
+      {
+        "name": "AudioClips",
+        "typeIndex": 5641,
+        "index": 13864
+      }
+    ],
+    "methods": [
+      {
+        "name": ".ctor",
+        "index": 14769,
+        "token": 100669868
+      }
+    ]
+  },
+  {
+    "name": "AudioManager",
+    "namespace": "Playback.Audio",
+    "fields": [
+      {
+        "name": "instance",
+        "typeIndex": 6518,
+        "index": 13865
+      },
+      {
+        "name": "PlayerNames",
+        "typeIndex": 5641,
+        "index": 13866
+      },
+      {
+        "name": "SFXClips",
+        "typeIndex": 5641,
+        "index": 13867
+      },
+      {
+        "name": "UseInstancesForSFX",
+        "typeIndex": 6808,
+        "index": 13868
+      },
+      {
+        "name": "MusicClips",
+        "typeIndex": 5641,
+        "index": 13869
+      },
+      {
+        "name": "ClipCollections",
+        "typeIndex": 5642,
+        "index": 13870
+      },
+      {
+        "name": "Mixer",
+        "typeIndex": 6520,
+        "index": 13871
+      },
+      {
+        "name": "musicChannel",
+        "typeIndex": 6526,
+        "index": 13872
+      },
+      {
+        "name": "sfxChannel",
+        "typeIndex": 6526,
+        "index": 13873
+      },
+      {
+        "name": "commentaryChannel",
+        "typeIndex": 6526,
+        "index": 13874
+      },
+      {
+        "name": "PlayMusicAtStart",
+        "typeIndex": 6808,
+        "index": 13875
+      },
+      {
+        "name": "LoopMusic",
+        "typeIndex": 6808,
+        "index": 13876
+      },
+      {
+        "name": "RandomiseMusic",
+        "typeIndex": 6808,
+        "index": 13877
+      },
+      {
+        "name": "<MusicIsPlaying>k__BackingField",
+        "typeIndex": 6805,
+        "index": 13878
+      },
+      {
+        "name": "MusicTrackIndex",
+        "typeIndex": 9012,
+        "index": 13879
+      },
+      {
+        "name": "musicSource",
+        "typeIndex": 6532,
+        "index": 13880
+      },
+      {
+        "name": "sfxSource",
+        "typeIndex": 6532,
+        "index": 13881
+      }
+    ],
+    "methods": [
+      {
+        "name": "get_MusicChannel",
+        "index": 14770,
+        "token": 100669869
+      },
+      {
+        "name": "set_MusicChannel",
+        "index": 14771,
+        "token": 100669870
+      },
+      {
+        "name": "get_SFXChannel",
+        "index": 14772,
+        "token": 100669871
+      },
+      {
+        "name": "set_SFXChannel",
+        "index": 14773,
+        "token": 100669872
+      },
+      {
+        "name": "get_CommentaryChannel",
+        "index": 14774,
+        "token": 100669873
+      },
+      {
+        "name": "set_CommentaryChannel",
+        "index": 14775,
+        "token": 100669874
+      },
+      {
+        "name": "get_MusicIsPlaying",
+        "index": 14776,
+        "token": 100669875
+      },
+      {
+        "name": "set_MusicIsPlaying",
+        "index": 14777,
+        "token": 100669876
+      },
+      {
+        "name": ".ctor",
+        "index": 14778,
+        "token": 100669877
+      },
+      {
+        "name": "Awake",
+        "index": 14779,
+        "token": 100669878
+      },
+      {
+        "name": "Start",
+        "index": 14780,
+        "token": 100669879
+      },
+      {
+        "name": "Update",
+        "index": 14781,
+        "token": 100669880
+      },
+      {
+        "name": "SetMasterChannelVolume",
+        "index": 14782,
+        "token": 100669881
+      },
+      {
+        "name": "SetMusicChannelVolume",
+        "index": 14783,
+        "token": 100669882
+      },
+      {
+        "name": "ButtonToggle",
+        "index": 14784,
+        "token": 100669883
+      },
+      {
+        "name": "MenuSwish",
+        "index": 14785,
+        "token": 100669884
+      },
+      {
+        "name": "ButtonPress",
+        "index": 14786,
+        "token": 100669885
+      },
+      {
+        "name": "PlayClip",
+        "index": 14787,
+        "token": 100669886
+      },
+      {
+        "name": "PlaySFX",
+        "index": 14788,
+        "token": 100669887
+      },
+      {
+        "name": "PlayPlayerName",
+        "index": 14789,
+        "token": 100669888
+      },
+      {
+        "name": "PlaySFXInstance",
+        "index": 14790,
+        "token": 100669889
+      },
+      {
+        "name": "PlayMusic",
+        "index": 14791,
+        "token": 100669890
+      },
+      {
+        "name": "PlayMusicInstance",
+        "index": 14792,
+        "token": 100669891
+      },
+      {
+        "name": "ResumeMusic",
+        "index": 14793,
+        "token": 100669892
+      },
+      {
+        "name": "PlayMusic",
+        "index": 14794,
+        "token": 100669893
+      },
+      {
+        "name": "PlayMusic",
+        "index": 14795,
+        "token": 100669894
+      },
+      {
+        "name": "StopMusic",
+        "index": 14796,
+        "token": 100669895
+      },
+      {
+        "name": "NextMusicTrack",
+        "index": 14797,
+        "token": 100669896
+      },
+      {
+        "name": "PreviousMusicTrack",
+        "index": 14798,
+        "token": 100669897
+      },
+      {
+        "name": "playMusicClip",
+        "index": 14799,
+        "token": 100669898
+      },
+      {
+        "name": "PlayFromCollection",
+        "index": 14800,
+        "token": 100669899
+      },
+      {
+        "name": "PlayFromCollection",
+        "index": 14801,
+        "token": 100669900
+      },
+      {
+        "name": "DestroyDelay",
+        "index": 14802,
+        "token": 100669901
+      }
+    ]
+  },
+  {
+    "name": "AudioOutputChannel",
+    "namespace": "Playback.Audio",
+    "fields": [
+      {
+        "name": "OutputGroup",
+        "typeIndex": 6522,
+        "index": 13893
+      },
+      {
+        "name": "Slider",
+        "typeIndex": 11251,
+        "index": 13894
+      },
+      {
+        "name": "NormalizedSlider",
+        "typeIndex": 6808,
+        "index": 13895
+      },
+      {
+        "name": "ExposedParameter",
+        "typeIndex": 11424,
+        "index": 13896
+      }
+    ],
+    "methods": [
+      {
+        "name": "Start",
+        "index": 14821,
+        "token": 100669920
+      },
+      {
+        "name": "SetChannel",
+        "index": 14822,
+        "token": 100669921
+      },
+      {
+        "name": "LoadSliderValue",
+        "index": 14823,
+        "token": 100669922
+      },
+      {
+        "name": "SetExposedParameter",
+        "index": 14824,
+        "token": 100669923
+      },
+      {
+        "name": ".ctor",
+        "index": 14825,
+        "token": 100669924
+      }
+    ]
+  }
+]

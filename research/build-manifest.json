@@ -1,0 +1,32 @@
+{
+  "page": "https://gamecomets.com/game/dunkers-2/",
+  "embed": "https://gamecomets.com/games/dunkers-2/",
+  "engine": "2022.3.39f1",
+  "productVersion": "4.5",
+  "files": [
+    {
+      "file": "public/Build/bb0d9ecdb05db3e84da20bd14a4f84dc.loader.js",
+      "url": "https://gamecomets.com/games/dunkers-2/Build/bb0d9ecdb05db3e84da20bd14a4f84dc.loader.js",
+      "bytes": 20642,
+      "sha256": "86ea62283e54262ba471d7fccfd1af877ef7a09ec4d047afbd9ddbb6d315d169"
+    },
+    {
+      "file": "public/Build/db1ed814a2e6d886f14a5abfb87f5458.framework.js",
+      "url": "https://gamecomets.com/games/dunkers-2/Build/db1ed814a2e6d886f14a5abfb87f5458.framework.js",
+      "bytes": 392776,
+      "sha256": "c32c1d629db01f96aa3952ea26f842cd99cc26122bbf4b6aadf9c88238ce8a4b"
+    },
+    {
+      "file": "public/Build/193748c60075be5c59dd80c8ec174c65.data",
+      "url": "https://gamecomets.com/games/dunkers-2/Build/193748c60075be5c59dd80c8ec174c65.data",
+      "bytes": 45859332,
+      "sha256": "c1423afdcfcb7a11b0106723daf4fe1fd032ca93610eaa54ed8aea6ad3152f99"
+    },
+    {
+      "file": "public/Build/78187090b012beed2d50f0f0f2623bf2.wasm",
+      "url": "https://gamecomets.com/games/dunkers-2/Build/78187090b012beed2d50f0f0f2623bf2.wasm",
+      "bytes": 26883082,
+      "sha256": "a1c15372c841681f61084e5363db41feca4ae5d288854de57bac755bec83a292"
+    }
+  ]
+}

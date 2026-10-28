@@ -1,0 +1,39 @@
+name: Import verified Unity build
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-build.yml'
+      - 'research/build-manifest.json'
+      - 'tools/extract-build.py'
+      - 'tools/recover-metadata.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-unity-build
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify original build files
+        run: python3 tools/extract-build.py
+      - name: Recover shipped metadata and declaration index
+        run: python3 tools/recover-metadata.py
+      - name: Commit complete build
+        run: |
+          git add public/Build source-recovery/global-metadata.dat source-recovery/metadata-types.json
+          if git diff --cached --quiet; then
+            echo "Verified game files already committed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Import verified Dunkers 2 Unity build and shipped metadata"
+          git push origin HEAD:main
