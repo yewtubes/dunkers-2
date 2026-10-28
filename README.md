@@ -114,9 +114,9 @@ currency field. No browser save deletion or manual LOAD selection is required
 to apply a grant to an existing local player.
 
 The admin and online panels use the shipped Lilita One font and generated GUI
-buttons. The favicon uses the original basketball sprite. The console-style
-loader uses the exact supplied Dunkers 2 icon as its only visible UI, with
-sideways 3D motion and reduced-motion support. Asset provenance is in `docs/ui-assets.md`.
+buttons. The loader restores the blue Dunkers screen with its original logo,
+spinning basketball sprite, and Loading label. The favicon uses the original
+basketball sprite. Asset provenance is in `docs/ui-assets.md`.
 
 ## Validation
 
@@ -137,7 +137,7 @@ node tools/online-browser-qa.cjs
 ```
 
 Set `CHROME_EXECUTABLE` to use an existing Chrome binary. Layout QA covers wide
-and tall viewports, DPR 1/2, three fullscreen roots, the icon-only loader and
+and tall viewports, DPR 1/2, three fullscreen roots, the Dunkers logo/basketball loader and
 reduced motion. Online QA runs a real native host and a separate authenticated
 guest using the actual frame/input transport. It stubs the guest's unused Unity
 menu to keep software-GPU costs down, checks independent native motor controls,

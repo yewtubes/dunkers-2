@@ -5,23 +5,23 @@ const browser=await chromium.launch({executablePath:process.env.CHROME_EXECUTABL
 try{
 for(const dpr of [1,2]){
 const ctx=await browser.newContext({deviceScaleFactor:dpr,viewport:{width:1280,height:720}});const page=await ctx.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.route('**/Build/*loader.js',r=>r.fulfill({contentType:'text/javascript',body:'window.createUnityInstance=(c,o,p)=>{p(.6);return new Promise(()=>{})}'}));await page.goto(base);await page.waitForTimeout(1600);
-assert.equal(await page.title(),'');assert.equal(await page.locator('#loading-screen img').count(),1);assert.equal(await page.locator('#loading-screen').innerText(),'');assert.equal(await page.locator('#loading-screen').getAttribute('aria-valuenow'),'60');
-if(dpr===1){const cdp=await ctx.newCDPSession(page);const shot=await cdp.send('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/dunkers-console-loader.png',Buffer.from(shot.data,'base64'))}
+await page.route('**/Build/*loader.js',r=>r.fulfill({contentType:'text/javascript',body:'window.createUnityInstance=()=>new Promise(()=>{})'}));await page.goto(base);await page.waitForTimeout(1600);
+assert.equal(await page.title(),'');assert.equal(await page.locator('#loading-screen img').count(),2);assert.equal(await page.locator('#loading-screen').innerText(),'Loading');assert.equal(await page.locator('.loading-ball').evaluate(e=>getComputedStyle(e).animationName),'ball-spin');
+if(dpr===1){const cdp=await ctx.newCDPSession(page);const shot=await cdp.send('Page.captureScreenshot',{format:'png'});fs.writeFileSync('/tmp/dunkers-original-loader.png',Buffer.from(shot.data,'base64'))}
 for(const [width,height] of [[1920,1080],[2560,1080],[800,1200],[1366,768]]){
  await page.setViewportSize({width,height});await page.waitForTimeout(60);const sizes=await page.evaluate(()=>['game','loading-screen'].map(id=>{const c=document.getElementById(id),r=c.getBoundingClientRect();return {id,x:r.x,y:r.y,w:r.width,h:r.height,ratio:c.width/c.height}}));
  for(const s of sizes){assert.equal(s.x,0);assert.equal(s.y,0);assert.equal(s.w,width);assert.equal(s.h,height);if(s.id==='game')assert.equal(s.ratio,1.6)}
 }
-await page.setViewportSize({width:1280,height:720});await page.evaluate(()=>dunkersLoader.finish());assert.equal(await page.locator('#loading-screen').isHidden(),true);
+await page.setViewportSize({width:1280,height:720});await page.evaluate(()=>{document.getElementById('loading-screen').hidden=true});assert.equal(await page.locator('#loading-screen').isHidden(),true);
 for(const element of ['game','document','temporary']){
  await page.evaluate(which=>{const c=document.getElementById('game');let target=c;if(which==='document')target=document.documentElement;if(which==='temporary'){target=document.createElement('div');target.id='unity-temporary';c.parentNode.append(target);target.append(c)}const b=document.createElement('button');b.id='enter-fullscreen';b.textContent='Fullscreen';b.style='position:fixed;top:10px;left:10px;z-index:100';b.onclick=()=>target.requestFullscreen();document.body.append(b)},element);
  await page.locator('#enter-fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);await page.waitForTimeout(80);
  const b=await page.evaluate(()=>{const r=document.getElementById('game').getBoundingClientRect();return {w:r.width,h:r.height,x:r.x,y:r.y,iw:innerWidth,ih:innerHeight}});assert.equal(b.w,b.iw);assert.equal(b.h,b.ih);assert.equal(b.x,0);assert.equal(b.y,0);
  await page.evaluate(()=>document.exitFullscreen());await page.evaluate(()=>document.getElementById('enter-fullscreen').remove());
 }
-assert.deepEqual(errors,[]);await ctx.close();console.log('PASS icon-only loader, viewport and three fullscreen roots, DPR',dpr);
+assert.deepEqual(errors,[]);await ctx.close();console.log('PASS Dunkers loader, viewport and three fullscreen roots, DPR',dpr);
 }
-const ctx=await browser.newContext({reducedMotion:'reduce'});const p=await ctx.newPage();await p.route('**/Build/*loader.js',r=>r.fulfill({contentType:'text/javascript',body:'window.createUnityInstance=()=>new Promise(()=>{})'}));await p.goto(base);assert.equal(await p.locator('.console-rail').evaluate(e=>getComputedStyle(e).animationName),'none');await p.evaluate(()=>dunkersLoader.finish());assert.equal(await p.locator('#loading-screen').isHidden(),true);console.log('PASS reduced motion');
+const ctx=await browser.newContext({reducedMotion:'reduce'});const p=await ctx.newPage();await p.route('**/Build/*loader.js',r=>r.fulfill({contentType:'text/javascript',body:'window.createUnityInstance=()=>new Promise(()=>{})'}));await p.goto(base);assert.equal(await p.locator('.loading-ball').evaluate(e=>getComputedStyle(e).animationName),'none');await p.evaluate(()=>{document.getElementById('loading-screen').hidden=true});assert.equal(await p.locator('#loading-screen').isHidden(),true);console.log('PASS reduced motion');
 
 // Reproduce two friends pressing Play while the first HTTP response is slow.
 const clients=[];
