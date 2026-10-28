@@ -6,8 +6,11 @@ createUnityInstance(document.getElementById('game'), {
   streamingAssetsUrl: 'StreamingAssets', companyName: 'PlaybackStudios', productName: 'Dunkers 2', productVersion: '4.5',
   devicePixelRatio: Math.min(devicePixelRatio, 1.5),
   print: message => console.log(message), printErr: message => console.error(message),
-}, value => { document.querySelector('progress').value = value; }).then(game => {
+}).then(game => {
   window.unityGame = game;
-  document.getElementById('loading').hidden = true;
   document.getElementById('game').focus();
-}).catch(error => { document.getElementById('error').textContent = String(error); });
+}).catch(error => {
+  const message = document.getElementById('error');
+  message.textContent = String(error);
+  message.hidden = false;
+});
