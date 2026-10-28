@@ -1,12 +1,6 @@
 name: Import verified Unity build
 
 on:
-  push:
-    paths:
-      - '.github/workflows/import-build.yml'
-      - 'research/build-manifest.json'
-      - 'tools/extract-build.py'
-      - 'tools/recover-metadata.py'
   workflow_dispatch:
 
 permissions:
