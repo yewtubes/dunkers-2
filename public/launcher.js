@@ -8,9 +8,11 @@ createUnityInstance(document.getElementById('game'), {
   print: message => console.log(message), printErr: message => console.error(message),
 }).then(game => {
   window.unityGame = game;
+  document.getElementById('loading-screen').hidden = true;
   document.getElementById('game').focus();
 }).catch(error => {
   const message = document.getElementById('error');
+  document.getElementById('loading-screen').hidden = true;
   message.textContent = String(error);
   message.hidden = false;
 });

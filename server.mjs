@@ -3,10 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomBytes } from 'node:crypto';
+import { applyInfinite, handleAdmin } from './admin.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const publicRoot = path.join(here, 'public');
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.wasm': 'application/wasm', '.data': 'application/octet-stream', '.png': 'image/png' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.ttf': 'font/ttf', '.webp': 'image/webp', '.wasm': 'application/wasm', '.data': 'application/octet-stream', '.png': 'image/png' };
 // The Unity parser splits the wire payload on semicolons before parsing JSON.
 // Escape semicolons at the outer JSON layer so player text cannot split tables.
 export const table = (name, rows) => JSON.stringify({ TableName: name, Items: rows.map(row => JSON.stringify(row)) }).replaceAll(';', '\\u003b');
@@ -30,8 +31,17 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
     res.setHeader('Referrer-Policy', 'no-referrer');
     res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; connect-src 'self' blob:; img-src 'self' data: blob:; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'");
     try {
-      const url = new URL(req.url, 'http://localhost');
+      const url = { pathname: decodeURIComponent(new URL(req.url, 'http://localhost').pathname) };
       if (req.headers.origin && req.headers.origin !== `http://${req.headers.host}` && req.headers.origin !== `https://${req.headers.host}`) return reply(res, 403, 'Origin rejected');
+      const cookieToken = Object.fromEntries((req.headers.cookie || '').split(';').map(value => value.trim().split('='))).dunkers_session;
+      const signedIn = cookieToken && Object.hasOwn(store.sessions, cookieToken) ? store.sessions[cookieToken] : undefined;
+      if (url.pathname.startsWith('/api/admin/')) return await handleAdmin(req, res, url, signedIn, { save, reply });
+      if (url.pathname === '/admin' || url.pathname.startsWith('/admin/')) {
+        if (!signedIn) return reply(res, 401, 'Start the game in this browser first.');
+        if (signedIn.id !== 1) return reply(res, 403, 'Admin access belongs to user ID 1.');
+        if (url.pathname === '/admin') { res.writeHead(302, { Location: './admin/' }); return res.end(); }
+        if (url.pathname === '/admin/') url.pathname = '/admin/index.html';
+      }
       if (url.pathname === '/health') return reply(res, 200, JSON.stringify({ ok: true, backend: 'local', upstreamRequests: 0 }), 'application/json');
       if (url.pathname === '/backend/Check.php' && ['GET', 'HEAD'].includes(req.method)) return reply(res, 200, req.method === 'HEAD' ? '' : 'a');
       if (url.pathname.startsWith('/backend/')) {
@@ -65,10 +75,14 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
         const data = form.get('eventDataPOST') || '';
         let response;
         switch (event) {
-          case 0: response = table('User', [{ UserId: profile.id, ProfileCSV: profile.csv }]) + ';' + serverTime(); break;
+          case 0:
+            profile.csv = applyInfinite(profile); profile.gameAdminRevision = profile.adminRevision || 0; save();
+            response = table('User', [{ UserId: profile.id, ProfileCSV: profile.csv }]) + ';' + serverTime(); break;
           case 1: response = serverTime(); break;
           case 2:
-            profile.csv = data; profile.updated = new Date().toISOString(); save();
+            // A stale open game must not overwrite a grant made in the panel.
+            if ((profile.gameAdminRevision || 0) !== (profile.adminRevision || 0)) return reply(res, 409, 'Reload the game to apply admin changes');
+            profile.csv = applyInfinite(profile, data); profile.updated = new Date().toISOString(); save();
             response = table('ProfileEvent', [{ UserId: profile.id, EventId: 1 }]); break;
           case 3: response = table('UserProfile', [{ UserId: profile.id, ProfileCSV: profile.csv }]); break;
           case 4:
@@ -97,7 +111,7 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
         return reply(res, 200, response);
       }
       if (!['GET', 'HEAD'].includes(req.method)) return reply(res, 405, 'Method not allowed');
-      const pathname = decodeURIComponent(url.pathname);
+      const pathname = url.pathname;
       const file = path.resolve(publicRoot, '.' + (pathname === '/' ? '/index.html' : pathname));
       if (!file.startsWith(publicRoot + path.sep) || pathname.includes('\0')) return reply(res, 403, 'Forbidden');
       let stat;

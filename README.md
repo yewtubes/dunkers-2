@@ -60,6 +60,26 @@ docker build -t dunkers-local .
 docker run --rm -p 127.0.0.1:8787:8787 -v dunkers-data:/app/storage dunkers-local
 ```
 
+## Admin locker
+
+Open `/admin/` relative to the game's URL, for example
+`/games/dunkers-2/admin/`. Start the game in the same browser first. Only the
+authenticated local profile with user ID **1** can open the panel or call its
+admin APIs; sending a user ID in the request does not grant access.
+
+The panel can set coins, gems/cash, draft points, XP, and shot counters, or
+enable unlimited replenishment for those counters and lifetime game statistics.
+**∞ Everything** enables every unlimited flag. Reload the game after saving
+and choose **LOAD** if the existing-profile prompt appears;
+an already-open game's stale saves are rejected until it logs in again.
+Unlimited flags persist across restarts and replenish incoming save snapshots.
+These are finite, safe integer caps internally (one billion for most counters,
+1,999,999 for XP at level 249), not floating-point infinity. Lifetime statistics do not
+change character movement physics or create new equipment.
+
+The UI uses the shipped Lilita One font, generated GUI buttons, and the original
+logo and basketball sprites. Asset provenance is in `docs/ui-assets.md`.
+
 ## Validation
 
 ```sh
