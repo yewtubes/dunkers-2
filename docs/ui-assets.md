@@ -1,18 +1,23 @@
 # Loading screen and admin GUI assets
 
-The custom loading screen uses unchanged sprite exports from the shipped
+The console-style custom loader displays only `public/loading/Dunkers2Icon.png`,
+the exact user-supplied 96×96 PNG (`image(9).png`), copied without editing.
+CSS supplies the perspective, floating tile, subtle reflection, sideways entry,
+and exit. Real Unity download progress moves the tile toward the center. There
+are no visible labels, menus, progress bars, or spinners. Dragging or arrow keys
+pan the single tile; reduced-motion preferences disable the animations.
+The browser title remains empty.
+
+The earlier sprite exports remain available from the shipped
 `sharedassets0.assets` Unity asset file:
 
-- `public/loading/Dunkers2WhiteLogo.png`: Sprite 1140.
-- `public/loading/GameBall.png`: Sprite 1064, `GameBall NoOutline`.
+- `public/loading/Dunkers2WhiteLogo.png`: Sprite 1140 (earlier loader).
+- `public/loading/GameBall.png`: Sprite 1064, `GameBall NoOutline` (favicon).
 - `public/fonts/LilitaOne-Regular.ttf`: Font 677, original embedded font bytes.
 
-The loader reproduces the blue screen, logo placement, and spinning basketball
-in HTML/CSS before Unity starts. The assets are exact exports; the CSS animation
-is a recreation, not an extracted Unity animation clip. The native Unity loading
-screen takes over once the engine initializes. The browser title remains empty.
-
-`public/admin/gui.webp` is newly generated GUI artwork. It contains a six-cell
+`public/admin/gui.webp` is generated GUI artwork. An unchanged copy at
+`public/gui/buttons.webp` allows the online panel to use the red X without
+requesting an admin-only URL. It contains a six-cell
 atlas: red X, green confirm, blue back, orange refresh, gold coin, and purple
 admin shield. CSS selects each cell without modifying its artwork. The original
 generated PNG is converted to WebP for delivery. The generated court-background

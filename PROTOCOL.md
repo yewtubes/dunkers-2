@@ -54,7 +54,7 @@ client's metadata and response parser; full UI coverage is outstanding.
 The legacy build references Authenticate.php and Login.php too, but they were
 not requested during the tested startup. Unknown endpoints return 404 rather
 than fabricated successful authentication. There is no official-account
-authentication and no live match transport in this implementation.
+authentication. The independent online transport is described below.
 
 ## Admin runtime synchronization
 
@@ -80,3 +80,30 @@ offline. Ignoring these snapshots prevents an unapplied local snapshot from
 replacing a finite grant. Infinite flags also
 replenish the native counters during play and the server snapshot on backup.
 Only a native backup carrying the revision advances `appliedRevision`.
+
+## Independent online transport
+
+`GET /api/online/state` and `/api/online/stream` require the same local session
+cookie as saves. The stream uses SSE with buffering disabled. State supplies a
+session CSRF token; all mutations require `X-Online-CSRF`. No supplied player ID
+is trusted.
+
+- `POST /api/online/join`: public FIFO queue, `{createRoom:true}` for a private
+  room, or `{room:"ABC123"}` to join a friend. Humans are paired before CPU
+  deadlines are processed. A disconnected stream leaves the queue immediately.
+- `POST /api/online/leave`: cancel waiting or end the current match for both.
+- `POST /api/online/frame`: host-only bounded WebP upload with `X-Online-Match`.
+  The server emits frames only to that match's authenticated guest. Slow SSE
+  consumers are disconnected instead of accumulating unlimited frame buffers.
+- `POST /api/online/input`: guest-only `{matchId,seq,left,right,shoot}`. Monotonic
+  sequence numbers discard stale controls; the host releases controls after
+  750 ms without a heartbeat. Stream loss ends the match after a short grace
+  period; a stalled host frame stream also ends the match.
+
+`online-native.js` validates native class names and hooks the pinned WASM
+indirect table. A human match replaces only the opposing side's AI update.
+The native Tier menu initializes the original court; entry is free for these
+friendly matches. Native public Play paths are routed through our queue.
+The guest displays the same host frames instead of starting an unrelated
+local simulation. No official server, WebRTC rendezvous, STUN or TURN service
+is involved. This transport does not add guest economy/reward synchronization.

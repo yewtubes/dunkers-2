@@ -9,9 +9,9 @@ createUnityInstance(document.getElementById('game'), {
   // changing Unity's 16:10 camera/UI layout.
   matchWebGLToCanvasSize: false,
   print: message => console.log(message), printErr: message => console.error(message),
-}).then(game => {
+}, progress => window.dunkersLoader?.progress(progress)).then(async game => {
   window.unityGame = game;
-  document.getElementById('loading-screen').hidden = true;
+  await window.dunkersLoader.finish();
   document.getElementById('game').focus();
 }).catch(error => {
   const message = document.getElementById('error');

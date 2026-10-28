@@ -1,13 +1,15 @@
 @font-face{font-family:Dunkers;src:url('fonts/LilitaOne-Regular.ttf') format('truetype');font-display:swap}
-.gui-icon{display:inline-block;width:52px;height:52px;background-image:url('admin/gui.webp');background-size:300% 200%;background-repeat:no-repeat;flex-shrink:0}
+.gui-icon{display:inline-block;width:52px;height:52px;background-image:url('gui/buttons.webp');background-size:300% 200%;background-repeat:no-repeat;flex-shrink:0}
 .gui-close{background-position:0 0}.gui-check{background-position:50% 0}.gui-back{background-position:100% 0}.gui-refresh{background-position:0 100%}.gui-coin{background-position:50% 100%}.gui-shield{background-position:100% 100%}
-#loading-screen{position:absolute;width:min(100vw,160vh);height:min(100vh,62.5vw);display:grid;place-items:center;background:radial-gradient(ellipse at 50% 52%,#0085d4 0%,#0074c3 50%,#04569e 100%);z-index:2;pointer-events:none}
+#loading-screen{--load-progress:0;position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 57%,#082242 0%,#030b1b 39%,#01030a 80%);z-index:20;overflow:hidden;touch-action:none;user-select:none;outline:none;opacity:1;transition:opacity .6s ease}
 #loading-screen[hidden]{display:none}
-#game-container:fullscreen #loading-screen{width:100vw;height:100vh}
-#game-container:-webkit-full-screen #loading-screen{width:100vw;height:100vh}
-.loading-logo{position:relative;width:31.1%;aspect-ratio:784/240}
-.loading-logo>img:first-child{width:100%;height:100%;object-fit:contain}
-.loading-ball{position:absolute;width:21.4%;left:80.8%;top:56%;aspect-ratio:1;animation:ball-spin 1.2s linear infinite}
-#loading-label{position:absolute;top:81%;width:100%;text-align:center;color:#fff;font:clamp(16px,3.2vh,30px) Dunkers,sans-serif;-webkit-text-stroke:1px #17222d;paint-order:stroke fill;text-shadow:0 3px #17222d}
-@keyframes ball-spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){.loading-ball{animation:none}}
+.console-perspective{perspective:950px;width:100%;height:100%;display:grid;place-items:center;perspective-origin:50% 44%}
+.console-rail{transform-style:preserve-3d;transform:translate3d(calc(150px * (1 - var(--load-progress))),0,0) rotateY(calc(-24deg + 16deg * var(--load-progress)));transition:transform 1s cubic-bezier(.18,.72,.22,1);animation:console-enter 1.4s cubic-bezier(.16,.8,.2,1) both}
+.console-tile{--pan:0;position:relative;width:clamp(125px,24vmin,192px);aspect-ratio:1;transform-style:preserve-3d;transform:translateX(calc(var(--pan) * 95px)) rotateY(calc(var(--pan) * -26deg));transition:transform .65s cubic-bezier(.15,.75,.2,1)}
+.console-tile img{display:block;width:100%;height:100%;object-fit:contain;transform:translateZ(9px);box-shadow:0 0 1px 3px #071429,0 0 0 6px #020711,0 25px 48px #000a;animation:console-float 5s ease-in-out infinite;-webkit-box-reflect:below 26px linear-gradient(transparent 58%,#ffffff1c);pointer-events:none}
+.console-tile::before{content:'';position:absolute;inset:-5px;background:#020711;transform:translateZ(-6px);box-shadow:12px 5px 0 #01040a}
+#loading-screen.is-ready{opacity:0;pointer-events:none}
+#loading-screen.is-ready .console-rail{animation:none;transform:translate3d(-110vw,0,-180px) rotateY(48deg);transition:transform .6s cubic-bezier(.6,0,.8,.2)}
+@keyframes console-enter{from{translate:65vw 0;rotate:y -35deg}to{translate:0 0;rotate:y 0deg}}
+@keyframes console-float{0%,100%{transform:translate3d(0,0,9px) rotateY(-3deg)}50%{transform:translate3d(0,-8px,16px) rotateY(3deg)}}
+@media(prefers-reduced-motion:reduce){.console-rail,.console-tile,.console-tile img{animation:none;transition:none}.console-rail{transform:none}#loading-screen{transition:none}}

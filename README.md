@@ -25,10 +25,10 @@ profile. This package does not import official accounts or purchases.
 
 ## Included behavior
 
-Fullscreen fills the display by scaling the complete 16:10 game frame, keeping
-all UI visible. Other screen shapes stretch the image; windowed mode retains
-the original proportions. Rendering resolution follows the available space
-and the existing device-pixel-ratio cap.
+The game fills the viewport in windowed, browser-fullscreen, and native-fullscreen
+modes by scaling the complete 16:10 game frame. All UI stays visible without side
+borders. Other screen shapes stretch the image. The drawing buffer retains the
+original proportions and the existing device-pixel-ratio cap.
 
 - Local game files, launcher, connection check, guest login, and server time.
 - Opaque game save snapshots persisted to disk and restored at login.
@@ -38,11 +38,31 @@ and the existing device-pixel-ratio cap.
   Rewarded advertisements return unavailable and do not award ad rewards.
 - Same-origin network restrictions and no upstream HTTP client in the server.
 
-This is a compatibility implementation for the observed WebGL build, not the
-original backend. **Real-time online PvP is not implemented.** Local rankings
-contain only profiles on this instance. Leaderboard statistics are supplied by
-the local game client; the server does not provide anti-cheat verification.
-Every gameplay mode and long-term progression path has not been tested.
+## Online play
+
+Complete the native player setup, then use PLAY or ONLINE. Public matchmaking
+pairs waiting players from this server first. After 12 seconds with no waiting
+human opponent, it starts a clearly labeled CPU match. CPU opponents do not
+create fake accounts. A friend room provides a six-character code; the other
+player enters it on the same deployment. Private rooms wait for the friend and
+never automatically start a CPU match. Separate browser profiles/devices need
+separate local accounts; the same account cannot play itself.
+
+Human matches use the original native court and physics on the first player's
+browser. Our Node server relays compressed court frames to the second player
+and their controls back to the host. The second player controls the opposing
+native player; its AI is disabled for that match. Keyboard controls are Left/A,
+Right/D and hold Space/Up/W to aim, release to shoot. Touch controls are shown
+on the guest's court. Keep both tabs visible while playing. Leaving or losing
+the connection ends the shared match. A server restart clears active rooms.
+
+This is host-simulated friendly multiplayer, not a reconstructed official
+multiplayer protocol or server-authoritative physics. Input/video latency and
+host upload bandwidth affect play. Guest league progression and match rewards
+are not synchronized; the native host retains its existing local progression.
+Local rankings contain only this instance's profiles and client-supplied
+statistics. This server does not provide anti-cheat verification. Every native
+mode and long-term progression path has not been tested.
 
 ## Host on your own machine or server
 
@@ -55,7 +75,9 @@ each storage directory; the JSON store is not a distributed database.
 For ryanmongwe.com, `deploy/ryanmongwe.nginx.conf` shows how to mount this app at
 `/games/dunkers-2/` alongside the existing site. Backend routes follow that
 prefix too. This requires a Node.js/Docker server; static hosting alone cannot
-run the save backend. The example is configuration to install, not an already
+run saves or online matches. Keep one Node process for the shared matchmaking
+queue and disable proxy buffering for the SSE stream (the supplied configuration
+does this). The example is configuration to install, not an already
 deployed domain change.
 
 Docker is also supported:
@@ -91,8 +113,10 @@ binary requires updating this adapter. Gems and cash are the same shipped
 currency field. No browser save deletion or manual LOAD selection is required
 to apply a grant to an existing local player.
 
-The UI uses the shipped Lilita One font, generated GUI buttons, and the original
-logo and basketball sprites. Asset provenance is in `docs/ui-assets.md`.
+The admin and online panels use the shipped Lilita One font and generated GUI
+buttons. The favicon uses the original basketball sprite. The console-style
+loader uses the exact supplied Dunkers 2 icon as its only visible UI, with
+sideways 3D motion and reduced-motion support. Asset provenance is in `docs/ui-assets.md`.
 
 ## Validation
 
@@ -102,7 +126,22 @@ npm test
 
 The tests exercise login, save/load, restart persistence, profile isolation,
 wire-format escaping, static WebAssembly MIME type, network policy, and
-unsupported routes. A headless Chrome browser run reached the playable
+unsupported routes, human-first queues, private rooms, CPU fallback, CSRF, and
+match-specific frame/input relay permissions. Optional browser checks are:
+
+```sh
+npm install --no-save playwright
+npx playwright install chromium
+node tools/layout-browser-qa.cjs
+node tools/online-browser-qa.cjs
+```
+
+Set `CHROME_EXECUTABLE` to use an existing Chrome binary. Layout QA covers wide
+and tall viewports, DPR 1/2, three fullscreen roots, the icon-only loader and
+reduced motion. Online QA runs a real native host and a separate authenticated
+guest using the actual frame/input transport. It stubs the guest's unused Unity
+menu to keep software-GPU costs down, checks independent native motor controls,
+then exercises native Play and CPU fallback. A prior browser run reached the playable
 tutorial and recorded zero external HTTP requests. Original-build warnings
 about missing scripts and an unsupported optional shader were also observed.
 

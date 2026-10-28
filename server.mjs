@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomBytes } from 'node:crypto';
 import { applyInfinite, handleAdmin } from './admin.mjs';
+import { createOnline } from './online.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const publicRoot = path.join(here, 'public');
@@ -14,7 +15,7 @@ export const table = (name, rows) => JSON.stringify({ TableName: name, Items: ro
 
 // One opaque CSV snapshot is supplied by the game. Keep it byte-for-byte; do not
 // attempt to reimplement the game economy or accept official-service credentials.
-export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(here, 'storage'), secureCookies = process.env.SECURE_COOKIES === '1', log = console.log } = {}) {
+export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(here, 'storage'), secureCookies = process.env.SECURE_COOKIES === '1', botDelay = 12000, log = console.log } = {}) {
   fs.mkdirSync(dataDir, { recursive: true, mode: 0o700 });
   const storePath = path.join(dataDir, 'profiles.json');
   let store = fs.existsSync(storePath) ? JSON.parse(fs.readFileSync(storePath, 'utf8')) : { nextId: 1, sessions: {} };
@@ -26,6 +27,7 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
   const reply = (res, status, body, contentType = 'text/plain; charset=utf-8') => {
     res.writeHead(status, { 'Content-Type': contentType, 'Cache-Control': 'no-store' }); res.end(body);
   };
+  const online = createOnline({ save, reply, botDelay });
   const server = http.createServer(async (req, res) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'no-referrer');
@@ -35,6 +37,7 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
       if (req.headers.origin && req.headers.origin !== `http://${req.headers.host}` && req.headers.origin !== `https://${req.headers.host}`) return reply(res, 403, 'Origin rejected');
       const cookieToken = Object.fromEntries((req.headers.cookie || '').split(';').map(value => value.trim().split('='))).dunkers_session;
       const signedIn = cookieToken && Object.hasOwn(store.sessions, cookieToken) ? store.sessions[cookieToken] : undefined;
+      if (url.pathname.startsWith('/api/online/')) return await online.handle(req, res, url, signedIn);
       if (url.pathname.startsWith('/api/admin/')) return await handleAdmin(req, res, url, signedIn, { save, reply });
       if (url.pathname === '/admin' || url.pathname.startsWith('/admin/')) {
         if (!signedIn) return reply(res, 401, 'Start the game in this browser first.');
@@ -130,6 +133,7 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
       fs.createReadStream(file).on('error', () => res.destroy()).pipe(res);
     } catch (error) { log(error.message); if (!res.headersSent) reply(res, 500, 'Local server error'); else res.destroy(); }
   });
+  server.on('close', online.close);
   return server;
 }
 
