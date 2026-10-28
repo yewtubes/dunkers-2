@@ -4,11 +4,15 @@
 <style>
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#171c28;color:white;font:16px system-ui}
 #game-container{width:100%;height:100%;display:grid;place-items:center}
-/* Keep Unity's viewport at its original 960:600 ratio, including when its
-   fullscreen handler writes inline width/height:100% styles. */
+/* Preserve the original frame proportions in windowed mode, including when
+   Unity leaves inline width/height:100% styles after exiting fullscreen. */
 #game{display:block;width:min(100vw,160vh)!important;height:min(100vh,62.5vw)!important;margin:auto;object-fit:contain;outline:none}
-#game-container:fullscreen{display:grid;place-items:center;background:#171c28}
-#game-container:-webkit-full-screen{display:grid;place-items:center;background:#171c28}
+#game-container:fullscreen{display:grid;place-items:center;width:100vw;height:100vh;background:#171c28}
+#game-container:-webkit-full-screen{display:grid;place-items:center;width:100vw;height:100vh;background:#171c28}
+/* Fill fullscreen with the complete game frame. Its drawing buffer keeps the
+   original aspect ratio so Unity cannot crop the HUD on wide displays. */
+#game-container:fullscreen #game{width:100vw!important;height:100vh!important;object-fit:fill}
+#game-container:-webkit-full-screen #game{width:100vw!important;height:100vh!important;object-fit:fill}
 #game-container::backdrop{background:#171c28}
 #error{position:fixed;inset:40% 10% auto;color:#ffb7ae;white-space:pre-wrap;z-index:5}
 </style></head>

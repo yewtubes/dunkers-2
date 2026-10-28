@@ -3,6 +3,8 @@
 .gui-close{background-position:0 0}.gui-check{background-position:50% 0}.gui-back{background-position:100% 0}.gui-refresh{background-position:0 100%}.gui-coin{background-position:50% 100%}.gui-shield{background-position:100% 100%}
 #loading-screen{position:absolute;width:min(100vw,160vh);height:min(100vh,62.5vw);display:grid;place-items:center;background:radial-gradient(ellipse at 50% 52%,#0085d4 0%,#0074c3 50%,#04569e 100%);z-index:2;pointer-events:none}
 #loading-screen[hidden]{display:none}
+#game-container:fullscreen #loading-screen{width:100vw;height:100vh}
+#game-container:-webkit-full-screen #loading-screen{width:100vw;height:100vh}
 .loading-logo{position:relative;width:31.1%;aspect-ratio:784/240}
 .loading-logo>img:first-child{width:100%;height:100%;object-fit:contain}
 .loading-ball{position:absolute;width:21.4%;left:80.8%;top:56%;aspect-ratio:1;animation:ball-spin 1.2s linear infinite}

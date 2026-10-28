@@ -25,6 +25,11 @@ profile. This package does not import official accounts or purchases.
 
 ## Included behavior
 
+Fullscreen fills the display by scaling the complete 16:10 game frame, keeping
+all UI visible. Other screen shapes stretch the image; windowed mode retains
+the original proportions. Rendering resolution follows the available space
+and the existing device-pixel-ratio cap.
+
 - Local game files, launcher, connection check, guest login, and server time.
 - Opaque game save snapshots persisted to disk and restored at login.
 - Local leaderboard/opponent-profile responses, empty notifications and reward

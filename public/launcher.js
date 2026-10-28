@@ -5,6 +5,9 @@ createUnityInstance(document.getElementById('game'), {
   codeUrl: 'Build/78187090b012beed2d50f0f0f2623bf2.wasm',
   streamingAssetsUrl: 'StreamingAssets', companyName: 'PlaybackStudios', productName: 'Dunkers 2', productVersion: '4.5',
   devicePixelRatio: Math.min(devicePixelRatio, 1.5),
+  // viewport.js owns the drawing-buffer size; CSS can fill fullscreen without
+  // changing Unity's 16:10 camera/UI layout.
+  matchWebGLToCanvasSize: false,
   print: message => console.log(message), printErr: message => console.error(message),
 }).then(game => {
   window.unityGame = game;
