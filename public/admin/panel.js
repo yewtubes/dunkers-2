@@ -20,7 +20,7 @@ async function request(path, data) {
   const response = await fetch('../api/admin/' + path, data ? { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Admin-CSRF': csrf }, body: JSON.stringify(data) } : {});
   const body = await response.json(); if (!response.ok) throw new Error(body.error || 'Could not save'); return body;
 }
-async function load() { try { const data = await request('state'); csrf = data.csrf; player = data.player; draw(); status(player.ready ? 'Your locker is ready.' : 'Finish starting the game, then refresh.'); } catch (error) { status(error.message, true); } }
+async function load() { try { const data = await request('state'); csrf = data.csrf; player = data.player; draw(); status(!player.ready ? 'Waiting for the game to finish starting…' : player.revision > player.appliedRevision ? 'Saved. Return to the court to apply your boosts automatically.' : player.revision ? 'Your boosts have been applied in game.' : 'Your locker is ready.'); } catch (error) { status(error.message, true); } }
 async function save(data) {
   if (busy || !player) return; busy = true; document.querySelectorAll('button').forEach(button => button.disabled = true);
   try { const result = await request('grant', data); player = result.player; draw(); status(result.message); } catch (error) { status(error.message, true); }
@@ -29,4 +29,5 @@ async function save(data) {
 document.getElementById('grants').addEventListener('submit', event => { event.preventDefault(); const data = {}; for (const [key] of definitions) { const infinite = document.querySelector(`[name="${key}-infinite"]`); if (!infinite) return; data[key] = infinite.checked ? 'infinite' : key === 'stats' ? false : Number(document.querySelector(`[name="${key}"]`).value); } save(data); });
 document.getElementById('infinite-all').addEventListener('click', () => save(Object.fromEntries(definitions.map(([key]) => [key, 'infinite']))));
 document.getElementById('refresh').addEventListener('click', load);
+setInterval(() => { if (player && !player.ready && !busy) load(); }, 2000);
 load();

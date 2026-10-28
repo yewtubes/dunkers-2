@@ -76,13 +76,21 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
         let response;
         switch (event) {
           case 0:
-            profile.csv = applyInfinite(profile); profile.gameAdminRevision = profile.adminRevision || 0; save();
+            profile.csv = applyInfinite(profile); save();
             response = table('User', [{ UserId: profile.id, ProfileCSV: profile.csv }]) + ';' + serverTime(); break;
           case 1: response = serverTime(); break;
           case 2:
-            // A stale open game must not overwrite a grant made in the panel.
-            if ((profile.gameAdminRevision || 0) !== (profile.adminRevision || 0)) return reply(res, 409, 'Reload the game to apply admin changes');
-            profile.csv = applyInfinite(profile, data); profile.updated = new Date().toISOString(); save();
+            // Each browser must actually apply the grant to its native counters.
+            // Logging in, or another tab applying it, must not authorize stale saves.
+            if ((Number(req.headers['x-dunkers-admin-revision']) || 0) !== (profile.adminRevision || 0)) {
+              // A failed UnityWebRequest marks the game's provider offline.
+              // Acknowledge transport success while discarding this old save;
+              // the adapter will apply the pending grant and submit a fresh one.
+              res.setHeader('X-Dunkers-Admin-Pending', String(profile.adminRevision || 0));
+              return reply(res, 200, table('ProfileEvent', [{ UserId: profile.id, EventId: 1 }]));
+            }
+            profile.csv = applyInfinite(profile, data); profile.updated = new Date().toISOString();
+            profile.appliedAdminRevision = profile.adminRevision || 0; save();
             response = table('ProfileEvent', [{ UserId: profile.id, EventId: 1 }]); break;
           case 3: response = table('UserProfile', [{ UserId: profile.id, ProfileCSV: profile.csv }]); break;
           case 4:

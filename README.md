@@ -69,13 +69,22 @@ admin APIs; sending a user ID in the request does not grant access.
 
 The panel can set coins, gems/cash, draft points, XP, and shot counters, or
 enable unlimited replenishment for those counters and lifetime game statistics.
-**∞ Everything** enables every unlimited flag. Reload the game after saving
-and choose **LOAD** if the existing-profile prompt appears;
-an already-open game's stale saves are rejected until it logs in again.
-Unlimited flags persist across restarts and replenish incoming save snapshots.
+**∞ Everything** enables every unlimited flag. Return to the court after saving.
+The runtime adapter applies the grant directly to the active game's spendable
+counters, refreshes its native UI, and calls its native save routine. Open game
+tabs pick up changes within two seconds. Unlimited counters refill during play
+and incoming server snapshots are replenished too. Stale saves are ignored
+until that particular browser has applied the current grant revision.
 These are finite, safe integer caps internally (one billion for most counters,
 1,999,999 for XP at level 249), not floating-point infinity. Lifetime statistics do not
 change character movement physics or create new equipment.
+
+The runtime adapter is specific to the pinned version 4.5 WebAssembly binary.
+It verifies managed class names before writing the recovered integer fields;
+if the expected objects are unavailable, it does not write. Updating the game
+binary requires updating this adapter. Gems and cash are the same shipped
+currency field. No browser save deletion or manual LOAD selection is required
+to apply a grant to an existing local player.
 
 The UI uses the shipped Lilita One font, generated GUI buttons, and the original
 logo and basketball sprites. Asset provenance is in `docs/ui-assets.md`.

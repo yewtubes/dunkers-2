@@ -55,3 +55,28 @@ The legacy build references Authenticate.php and Login.php too, but they were
 not requested during the tested startup. Unknown endpoints return 404 rather
 than fabricated successful authentication. There is no official-account
 authentication and no live match transport in this implementation.
+
+## Admin runtime synchronization
+
+ID 1's authenticated browser reads `/api/admin/runtime` for its grant revision
+and counter values. `public/runtime-admin.js` applies these to the pinned
+version 4.5 native `UserProfile` integers after `MainGameDataHolder.Initialised`
+is true, then invokes the game's own currency/stat notifications and save
+routine. It checks managed class names at each pointer before writing.
+
+The recovered singleton type slot is 3397700, its static-fields pointer is at
++92, and the singleton is static field +4. The holder's profile is at +24,
+its `userProfile` is at +16, and CSV integer slot N maps to userProfile +12+4N.
+Coins use slot 3, cash/gems 4, XP 2, free shots 24, golden shots 25, and the
+**spendable** draft balance 27. The native `TrySpendDraftPoints` function reads
++120; slot 26 does not fund purchases. Pointer constants must be recovered
+again if the WebAssembly binary is replaced.
+
+After applying a revision, that browser attaches `X-Dunkers-Admin-Revision` to
+backend requests. Backups without the current revision are acknowledged but
+discarded, including after a new login or another tab's successful
+synchronization. An HTTP error would incorrectly mark the native provider
+offline. Ignoring these snapshots prevents an unapplied local snapshot from
+replacing a finite grant. Infinite flags also
+replenish the native counters during play and the server snapshot on backup.
+Only a native backup carrying the revision advances `appliedRevision`.

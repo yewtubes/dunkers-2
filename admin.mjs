@@ -1,7 +1,9 @@
 import { randomBytes, timingSafeEqual } from 'node:crypto';
 
 const limit = 1_000_000_000;
-const fields = { coins: 3, gems: 4, xp: 2, draftPoints: 26, freeShots: 24, goldenShots: 25 };
+// The shipped TrySpendDraftPoints method consumes CSV slot 27 (native +120).
+// Slot 26 is the other draft counter and does not fund purchases.
+const fields = { coins: 3, gems: 4, xp: 2, draftPoints: 27, freeShots: 24, goldenShots: 25 };
 // currentDunks (field 5) is spendable reward progress, not a lifetime stat.
 const statFields = [8, 9, 10, 11, 12, 13, 14, 15, 16];
 export function applyInfinite(profile, csv = profile.csv) {
@@ -16,14 +18,15 @@ export function applyInfinite(profile, csv = profile.csv) {
 }
 export function adminView(profile) {
   const values = profile.csv?.split('§')[0].split(',') || [];
-  return { id: profile.id, name: values[0] || `Baller ${profile.id}`, ready: !!profile.csv, level: Number(values[1]) || 1,
+  return { id: profile.id, name: values[0] || `Baller ${profile.id}`, ready: values.length >= 30 && !!values[0], level: Number(values[1]) || 1,
     balances: Object.fromEntries(Object.entries(fields).map(([key, index]) => [key, Number(values[index]) || 0])),
-    stats: { dunks: Number(values[12]) || 0, steals: Number(values[11]) || 0, points: Number(values[10]) || 0, wins: Number(values[9]) || 0 }, infinite: profile.infinite || {}, revision: profile.adminRevision || 0 };
+    stats: { dunks: Number(values[12]) || 0, steals: Number(values[11]) || 0, points: Number(values[10]) || 0, wins: Number(values[9]) || 0 }, infinite: profile.infinite || {}, revision: profile.adminRevision || 0, appliedRevision: profile.appliedAdminRevision || 0 };
 }
 export async function handleAdmin(req, res, url, profile, { save, reply }) {
   const json = (status, value) => reply(res, status, JSON.stringify(value), 'application/json');
   if (!profile) return json(401, { error: 'Start the game in this browser to sign in.' });
   if (profile.id !== 1) return json(403, { error: 'Admin access belongs to user ID 1.' });
+  if (req.method === 'GET' && url.pathname === '/api/admin/runtime') return json(200, { player: adminView(profile) });
   if (req.method === 'GET' && url.pathname === '/api/admin/state') {
     if (!profile.adminCsrf) { profile.adminCsrf = randomBytes(24).toString('hex'); save(); }
     return json(200, { player: adminView(profile), csrf: profile.adminCsrf });
@@ -35,7 +38,7 @@ export async function handleAdmin(req, res, url, profile, { save, reply }) {
   let body = ''; for await (const chunk of req) { body += chunk; if (body.length > 8192) return json(413, { error: 'Request too large.' }); }
   let data; try { data = JSON.parse(body); } catch { return json(400, { error: 'Invalid JSON.' }); }
   if (!data || typeof data !== 'object' || Array.isArray(data)) return json(400, { error: 'Invalid grant.' });
-  if (!profile.csv) return json(409, { error: 'Finish starting the game before granting items.' });
+  if (!adminView(profile).ready) return json(409, { error: 'Finish starting the game before granting items.' });
   const sections = profile.csv.split('§'); const values = sections[0].split(',');
   const infinite = { ...(profile.infinite || {}) };
   for (const [key, value] of Object.entries(data)) {
@@ -47,5 +50,5 @@ export async function handleAdmin(req, res, url, profile, { save, reply }) {
   }
   sections[0] = values.join(','); profile.infinite = infinite; profile.csv = applyInfinite(profile, sections.join('§'));
   profile.adminRevision = (profile.adminRevision || 0) + 1; profile.updated = new Date().toISOString(); save();
-  return json(200, { player: adminView(profile), message: 'Saved. Reload the game and choose LOAD if prompted.' });
+  return json(200, { player: adminView(profile), message: 'Saved. Return to the court to apply your boosts automatically.' });
 }
