@@ -22,6 +22,8 @@
   }
   function controller() { const gc = singleton(3396256); return is(gc, 'GameplayController') && ptr(gc + 8) ? gc : 0; }
   function hostMotor() {
+    // Avoid creating a gameplay singleton in the menu/scene construction.
+    const gc = controller(); if (!gc || ptr(gc + 168) < 1) return 0;
     const ui = table.get(10980)(0), player = ptr(ui + 20), motor = ptr(player + 16);
     return is(motor, 'PlayerMotor') ? motor : 0;
   }
@@ -106,8 +108,10 @@
     if (!installed) throw new Error('The native game is still starting.');
     if (active) throw new Error('A game is already running.');
     const d = data(); if (!d) throw new Error('Finish setting up your player first.');
-    const session = { ...match, enemy: 0, cpuTicks: 0 };
+    const native = await window.dunkersNativeRuntime.init();
+    const session = { ...match, enemy: 0, cpuTicks: 0, roots: [] };
     active = session; intercepting = false; release();
+    const keep = object => { native.pin(object); session.roots.push(object); return object; };
     const check = () => { if (active !== session) throw new Error('Match cancelled.'); };
     try {
       if (controller()) {
@@ -115,16 +119,17 @@
         for (let i = 0; i < 100 && controller(); i++) await sleep(100);
       }
       check();
-      const name = string(match.opponent.name);
+      const name = keep(string(match.opponent.name));
       put(d.offline + 72, name); // A managed field roots the string for the GC.
-      const ownTeam = ptr(d.offline + 64);
+      const ownTeam = keep(ptr(d.offline + 64));
       const teamCSV = /^-?\d+(,-?\d+){13}$/.test(match.opponent.team || '') ? match.opponent.team : '30,-1,-1,23456,28282,5,6,0,5,0,5,0,5,1';
       // Each side needs a distinct native team object, even with identical gear.
       // Sharing one team also shares the per-player runtime/controller state.
+      let peerTeam;
       {
         try {
           table.get(10499)(d.offline, string(teamCSV), 0);
-          const peerTeam = ptr(d.offline + 64); put(d.offline + 64, ownTeam); put(d.offline + 68, peerTeam);
+          peerTeam = keep(ptr(d.offline + 64)); put(d.offline + 64, ownTeam); put(d.offline + 68, peerTeam);
         } finally { put(d.offline + 64, ownTeam); }
       }
       internal = true;
@@ -139,9 +144,16 @@
       put(tier + 136, level); put(tier + 104, 1); m.HEAPU8[tier + 140] = 0;
       const fee = ptr(level + 24); put(level + 24, 0);
       try { table.get(11996)(tier, 0); } finally { put(level + 24, fee); }
-      for (let i = 0; i < 200; i++) {
+      const loadingType = native.type('LoadingSceneController, Assembly-CSharp');
+      for (let i = 0; i < 600; i++) {
         await sleep(100);
         check();
+        const loading = native.array(native.call(28468, loadingType))[0];
+        if (loading && ptr(loading + 8)) {
+          // Keep the authenticated opponent throughout native scene loading.
+          m.HEAPU8[loading + 74] = 0;
+          put(d.offline + 68, peerTeam); put(d.offline + 72, name);
+        }
         const gc = controller();
         if (gc && ptr(gc + 168) >= 1) {
           put(d.offline + 72, name);
@@ -151,6 +163,7 @@
       }
       throw new Error('The native court did not finish loading.');
     } catch (error) { if (active === session) { release(); active = null; } throw error; }
+    finally { for (const root of session.roots) native.release(root); }
   }
   async function stop() {
     release(); active = null; intercepting = true;

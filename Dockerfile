@@ -1,6 +1,6 @@
 FROM node:24-alpine
 WORKDIR /app
-COPY package.json server.mjs admin.mjs online.mjs ./
+COPY package.json server.mjs admin.mjs online.mjs characters.mjs ./
 COPY public ./public
 RUN mkdir storage && chown -R node:node /app
 USER node

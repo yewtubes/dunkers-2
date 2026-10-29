@@ -1,4 +1,5 @@
 import { randomBytes, timingSafeEqual } from 'node:crypto';
+import { selectedCharacter, SLIDE_COOLDOWN } from './characters.mjs';
 
 // Match membership comes exclusively from the same HttpOnly session as saves.
 // The host runs the pinned Unity simulation; frames and controls stay on this server.
@@ -9,7 +10,7 @@ export function createOnline({ save, reply, botDelay = 12000, now = Date.now }) 
     const csv = profile.csv?.split('§')[2] || '';
     return /^-?\d+(,-?\d+){13}$/.test(csv) && csv.split(',').every(v => Number.isSafeInteger(Number(v)) && Number(v) >= -1 && Number(v) <= 1000000) ? csv : '30,-1,-1,23456,28282,5,6,0,5,0,5,0,5,1';
   };
-  const identity = profile => ({ id: profile.id, name: profile.csv.split(',')[0].slice(0, 40), team: team(profile) });
+  const identity = profile => ({ id: profile.id, name: profile.csv.split(',')[0].slice(0, 40), team: team(profile), character: selectedCharacter(profile) });
   function state(p) {
     const waiting = queue.get(p.id), match = matches.get(p.match);
     if (match) return { status: 'matched', matchId: match.id, role: match.host === p.id ? 'host' : 'guest',
@@ -118,6 +119,16 @@ export function createOnline({ save, reply, botDelay = 12000, now = Date.now }) 
         if (data.seq > match.seq) { match.seq = data.seq; send(players.get(match.host), 'input', { matchId: match.id, left: data.left, right: data.right, shoot: data.shoot }); }
         return json(res, 200, { ok: true });
       }
+      if (action === 'ability') {
+        const match = matches.get(p.match);
+        if (!match || data.matchId !== match.id) return json(res, 403, { error: 'Not in this match.' });
+        if (!selectedCharacter(profile)) return json(res, 403, { error: 'Equip Ronaldo on user ID 1 to use this ability.' });
+        if (match.kickReadyAt > now()) return json(res, 429, { error: 'Slide kick is recharging.', readyAt: match.kickReadyAt });
+        match.kickReadyAt = now() + SLIDE_COOLDOWN;
+        const ability = { matchId: match.id, kind: 'slide-kick', side: match.host === p.id ? 'host' : 'guest', seq: (match.kickSeq || 0) + 1, readyAt: match.kickReadyAt };
+        match.kickSeq = ability.seq; send(players.get(match.host), 'ability', ability);
+        return json(res, 200, { ok: true, ...ability });
+      }
       return json(res, 404, { error: 'Unknown online endpoint.' });
     } catch (error) { if (error.status) return json(res, error.status, { error: error.message }); throw error; }
   }
@@ -127,10 +138,10 @@ export function createOnline({ save, reply, botDelay = 12000, now = Date.now }) 
       for (const res of p.streams) res.write(': heartbeat\n\n');
       if (p.disconnected !== null && time - p.disconnected > 5000) end(matches.get(p.match));
     }
-    for (const match of matches.values()) if (match.guest !== null && time - (match.frameAt || match.at) > (match.frameAt ? 8000 : 60000)) end(match, 'The shared game stopped responding.');
+    for (const match of matches.values()) if (match.guest !== null && time - (match.frameAt || match.at) > (match.frameAt ? 8000 : 120000)) end(match, 'The shared game stopped responding.');
     matchmaking();
   }, 1000);
   timer.unref();
   function close() { clearInterval(timer); for (const p of players.values()) for (const res of p.streams) res.end(); }
-  return { handle, close, matchmaking };
+  return { handle, close, matchmaking, occupied: id => queue.has(id) || !!players.get(id)?.match };
 }

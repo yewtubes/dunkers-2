@@ -118,13 +118,28 @@ buttons. The loader restores the blue Dunkers screen with its original logo,
 spinning basketball sprite, and Loading label. The favicon uses the original
 basketball sprite. Asset provenance is in `docs/ui-assets.md`.
 
-## Ronaldo 2007 character artwork
+## Ronaldo 2007 playable character
 
-`public/custom/ronaldo-2007/` contains 26 separate transparent sprite files,
-native frame/pivot/PPU metadata, the original body masks, and an assembled art
-preview. Visit `/custom/ronaldo-2007/preview.html` on this server.
-This is an **art asset pack**, not a selectable native roster character yet.
-See that folder's README for the renderer findings, rebuild tools, and sources.
+Local user ID **1** owns Ronaldo automatically. Open **CHARACTERS** in the main
+menu to equip **RONALDO ’07**, or choose **DEFAULT** for the original player.
+Selection persists and cannot change during a queue or match.
+
+His actual native motor has speed, jumping, handling, and shooting at **100**,
+plus a higher speed cap. Press **F** (or the slide button) during human/CPU matches
+to slide toward the opponent, knock them back, release their ball and briefly
+stun them. The server authenticates ownership, routes the host/guest side, and
+enforces a **1.25-second cooldown**. Other accounts keep normal characters.
+
+`public/character-native.js` uses actual native SpriteRenderers, body joints,
+hand poses and face animation. The retained Unity APIs create textures/materials
+and account for packed-sprite trimming; custom assets survive scene cleanup.
+The compatibility map targets the hash-pinned WebAssembly build and is generated
+by `tools/map-native-runtime.py` after extracting the build and metadata.
+This retains the existing host-simulated multiplayer trust model; it does not
+provide authoritative server physics or anti-cheat.
+
+The separate art inspector remains at `/custom/ronaldo-2007/preview.html`.
+See its folder's README for sprite sources and rebuild tools.
 
 ## Validation
 
@@ -135,13 +150,16 @@ npm test
 The tests exercise login, save/load, restart persistence, profile isolation,
 wire-format escaping, static WebAssembly MIME type, network policy, and
 unsupported routes, human-first queues, private rooms, CPU fallback, CSRF, and
-match-specific frame/input relay permissions. Optional browser checks are:
+match-specific frame/input/ability relay permissions, exclusive character ownership,
+selection persistence, and ability cooldowns. Optional browser checks are:
 
 ```sh
 npm install --no-save playwright
 npx playwright install chromium
 node tools/layout-browser-qa.cjs
 node tools/online-browser-qa.cjs
+node tools/character-browser-qa.cjs
+node tools/character-browser-qa.cjs --guest-owner
 ```
 
 Set `CHROME_EXECUTABLE` to use an existing Chrome binary. Layout QA covers wide

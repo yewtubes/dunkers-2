@@ -2,9 +2,9 @@
   "id": "ronaldo-2007",
   "displayName": "Cristiano Ronaldo — 2007",
   "version": 1,
-  "status": "asset-pack",
+  "status": "playable",
   "nativeBuild": "Dunkers 2 v4.5, Unity 2022.3.39f1",
-  "description": "Modular character artwork; not registered as a selectable native roster entry.",
+  "description": "Exclusive playable character for local user ID 1, bound to native body-part renderers.",
   "kit": "Manchester United 2006–07 home, white V-neck and gold piping",
   "colors": {
     "skin": "#edaa75",
@@ -335,5 +335,17 @@
       "pixelsPerUnit": 25,
       "sourceSprite": "Closed_Back"
     }
+  },
+  "ownerUserId": 1,
+  "stats": {
+    "speed": 100,
+    "jumping": 100,
+    "handling": 100,
+    "shooting": 100
+  },
+  "ability": {
+    "id": "slide-kick",
+    "key": "F",
+    "cooldownMs": 1250
   }
 }

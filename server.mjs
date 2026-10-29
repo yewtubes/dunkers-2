@@ -4,11 +4,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomBytes } from 'node:crypto';
 import { applyInfinite, handleAdmin } from './admin.mjs';
+import { handleCharacters } from './characters.mjs';
 import { createOnline } from './online.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const publicRoot = path.join(here, 'public');
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.ttf': 'font/ttf', '.webp': 'image/webp', '.wasm': 'application/wasm', '.data': 'application/octet-stream', '.png': 'image/png' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.ttf': 'font/ttf', '.webp': 'image/webp', '.wasm': 'application/wasm', '.data': 'application/octet-stream', '.png': 'image/png' };
 // The Unity parser splits the wire payload on semicolons before parsing JSON.
 // Escape semicolons at the outer JSON layer so player text cannot split tables.
 export const table = (name, rows) => JSON.stringify({ TableName: name, Items: rows.map(row => JSON.stringify(row)) }).replaceAll(';', '\\u003b');
@@ -37,6 +38,7 @@ export function createGameServer({ dataDir = process.env.DATA_DIR || path.join(h
       if (req.headers.origin && req.headers.origin !== `http://${req.headers.host}` && req.headers.origin !== `https://${req.headers.host}`) return reply(res, 403, 'Origin rejected');
       const cookieToken = Object.fromEntries((req.headers.cookie || '').split(';').map(value => value.trim().split('='))).dunkers_session;
       const signedIn = cookieToken && Object.hasOwn(store.sessions, cookieToken) ? store.sessions[cookieToken] : undefined;
+      if (url.pathname.startsWith('/api/characters/')) return await handleCharacters(req, res, url, signedIn, { save, reply, occupied: online.occupied });
       if (url.pathname.startsWith('/api/online/')) return await online.handle(req, res, url, signedIn);
       if (url.pathname.startsWith('/api/admin/')) return await handleAdmin(req, res, url, signedIn, { save, reply });
       if (url.pathname === '/admin' || url.pathname.startsWith('/admin/')) {

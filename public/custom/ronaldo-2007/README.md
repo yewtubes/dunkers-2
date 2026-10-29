@@ -1,10 +1,17 @@
 # Cristiano Ronaldo — 2007 modular character art
 
-This is a **character-art asset pack**, not an enabled game roster entry. Open
-`/custom/ronaldo-2007/preview.html` on the existing server to inspect the assembled
-character, six expressions, and separate parts. No gameplay is simulated by the
-preview. Roster registration, native resource binding, and equipment/save support
-still need implementation before this is selectable during a native match.
+Playable by local **user ID 1** through **CHARACTERS** in the main menu.
+His four native motor stats are 100. **F** triggers a slide kick with knockback,
+a short stun, and a server-enforced 1.25-second cooldown. Choose **DEFAULT** to
+return to the original player. Other accounts cannot equip him.
+
+`public/character-native.js` binds these parts to real native SpriteRenderers,
+retaining body joints, face animation and hand poses. A native texture atlas,
+materials and property blocks use retained APIs in the pinned Unity build.
+UV mapping accounts for transparent margins trimmed by Unity. Ownership comes
+from the authenticated local server, including when user 1 is a remote guest.
+
+The separate `/custom/ronaldo-2007/preview.html` is an art inspector, not gameplay.
 
 ## Separate parts
 

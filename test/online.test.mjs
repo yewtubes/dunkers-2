@@ -51,6 +51,16 @@ test('local human matchmaking, private rooms, CPU fallback and authenticated rel
     await new Promise(resolve => setTimeout(resolve, 160));
     const guest = await (await b.request('join')).json(), host = await a.state();
     assert.equal(guest.status, 'matched'); assert.equal(guest.role, 'guest'); assert.equal(host.role, 'host');
+    assert.equal(host.own.character, 'ronaldo-2007'); assert.equal(guest.own.character, null); assert.equal(guest.opponent.character, 'ronaldo-2007');
+    assert.equal((await b.request('ability', { matchId: host.matchId, userId: 1, side: 'host' })).status, 403);
+    assert.equal((await a.request('ability', { matchId: 'stale' })).status, 403);
+    assert.equal((await c.request('ability', { matchId: host.matchId })).status, 403);
+    const kick = await (await a.request('ability', { matchId: host.matchId, side: 'guest' })).json();
+    assert.equal(kick.side, 'host'); assert.equal(kick.kind, 'slide-kick');
+    assert.equal((await a.request('ability', { matchId: host.matchId })).status, 429);
+    await waitFor(() => a.events.some(e => e.event === 'ability' && e.data.seq === 1));
+    const locker = await (await fetch(base + '/api/characters/state', { headers: { cookie: a.cookie } })).json();
+    assert.equal((await fetch(base + '/api/characters/select', { method: 'POST', headers: { cookie: a.cookie, 'Content-Type': 'application/json', 'X-Character-CSRF': locker.csrf }, body: JSON.stringify({ character: null }) })).status, 409);
     assert.equal(host.matchId, guest.matchId); assert.equal(host.opponent.id, b.id); assert.equal(guest.opponent.id, a.id);
     const controls = { matchId: host.matchId, seq: 1, left: true, right: false, shoot: false };
     assert.equal((await c.request('input', controls)).status, 403);
@@ -76,6 +86,12 @@ test('local human matchmaking, private rooms, CPU fallback and authenticated rel
     const friend = await (await b.request('join', { room: room.room.toLowerCase() })).json();
     assert.equal(friend.opponent.id, a.id); assert.equal((await a.state()).opponent.id, b.id);
     await a.request('leave'); await c.request('leave');
+    // User 1's ability also routes to the real host when user 1 is the guest.
+    await b.request('join'); const away = await (await a.request('join')).json();
+    assert.equal(away.role, 'guest');
+    const guestKick = await (await a.request('ability', { matchId: away.matchId })).json(); assert.equal(guestKick.side, 'guest');
+    await waitFor(() => b.events.some(e => e.event === 'ability' && e.data.matchId === away.matchId && e.data.side === 'guest'));
+    await a.request('leave');
     await a.request('join'); a.controller.abort();
     await new Promise(resolve => setTimeout(resolve, 100)); assert.equal((await a.state()).status, 'idle');
   } finally {

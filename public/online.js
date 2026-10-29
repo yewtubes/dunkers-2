@@ -53,10 +53,12 @@
   async function applyState(next) {
     if (next.status === 'matched' && next.matchId === matchId) return;
     const previous = state; state = next; render();
+    window.dispatchEvent(new CustomEvent('dunkers-match-state', { detail: next }));
     if (next.status !== 'matched') {
       run++; matchId = null; queuedFrame = null; hostPlaying = false; clearControls();
       el('view').hidden = true; el('controls').hidden = true; el('match').hidden = true;
       if (previous.status === 'matched' && previous.role === 'host') await window.dunkersOnlineNative.stop();
+      window.dunkersCharacterNative?.clearMatch();
       if (next.status === 'waiting' || next.notice || previous.status === 'matched') panel();
       return;
     }
@@ -67,12 +69,14 @@
     panel();
     if (next.role === 'host') {
       try {
+        await window.dunkersCharacterNative?.setMatch(next);
+        if (token !== run) return;
         await window.dunkersOnlineNative.start(next);
         if (token !== run) return;
         hostPlaying = true; panel(false); el('match').hidden = false;
         if (!next.opponent.isBot) broadcast(token, next.matchId);
       } catch (error) { if (token !== run) return; await leave(); message(error.message); panel(); }
-    } else { el('view').hidden = false; el('controls').hidden = false; el('match').hidden = false; }
+    } else { await window.dunkersCharacterNative?.setMatch(next); el('view').hidden = false; el('controls').hidden = false; el('match').hidden = false; }
   }
   const capture = document.createElement('canvas'); capture.width = 960; capture.height = 600;
   const captureContext = capture.getContext('2d', { alpha: false });
@@ -145,6 +149,14 @@
   el('room-form').onsubmit = event => { event.preventDefault(); join({ room: el('room').value }); };
   el('cancel').onclick = leave; el('leave').onclick = leave;
   window.addEventListener('dunkers-play', () => join());
+  let kicking = false;
+  window.addEventListener('dunkers-slide-kick', async () => {
+    if (kicking || state.status !== 'matched' || state.own?.id !== 1 || state.own?.character !== 'ronaldo-2007') return;
+    kicking = true;
+    try { const value = await post('ability', { matchId }); window.dispatchEvent(new CustomEvent('dunkers-kick-cooldown', { detail: value })); }
+    catch (error) { window.dispatchEvent(new CustomEvent('dunkers-kick-error', { detail: error.message })); }
+    finally { kicking = false; }
+  });
   async function init() {
     if (initialized || initializing || !window.dunkersOnlineNative?.ready) return;
     initializing = true;
@@ -156,6 +168,7 @@
       stream.onerror = () => { connected = false; render(); clearControls(); if (state.status === 'matched') { message('Reconnecting to the game server…'); panel(); } };
       stream.addEventListener('state', event => applyState(JSON.parse(event.data)).catch(console.error));
       stream.addEventListener('input', event => { const value = JSON.parse(event.data); if (state.role === 'host' && value.matchId === matchId) window.dunkersOnlineNative.input(value); });
+      stream.addEventListener('ability', event => { const value = JSON.parse(event.data); if (state.role === 'host' && value.matchId === matchId) window.dunkersCharacterNative?.kick(value); });
       stream.addEventListener('frame', event => displayFrame(JSON.parse(event.data)));
       await applyState(value);
     } catch (error) { initialized = false; console.error('Online connection:', error.message); }

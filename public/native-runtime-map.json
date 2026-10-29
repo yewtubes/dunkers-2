@@ -1,0 +1,559 @@
+{
+  "2107": {
+    "type": "System.Type",
+    "name": "GetType",
+    "index": 2107,
+    "params": [
+      "typeName"
+    ],
+    "slot": 36344,
+    "function": 59960,
+    "image": "mscorlib.dll"
+  },
+  "2429": {
+    "type": "System.Array",
+    "name": "CreateInstance",
+    "index": 2429,
+    "params": [
+      "elementType",
+      "length"
+    ],
+    "slot": 36592,
+    "function": 4462,
+    "image": "mscorlib.dll"
+  },
+  "4928": {
+    "type": "System.Runtime.Serialization.FormatterServices",
+    "name": "GetUninitializedObject",
+    "index": 4928,
+    "params": [
+      "type"
+    ],
+    "slot": 38762,
+    "function": 11282,
+    "image": "mscorlib.dll"
+  },
+  "5491": {
+    "type": "System.Runtime.InteropServices.GCHandle",
+    "name": "Alloc",
+    "index": 5491,
+    "params": [
+      "value"
+    ],
+    "slot": 39272,
+    "function": 11232,
+    "image": "mscorlib.dll"
+  },
+  "5498": {
+    "type": "System.Runtime.InteropServices.GCHandle",
+    "name": "FreeHandle",
+    "index": 5498,
+    "params": [
+      "handle"
+    ],
+    "slot": 39277,
+    "function": 61375,
+    "image": "mscorlib.dll"
+  },
+  "5511": {
+    "type": "System.Runtime.InteropServices.Marshal",
+    "name": "PtrToStringAnsi",
+    "index": 5511,
+    "params": [
+      "ptr"
+    ],
+    "slot": 39289,
+    "function": 61366,
+    "image": "mscorlib.dll"
+  },
+  "12348": {
+    "type": ".PlayerMotor",
+    "name": "SetForcesFromStats",
+    "index": 12348,
+    "params": [],
+    "slot": 10919,
+    "function": 23150,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12351": {
+    "type": ".PlayerMotor",
+    "name": "SclaeGaugeAndSetMinTimings",
+    "index": 12351,
+    "params": [],
+    "slot": 10922,
+    "function": 79914,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12352": {
+    "type": ".PlayerMotor",
+    "name": "SetCanMove",
+    "index": 12352,
+    "params": [
+      "active"
+    ],
+    "slot": 2204,
+    "function": 12008,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12368": {
+    "type": ".PlayerMotor",
+    "name": "TryStartThrow",
+    "index": 12368,
+    "params": [],
+    "slot": 10938,
+    "function": 23153,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12369": {
+    "type": ".PlayerMotor",
+    "name": "TryThrowBall",
+    "index": 12369,
+    "params": [],
+    "slot": 10939,
+    "function": 15936,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12381": {
+    "type": ".PlayerMotor",
+    "name": "Dizzy",
+    "index": 12381,
+    "params": [],
+    "slot": 10951,
+    "function": 40612,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12382": {
+    "type": ".PlayerMotor",
+    "name": "StopDizzy",
+    "index": 12382,
+    "params": [],
+    "slot": 10952,
+    "function": 79904,
+    "image": "Assembly-CSharp.dll"
+  },
+  "27296": {
+    "type": "UnityEngine.MaterialPropertyBlock",
+    "name": ".ctor",
+    "index": 27296,
+    "params": [],
+    "slot": 16335,
+    "function": 7027,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27298": {
+    "type": "UnityEngine.MaterialPropertyBlock",
+    "name": "Dispose",
+    "index": 27298,
+    "params": [],
+    "slot": 16337,
+    "function": 64086,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27304": {
+    "type": "UnityEngine.MaterialPropertyBlock",
+    "name": "SetTexture",
+    "index": 27304,
+    "params": [
+      "nameID",
+      "value"
+    ],
+    "slot": 16343,
+    "function": 4227,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27318": {
+    "type": "UnityEngine.Renderer",
+    "name": "SetPropertyBlock",
+    "index": 27318,
+    "params": [
+      "properties"
+    ],
+    "slot": 16357,
+    "function": 20701,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27320": {
+    "type": "UnityEngine.Renderer",
+    "name": "GetPropertyBlock",
+    "index": 27320,
+    "params": [
+      "properties"
+    ],
+    "slot": 16359,
+    "function": 20700,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27322": {
+    "type": "UnityEngine.Renderer",
+    "name": "get_enabled",
+    "index": 27322,
+    "params": [],
+    "slot": 16361,
+    "function": 11389,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27323": {
+    "type": "UnityEngine.Renderer",
+    "name": "set_enabled",
+    "index": 27323,
+    "params": [
+      "value"
+    ],
+    "slot": 16362,
+    "function": 3291,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27342": {
+    "type": "UnityEngine.Renderer",
+    "name": "get_sharedMaterial",
+    "index": 27342,
+    "params": [],
+    "slot": 16380,
+    "function": 580,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27343": {
+    "type": "UnityEngine.Renderer",
+    "name": "set_sharedMaterial",
+    "index": 27343,
+    "params": [
+      "value"
+    ],
+    "slot": 16381,
+    "function": 592,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27346": {
+    "type": "UnityEngine.Shader",
+    "name": "Find",
+    "index": 27346,
+    "params": [
+      "name"
+    ],
+    "slot": 2032,
+    "function": 588,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27348": {
+    "type": "UnityEngine.Shader",
+    "name": "PropertyToID",
+    "index": 27348,
+    "params": [
+      "name"
+    ],
+    "slot": 16385,
+    "function": 838,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27360": {
+    "type": "UnityEngine.Material",
+    "name": ".ctor",
+    "index": 27360,
+    "params": [
+      "shader"
+    ],
+    "slot": 16397,
+    "function": 684,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27364": {
+    "type": "UnityEngine.Material",
+    "name": "set_shader",
+    "index": 27364,
+    "params": [
+      "value"
+    ],
+    "slot": 16401,
+    "function": 826,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27406": {
+    "type": "UnityEngine.Material",
+    "name": "SetTexture",
+    "index": 27406,
+    "params": [
+      "name",
+      "value"
+    ],
+    "slot": 16442,
+    "function": 1817,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27415": {
+    "type": "UnityEngine.Material",
+    "name": "SetTextureOffset",
+    "index": 27415,
+    "params": [
+      "name",
+      "value"
+    ],
+    "slot": 16451,
+    "function": 20691,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27417": {
+    "type": "UnityEngine.Material",
+    "name": "SetTextureScale",
+    "index": 27417,
+    "params": [
+      "name",
+      "value"
+    ],
+    "slot": 16453,
+    "function": 34759,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27590": {
+    "type": "UnityEngine.Texture2D",
+    "name": ".ctor",
+    "index": 27590,
+    "params": [
+      "width",
+      "height",
+      "textureFormat",
+      "mipChain"
+    ],
+    "slot": 2026,
+    "function": 5727,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27598": {
+    "type": "UnityEngine.Texture2D",
+    "name": "Apply",
+    "index": 27598,
+    "params": [
+      "updateMipmaps",
+      "makeNoLongerReadable"
+    ],
+    "slot": 16618,
+    "function": 7020,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27607": {
+    "type": "UnityEngine.Texture2D",
+    "name": "SetPixels32",
+    "index": 27607,
+    "params": [
+      "colors"
+    ],
+    "slot": 16624,
+    "function": 20670,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28272": {
+    "type": "UnityEngine.Component",
+    "name": "get_transform",
+    "index": 28272,
+    "params": [],
+    "slot": 1946,
+    "function": 511,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28453": {
+    "type": "UnityEngine.Object",
+    "name": "get_name",
+    "index": 28453,
+    "params": [],
+    "slot": 1272,
+    "function": 781,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28468": {
+    "type": "UnityEngine.Object",
+    "name": "FindObjectsOfType",
+    "index": 28468,
+    "params": [
+      "type"
+    ],
+    "slot": 17396,
+    "function": 4202,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28472": {
+    "type": "UnityEngine.Object",
+    "name": "set_hideFlags",
+    "index": 28472,
+    "params": [
+      "value"
+    ],
+    "slot": 2031,
+    "function": 576,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28648": {
+    "type": "UnityEngine.Transform",
+    "name": "get_parent",
+    "index": 28648,
+    "params": [],
+    "slot": 2116,
+    "function": 854,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28712": {
+    "type": "UnityEngine.SpriteRenderer",
+    "name": "get_sprite",
+    "index": 28712,
+    "params": [],
+    "slot": 1938,
+    "function": 1630,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28713": {
+    "type": "UnityEngine.SpriteRenderer",
+    "name": "set_sprite",
+    "index": 28713,
+    "params": [
+      "value"
+    ],
+    "slot": 17614,
+    "function": 2842,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28719": {
+    "type": "UnityEngine.SpriteRenderer",
+    "name": "get_color_Injected",
+    "index": 28719,
+    "params": [
+      "ret"
+    ],
+    "slot": 17618,
+    "function": 65637,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28720": {
+    "type": "UnityEngine.SpriteRenderer",
+    "name": "set_color_Injected",
+    "index": 28720,
+    "params": [
+      "value"
+    ],
+    "slot": 17619,
+    "function": 2054,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28732": {
+    "type": "UnityEngine.Sprite",
+    "name": "get_pixelsPerUnit",
+    "index": 28732,
+    "params": [],
+    "slot": 17630,
+    "function": 11474,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28738": {
+    "type": "UnityEngine.Sprite",
+    "name": "get_vertices",
+    "index": 28738,
+    "params": [],
+    "slot": 17636,
+    "function": 9482,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28740": {
+    "type": "UnityEngine.Sprite",
+    "name": "get_uv",
+    "index": 28740,
+    "params": [],
+    "slot": 17638,
+    "function": 11473,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28746": {
+    "type": "UnityEngine.Sprite",
+    "name": "get_rect_Injected",
+    "index": 28746,
+    "params": [
+      "ret"
+    ],
+    "slot": 17644,
+    "function": 65625,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28748": {
+    "type": "UnityEngine.Sprite",
+    "name": "get_pivot_Injected",
+    "index": 28748,
+    "params": [
+      "ret"
+    ],
+    "slot": 17646,
+    "function": 65623,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "36866": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "get_rotation",
+    "index": 36866,
+    "params": [],
+    "slot": 19552,
+    "function": 14551,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36867": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "set_rotation",
+    "index": 36867,
+    "params": [
+      "value"
+    ],
+    "slot": 19553,
+    "function": 34775,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36889": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "get_position_Injected",
+    "index": 36889,
+    "params": [
+      "ret"
+    ],
+    "slot": 19575,
+    "function": 64092,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36891": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "MovePosition_Injected",
+    "index": 36891,
+    "params": [
+      "position"
+    ],
+    "slot": 19577,
+    "function": 34771,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36892": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "get_velocity_Injected",
+    "index": 36892,
+    "params": [
+      "ret"
+    ],
+    "slot": 19578,
+    "function": 64077,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36893": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "set_velocity_Injected",
+    "index": 36893,
+    "params": [
+      "value"
+    ],
+    "slot": 19579,
+    "function": 2970,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36894": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "AddForce_Injected",
+    "index": 36894,
+    "params": [
+      "force",
+      "mode"
+    ],
+    "slot": 19580,
+    "function": 11371,
+    "image": "UnityEngine.Physics2DModule.dll"
+  }
+}

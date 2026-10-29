@@ -17,7 +17,7 @@ function png(file){
 }
 test('Ronaldo pack has complete, visible modular parts with native pivots and matching outlines',()=>{
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'character.json')));
- assert.equal(Object.keys(manifest.parts).length,26);assert.equal(manifest.status,'asset-pack');
+ assert.equal(Object.keys(manifest.parts).length,26);assert.equal(manifest.status,'playable');
  for(const [name,part]of Object.entries(manifest.parts)){
   const image=png(path.join(root,part.file));assert.equal(image.width,part.width,name);assert.equal(image.height,part.height,name);
   assert(part.pivot.every(v=>v>=0&&v<=1),name);assert(part.pixelsPerUnit>0,name);
