@@ -1003,5 +1003,18 @@
     "slot": 11720,
     "function": 79397,
     "image": "Assembly-CSharp.dll"
+  },
+  "13137": {
+    "type": ".EquipmentMenuController",
+    "name": "ChangePlayerItem",
+    "index": 13137,
+    "params": [
+      "playerIndex",
+      "item",
+      "itemType"
+    ],
+    "slot": 11704,
+    "function": 12002,
+    "image": "Assembly-CSharp.dll"
   }
 }

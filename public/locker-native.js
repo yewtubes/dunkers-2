@@ -3,7 +3,7 @@
 // Selection remains server-owned; native item IDs and save CSV stay compatible.
 (() => {
  const RONALDO='ronaldo-2007',choices=new Map(),portraits=new Map(),savedLabels=new Map(),hiddenImages=new Map(),hiddenObjects=new Map();
- let n,owner,basePlayer=0,baseId=0,baseName='',ready=false,loading,menu=0,lastPlayer=0,selectingUntil=0,lastError='',pressed,blocked=false,phase='';
+ let n,owner,basePlayer=0,baseId=0,baseName='',ready=false,loading,menu=0,selectingUntil=0,lastError='',pressed,blocked=false,phase='';
  function errorText(error){if(typeof error!=='number')return String(error)+' ['+phase+']';let p=error;for(let i=0;i<3&&p;i++){const fields=n.fields(p);if(fields._message!==undefined)return n.className(p)+': '+n.text(n.ptr(p+fields._message))+' ['+phase+']';p=n.ptr(p)}return String(error)+' ['+phase+']'}
  const live=o=>o&&n.ptr(o+8),go=o=>n.call(28273,o),transform=o=>n.call(28272,o);
  const active=o=>live(o)&&n.call(28355,go(o)),component=(object,type)=>n.call(28324,object,n.type(type));
@@ -108,7 +108,7 @@
   selectingUntil=performance.now()+4000;
   try{
    await window.dunkersCharacters.select(choice.character);
-   if(!samePlayer(data().player)){selectingUntil=performance.now()+4000;n.call(13143,menu,0);n.call(13138,menu,0,baseId,choice.card)}else selectingUntil=performance.now()+250;
+   if(!samePlayer(data().player)){selectingUntil=performance.now()+4000;n.call(13137,menu,0,basePlayer,0)}else selectingUntil=performance.now()+250;
    const stat=n.get(menu,'teamStatController');if(live(stat))n.call(12809,stat);
    tick();
   }catch(error){lastError=String(error);setText(n.get(choice.card,'playerHeightLabel'),'TRY AGAIN')}
@@ -137,14 +137,13 @@
    refreshChoices();
    const current=data().player;
    if(!samePlayer(current)&&owner.selected===RONALDO&&performance.now()>selectingUntil&&!window.dunkersCharacters?.busy){selectingUntil=performance.now()+2000;window.dunkersCharacters.select(null).catch(error=>{lastError=String(error)})}
-   lastPlayer=current;
    for(const card of all('PlayerItemCardController'))if(!choices.has(card)){const custom=owner.selected===RONALDO&&samePlayer(n.get(card,'item'));decorate(card,custom,'RONALDO 07');const training=n.get(card,'trainingLevelController');if(live(training))hideObject(go(training),custom)}
    detailCards();
    updateStats();
   }catch(error){lastError=errorText(error);ready=false;console.error('Native locker:',lastError)}
  }
  async function setOwner(state){owner=state;if(state.id!==1)return;if(ready){if(state.selected!==RONALDO&&live(menu)){for(const view of n.array(n.get(menu,'teamViews')))if(live(view))n.call(12814,view);for(const card of all('PlayerItemCardController'))if(!choices.has(card))n.call(12782,card);const stat=n.get(menu,'teamStatController');if(live(stat))n.call(12809,stat);for(const detail of all('PlayerDetailCardController'))if(n.get(detail,'player')===basePlayer)n.call(12752,detail)}tick();return}if(loading)return loading;
-  loading=(async()=>{n=await window.dunkersNativeRuntime.init();await window.dunkersCharacterNative.prepare();basePlayer=n.pin(data().player);baseId=n.get(basePlayer,'Id');baseName=[n.text(n.get(basePlayer,'FirstName')),n.text(n.get(basePlayer,'SecondName'))].filter((value,index,values)=>value&&values.indexOf(value)===index).join(' ').toUpperCase();lastPlayer=basePlayer;ready=true;tick()})();return loading;
+  loading=(async()=>{n=await window.dunkersNativeRuntime.init();await window.dunkersCharacterNative.prepare();basePlayer=n.pin(data().player);baseId=n.get(basePlayer,'Id');baseName=[n.text(n.get(basePlayer,'FirstName')),n.text(n.get(basePlayer,'SecondName'))].filter((value,index,values)=>value&&values.indexOf(value)===index).join(' ').toUpperCase();ready=true;tick()})();return loading;
  }
  function open(){
   if(blocked||!ready||!live(menu))return;
