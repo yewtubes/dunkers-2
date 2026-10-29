@@ -118,6 +118,14 @@ buttons. The loader restores the blue Dunkers screen with its original logo,
 spinning basketball sprite, and Loading label. The favicon uses the original
 basketball sprite. Asset provenance is in `docs/ui-assets.md`.
 
+## Ronaldo 2007 character artwork
+
+`public/custom/ronaldo-2007/` contains 26 separate transparent sprite files,
+native frame/pivot/PPU metadata, the original body masks, and an assembled art
+preview. Visit `/custom/ronaldo-2007/preview.html` on this server.
+This is an **art asset pack**, not a selectable native roster character yet.
+See that folder's README for the renderer findings, rebuild tools, and sources.
+
 ## Validation
 
 ```sh

@@ -1,0 +1,512 @@
+[
+  {
+    "gameobject": "Pelvis",
+    "sprite": "Pelvis1_Normal",
+    "id": 286,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "LeftLegShortsOutline",
+    "sprite": "11_Shorts",
+    "id": 991,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "FaceOutline",
+    "sprite": "Bron_Normal",
+    "id": 298,
+    "file": "sharedassets1.assets",
+    "rect": [
+      300.0,
+      300.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 100.0
+  },
+  {
+    "gameobject": "Hand",
+    "sprite": "Open_Back",
+    "id": 902,
+    "file": "resources.assets",
+    "rect": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 25.0
+  },
+  {
+    "gameobject": "LeftLegOutline",
+    "sprite": "11_Leg1",
+    "id": 841,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "PelvisBelt",
+    "sprite": "Belt1_Normal",
+    "id": 285,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "Face",
+    "sprite": "Bron_Normal",
+    "id": 1415,
+    "file": "sharedassets0.assets",
+    "rect": [
+      300.0,
+      300.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 100.0
+  },
+  {
+    "gameobject": "BootOutline",
+    "sprite": "Converse_15",
+    "id": 1869,
+    "file": "resources.assets",
+    "rect": [
+      232.5,
+      172.0
+    ],
+    "pivot": [
+      0.49462366104125977,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "HandOutline",
+    "sprite": "Open_Back_Outline_GP",
+    "id": 1143,
+    "file": "resources.assets",
+    "rect": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 25.0
+  },
+  {
+    "gameobject": "RightLegShortsOutline",
+    "sprite": "11_Shorts",
+    "id": 991,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "GFXPelvis",
+    "sprite": "BasePelvis",
+    "id": 829,
+    "file": "resources.assets",
+    "rect": [
+      213.1781768798828,
+      106.1236343383789
+    ],
+    "pivot": [
+      0.6514103412628174,
+      0.5000001192092896
+    ],
+    "ppu": 512.0
+  },
+  {
+    "gameobject": "Jersey",
+    "sprite": "Male2_OldSchool",
+    "id": 283,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "JerseyOutline",
+    "sprite": "11_Male2",
+    "id": 1018,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "LeftLegTrimUpper",
+    "sprite": "Belt1_Normal",
+    "id": 714,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "LeftLeg",
+    "sprite": "Leg1_Normal",
+    "id": 995,
+    "file": "sharedassets0.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "HandOutline",
+    "sprite": "Open_Front_Outline_GP",
+    "id": 1017,
+    "file": "resources.assets",
+    "rect": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 25.0
+  },
+  {
+    "gameobject": "JerseyArmInnerRing",
+    "sprite": "InnerRing1_CrewNeck",
+    "id": 287,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "JerseyNeckOuterRing",
+    "sprite": "OuterRing1_Normal",
+    "id": 1016,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "PelvisOutline",
+    "sprite": "11_Pelvis1",
+    "id": 765,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "JerseyNeckInnerRing",
+    "sprite": "InnerRing1_CrewNeck",
+    "id": 287,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "RightLegShorts",
+    "sprite": "Shorts1_Normal",
+    "id": 891,
+    "file": "sharedassets0.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "JerseyDunkersLogo",
+    "sprite": "Dunkers2_ChestLogo",
+    "id": 1185,
+    "file": "sharedassets0.assets",
+    "rect": [
+      124.0,
+      108.0
+    ],
+    "pivot": [
+      0.48108652234077454,
+      0.4988556504249573
+    ],
+    "ppu": 100.0
+  },
+  {
+    "gameobject": "LeftLegTrimLower",
+    "sprite": "Belt1_Normal",
+    "id": 714,
+    "file": "resources.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "GFXLeftLeg",
+    "sprite": "BaseLeg",
+    "id": 742,
+    "file": "resources.assets",
+    "rect": [
+      98.67636108398438,
+      276.4800109863281
+    ],
+    "pivot": [
+      0.3795361816883087,
+      0.8616875410079956
+    ],
+    "ppu": 512.0
+  },
+  {
+    "gameobject": "JerseyOverlay",
+    "sprite": "JerseyOverlay9_LakersStripeAway",
+    "id": 924,
+    "file": "resources.assets",
+    "rect": [
+      431.0,
+      493.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 100.0
+  },
+  {
+    "gameobject": "JerseyNeckSkin",
+    "sprite": "Skin2",
+    "id": 284,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "PelvisBeltLower",
+    "sprite": "Belt1_Normal",
+    "id": 285,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "LeftLegOverlay",
+    "sprite": "BanksLeg",
+    "id": 743,
+    "file": "resources.assets",
+    "rect": [
+      98.67636108398438,
+      276.4800109863281
+    ],
+    "pivot": [
+      0.3795361816883087,
+      0.8616875410079956
+    ],
+    "ppu": 512.0
+  },
+  {
+    "gameobject": "JerseyArmSkin",
+    "sprite": "Skin1",
+    "id": 1324,
+    "file": "sharedassets0.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "Hand",
+    "sprite": "Open_Front",
+    "id": 908,
+    "file": "resources.assets",
+    "rect": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 25.0
+  },
+  {
+    "gameobject": "JerseyOverlay2",
+    "sprite": "JerseyBodyOverlay12_UtahJazz",
+    "id": 1892,
+    "file": "resources.assets",
+    "rect": [
+      431.0,
+      493.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 100.0
+  },
+  {
+    "gameobject": "LeftLegShorts",
+    "sprite": "Shorts1_Normal",
+    "id": 891,
+    "file": "sharedassets0.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "ppu": 50.0
+  },
+  {
+    "gameobject": "JerseyBadge",
+    "sprite": "JerseyBadge1_Normal",
+    "id": 726,
+    "file": "sharedassets0.assets",
+    "rect": [
+      575.0,
+      175.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 100.0
+  },
+  {
+    "gameobject": "PelvisBeltUpper",
+    "sprite": "Belt1_Normal",
+    "id": 285,
+    "file": "sharedassets1.assets",
+    "rect": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "ppu": 50.0
+  }
+]

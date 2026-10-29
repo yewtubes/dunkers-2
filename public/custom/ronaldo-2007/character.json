@@ -1,0 +1,339 @@
+{
+  "id": "ronaldo-2007",
+  "displayName": "Cristiano Ronaldo — 2007",
+  "version": 1,
+  "status": "asset-pack",
+  "nativeBuild": "Dunkers 2 v4.5, Unity 2022.3.39f1",
+  "description": "Modular character artwork; not registered as a selectable native roster entry.",
+  "kit": "Manchester United 2006–07 home, white V-neck and gold piping",
+  "colors": {
+    "skin": "#edaa75",
+    "shirt": "#c71930",
+    "gold": "#d8bf84",
+    "shorts": "#f5f3eb",
+    "socks": "#27272a",
+    "boots": "#d82930"
+  },
+  "expressions": [
+    "neutral",
+    "happy",
+    "angry",
+    "shocked",
+    "smug",
+    "blink"
+  ],
+  "parts": {
+    "head-neutral": {
+      "file": "parts/head-neutral.png",
+      "role": "face",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "neutral"
+    },
+    "head-neutral-mask": {
+      "file": "parts/head-neutral-mask.png",
+      "role": "face-outline",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "neutral"
+    },
+    "head-happy": {
+      "file": "parts/head-happy.png",
+      "role": "face",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "happy"
+    },
+    "head-happy-mask": {
+      "file": "parts/head-happy-mask.png",
+      "role": "face-outline",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "happy"
+    },
+    "head-angry": {
+      "file": "parts/head-angry.png",
+      "role": "face",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "angry"
+    },
+    "head-angry-mask": {
+      "file": "parts/head-angry-mask.png",
+      "role": "face-outline",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "angry"
+    },
+    "head-shocked": {
+      "file": "parts/head-shocked.png",
+      "role": "face",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "shocked"
+    },
+    "head-shocked-mask": {
+      "file": "parts/head-shocked-mask.png",
+      "role": "face-outline",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "shocked"
+    },
+    "head-smug": {
+      "file": "parts/head-smug.png",
+      "role": "face",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "smug"
+    },
+    "head-smug-mask": {
+      "file": "parts/head-smug-mask.png",
+      "role": "face-outline",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "smug"
+    },
+    "head-blink": {
+      "file": "parts/head-blink.png",
+      "role": "face",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "blink"
+    },
+    "head-blink-mask": {
+      "file": "parts/head-blink-mask.png",
+      "role": "face-outline",
+      "width": 300,
+      "height": 300,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 100,
+      "expression": "blink"
+    },
+    "torso": {
+      "file": "parts/torso.png",
+      "role": "torso",
+      "width": 150,
+      "height": 150,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Male2_OldSchool"
+    },
+    "hips": {
+      "file": "parts/hips.png",
+      "role": "pelvis",
+      "width": 150,
+      "height": 150,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Pelvis1_Normal"
+    },
+    "arm-left": {
+      "file": "parts/arm-left.png",
+      "role": "arm",
+      "width": 150,
+      "height": 250,
+      "pivot": [
+        0.6700000166893005,
+        0.8999999761581421
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Arm1_Normal"
+    },
+    "shorts-left": {
+      "file": "parts/shorts-left.png",
+      "role": "shorts",
+      "width": 150,
+      "height": 150,
+      "pivot": [
+        0.4699999988079071,
+        0.75
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Shorts1_Normal"
+    },
+    "leg-left": {
+      "file": "parts/leg-left.png",
+      "role": "leg",
+      "width": 150,
+      "height": 150,
+      "pivot": [
+        0.4699999988079071,
+        0.75
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Leg1_Normal"
+    },
+    "boot-left": {
+      "file": "parts/boot-left.png",
+      "role": "boot",
+      "width": 232,
+      "height": 172,
+      "pivot": [
+        0.49462366104125977,
+        0.5
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Converse_15"
+    },
+    "arm-right": {
+      "file": "parts/arm-right.png",
+      "role": "arm",
+      "width": 150,
+      "height": 250,
+      "pivot": [
+        0.6700000166893005,
+        0.8999999761581421
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Arm1_Normal"
+    },
+    "shorts-right": {
+      "file": "parts/shorts-right.png",
+      "role": "shorts",
+      "width": 150,
+      "height": 150,
+      "pivot": [
+        0.4699999988079071,
+        0.75
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Shorts1_Normal"
+    },
+    "leg-right": {
+      "file": "parts/leg-right.png",
+      "role": "leg",
+      "width": 150,
+      "height": 150,
+      "pivot": [
+        0.4699999988079071,
+        0.75
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Leg1_Normal"
+    },
+    "boot-right": {
+      "file": "parts/boot-right.png",
+      "role": "boot",
+      "width": 232,
+      "height": 172,
+      "pivot": [
+        0.49462366104125977,
+        0.5
+      ],
+      "pixelsPerUnit": 50,
+      "sourceSprite": "Converse_15"
+    },
+    "hand-front": {
+      "file": "parts/hand-front.png",
+      "role": "hand-front",
+      "width": 128,
+      "height": 128,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 25,
+      "sourceSprite": "Open_Front"
+    },
+    "hand-back": {
+      "file": "parts/hand-back.png",
+      "role": "hand-back",
+      "width": 128,
+      "height": 128,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 25,
+      "sourceSprite": "Open_Back"
+    },
+    "hand-closed-front": {
+      "file": "parts/hand-closed-front.png",
+      "role": "hand-closed-front",
+      "width": 128,
+      "height": 128,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 25,
+      "sourceSprite": "Closed_Front"
+    },
+    "hand-closed-back": {
+      "file": "parts/hand-closed-back.png",
+      "role": "hand-closed-back",
+      "width": 128,
+      "height": 128,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "pixelsPerUnit": 25,
+      "sourceSprite": "Closed_Back"
+    }
+  }
+}

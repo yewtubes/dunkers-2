@@ -1,0 +1,152 @@
+{
+  "arm": {
+    "sourceFile": "sharedassets0.assets",
+    "sourcePathId": 698,
+    "sourceSprite": "Arm1_Normal",
+    "file": "base/arm.png",
+    "size": [
+      150.0,
+      250.0
+    ],
+    "pivot": [
+      0.6700000166893005,
+      0.8999999761581421
+    ],
+    "pixelsPerUnit": 50.0
+  },
+  "torso": {
+    "sourceFile": "sharedassets1.assets",
+    "sourcePathId": 283,
+    "sourceSprite": "Male2_OldSchool",
+    "file": "base/torso.png",
+    "size": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "pixelsPerUnit": 50.0
+  },
+  "pelvis": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 894,
+    "sourceSprite": "Pelvis1_Normal",
+    "file": "base/pelvis.png",
+    "size": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "pixelsPerUnit": 50.0
+  },
+  "hand-back": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 902,
+    "sourceSprite": "Open_Back",
+    "file": "base/hand-back.png",
+    "size": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "pixelsPerUnit": 25.0
+  },
+  "hand-front": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 908,
+    "sourceSprite": "Open_Front",
+    "file": "base/hand-front.png",
+    "size": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "pixelsPerUnit": 25.0
+  },
+  "shorts": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 961,
+    "sourceSprite": "Shorts1_Normal",
+    "file": "base/shorts.png",
+    "size": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "pixelsPerUnit": 50.0
+  },
+  "hand-closed-front": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 1062,
+    "sourceSprite": "Closed_Front",
+    "file": "base/hand-closed-front.png",
+    "size": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "pixelsPerUnit": 25.0
+  },
+  "leg": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 1185,
+    "sourceSprite": "Leg1_Normal",
+    "file": "base/leg.png",
+    "size": [
+      150.0,
+      150.0
+    ],
+    "pivot": [
+      0.4699999988079071,
+      0.75
+    ],
+    "pixelsPerUnit": 50.0
+  },
+  "hand-closed-back": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 1247,
+    "sourceSprite": "Closed_Back",
+    "file": "base/hand-closed-back.png",
+    "size": [
+      128.0,
+      128.0
+    ],
+    "pivot": [
+      0.5,
+      0.5
+    ],
+    "pixelsPerUnit": 25.0
+  },
+  "boot": {
+    "sourceFile": "resources.assets",
+    "sourcePathId": 1869,
+    "sourceSprite": "Converse_15",
+    "file": "base/boot.png",
+    "size": [
+      232.5,
+      172.0
+    ],
+    "pivot": [
+      0.49462366104125977,
+      0.5
+    ],
+    "pixelsPerUnit": 50.0
+  }
+}
