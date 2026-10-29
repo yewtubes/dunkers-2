@@ -60,7 +60,9 @@
   function install() {
     game = window.unityGame; m = game?.Module; table = m?.asm?.Sh;
     const d = table && data(), user = d && ptr(d.offline + 16);
-    if (!d || !is(user, 'UserProfile') || ptr(user + 100) < 8) return false;
+    // A constructed, named player can use the server even while optional
+    // onboarding offers keep userStage below 8.
+    if (!d || !is(user, 'UserProfile') || !managedString(ptr(user + 12)).trim() || ptr(user + 16) < 1 || !is(ptr(d.offline + 64), 'UserTeam')) return false;
     const show = table.get(11916), play = table.get(11994), ai = table.get(8163);
     table.set(11916, wrapper(3, (self, menu, info) => {
       if (capture) { capture(menu); return; }

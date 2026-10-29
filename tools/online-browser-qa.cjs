@@ -4,7 +4,7 @@ const {chromium}=require('playwright'),fs=require('fs'),assert=require('assert/s
  const server=createGameServer({dataDir,log(){}});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
  const browser=await chromium.launch({executablePath:process.env.CHROME_EXECUTABLE || undefined,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader','--window-size=1920,1080']});
  try {
- async function seed(ctx,name,id){await ctx.request.post(base+'/backend/SetEventData.php',{form:{eventIDPOST:'0'}});const f=Array(30).fill('0');Object.assign(f,{0:name,1:'1',3:'1500',4:'50',20:'',21:'',22:'8',23:'249',24:'1',29:''});await ctx.request.post(base+'/backend/SetEventData.php',{form:{eventIDPOST:'2',userIDPOST:String(id),eventDataPOST:f.join(',')+'§30:1:1|,1:,2:,3:,23456,28282,5,6,,,,0:0:0:0:0:0:0:0:0:0,1,1§30,-1,-1,23456,28282,5,6,0,5,0,5,0,5,1'}})}
+ async function seed(ctx,name,id){await ctx.request.post(base+'/backend/SetEventData.php',{form:{eventIDPOST:'0'}});const f=Array(30).fill('0');Object.assign(f,{0:name,1:'1',3:'1500',4:'50',20:'',21:'',22:'7',23:'249',24:'1',29:''});await ctx.request.post(base+'/backend/SetEventData.php',{form:{eventIDPOST:'2',userIDPOST:String(id),eventDataPOST:f.join(',')+'§30:1:1|,1:,2:,3:,23456,28282,5,6,,,,0:0:0:0:0:0:0:0:0:0,1,1§30,-1,-1,23456,28282,5,6,0,5,0,5,0,5,1'}})}
  const hc=await browser.newContext({viewport:{width:960,height:600}}),gc=await browser.newContext({viewport:{width:1280,height:720}});
  await seed(hc,'HostBaller',1);await seed(gc,'FriendBaller',2);
  const host=await hc.newPage(),guest=await gc.newPage();

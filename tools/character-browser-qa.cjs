@@ -15,7 +15,7 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
   await guest.route('**/Build/*loader.js',r=>r.fulfill({contentType:'text/javascript',body:'window.createUnityInstance=async()=>({Module:{}})'}));
   await guest.route('**/online-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersOnlineNative={ready:true,input(){},stop:async()=>{}}'}));
   await guest.route('**/character-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersCharacterNative={setOwner:async()=>{},setMatch:async()=>{},clearMatch(){},kick(){},info:()=>({})}'}));
-  await guest.route('**/locker-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersLockerNative={setOwner:async()=>{},open(){},info:()=>({})}'}));
+  await guest.route('**/locker-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersLockerNative={available:async()=>true,setOwner:async()=>{},open(){},info:()=>({})}'}));
   await Promise.all([host.goto(base),guest.goto(base)]);await host.bringToFront();
   await host.waitForFunction(()=>window.unityGame,null,{timeout:120000});await host.waitForTimeout(12000);await host.mouse.click(375,385);
   await host.waitForFunction(()=>window.dunkersOnlineNative?.ready,null,{timeout:30000});

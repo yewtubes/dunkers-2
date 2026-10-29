@@ -142,8 +142,13 @@
    updateStats();
   }catch(error){lastError=errorText(error);ready=false;console.error('Native locker:',lastError)}
  }
+ // Locker availability follows native profile construction, not multiplayer's
+ // userStage >= 8 onboarding gate. Existing saves can use the locker earlier.
+ async function available(){
+  try{n=await window.dunkersNativeRuntime.init();const k=n.ptr(3397700),holder=n.ptr(n.ptr(k+92)+4);return n.is(holder,'MainGameDataHolder')&&!!n.module.HEAPU8[holder+236]&&n.is(data().player,'Player')}catch{return false}
+ }
  async function setOwner(state){owner=state;if(state.id!==1)return;if(ready){if(state.selected!==RONALDO&&live(menu)){for(const view of n.array(n.get(menu,'teamViews')))if(live(view))n.call(12814,view);for(const card of all('PlayerItemCardController'))if(!choices.has(card))n.call(12782,card);const stat=n.get(menu,'teamStatController');if(live(stat))n.call(12809,stat);for(const detail of all('PlayerDetailCardController'))if(n.get(detail,'player')===basePlayer)n.call(12752,detail)}tick();return}if(loading)return loading;
-  loading=(async()=>{n=await window.dunkersNativeRuntime.init();await window.dunkersCharacterNative.prepare();basePlayer=n.pin(data().player);baseId=n.get(basePlayer,'Id');baseName=[n.text(n.get(basePlayer,'FirstName')),n.text(n.get(basePlayer,'SecondName'))].filter((value,index,values)=>value&&values.indexOf(value)===index).join(' ').toUpperCase();ready=true;tick()})();return loading;
+  loading=(async()=>{n=await window.dunkersNativeRuntime.init();await window.dunkersCharacterNative.prepare();basePlayer=n.pin(data().player);baseId=n.get(basePlayer,'Id');baseName=[n.text(n.get(basePlayer,'FirstName')),n.text(n.get(basePlayer,'SecondName'))].filter((value,index,values)=>value&&values.indexOf(value)===index).join(' ').toUpperCase();lastError='';ready=true;tick()})().catch(error=>{ready=false;loading=null;throw error});return loading;
  }
  function open(){
   if(blocked||!ready||!live(menu))return;
@@ -151,6 +156,6 @@
   if(target)window.unityGame.SendMessage('MainUI','ShowMenu',target);
  }
 
- window.dunkersLockerNative={setOwner,open,info:()=>({ready,baseId,baseName,menu,alias:ready?alias():'',detailOpen:live(menu)?n.call(13150,menu):false,error:lastError,cards:[...choices.values()].filter(c=>live(c.object)).map(c=>({card:c.card,context:c.context,character:c.character,rect:c.rect})),portraits:portraits.size})};
+ window.dunkersLockerNative={available,setOwner,open,info:()=>({ready,baseId,baseName,menu,alias:ready?alias():'',detailOpen:live(menu)?n.call(13150,menu):false,error:lastError,cards:[...choices.values()].filter(c=>live(c.object)).map(c=>({card:c.card,context:c.context,character:c.character,rect:c.rect})),portraits:portraits.size})};
  setInterval(tick,150);
 })();

@@ -22,7 +22,7 @@
  window.addEventListener('dunkers-match-state',e=>{match=e.detail;readyAt=0;render()});
  window.addEventListener('dunkers-kick-cooldown',e=>{readyAt=e.detail.readyAt});
  window.addEventListener('dunkers-kick-error',e=>{el('kick').title=e.detail});
- async function init(){if(initialized||loading||!window.dunkersOnlineNative?.ready)return;loading=true;try{const response=await fetch(new URL('api/characters/state',location.href),{cache:'no-store'});if(!response.ok)return;state=await response.json();await dunkersCharacterNative.setOwner(state);await dunkersLockerNative.setOwner(state);initialized=true;render()}catch(e){console.error('Character locker:',e)}finally{loading=false}}
+ async function init(){if(initialized||loading||!window.unityGame?.Module)return;loading=true;try{if(!await dunkersLockerNative.available())return;const response=await fetch(new URL('api/characters/state',location.href),{cache:'no-store'});if(!response.ok)return;state=await response.json();await dunkersCharacterNative.setOwner(state);await dunkersLockerNative.setOwner(state);initialized=true;render()}catch(e){console.error('Character locker:',e)}finally{loading=false}}
  window.dunkersCharacters={select,get state(){return state},get busy(){return pending}};
  setInterval(()=>{init();if(!el('kick').hidden){const remaining=Math.max(0,readyAt-Date.now());el('kick').disabled=remaining>0;el('kick').textContent=remaining?`SLIDE · ${(remaining/1000).toFixed(1)}s`:'F · SLIDE KICK'}},150);
 })();

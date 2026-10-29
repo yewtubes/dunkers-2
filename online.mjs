@@ -103,7 +103,9 @@ export function createOnline({ save, reply, botDelay = 12000, now = Date.now }) 
         if (!p.streams.size) return json(res, 409, { error: 'Connect to the game stream first.' });
         if (p.match || queue.has(p.id)) return json(res, 200, state(p));
         const fields = profile.csv?.split('§')[0].split(',') || [];
-        if (fields.length < 30 || !fields[0].trim() || Number(fields[22]) < 8) return json(res, 409, { error: 'Finish setting up your player first.' });
+        // userStage tracks optional native onboarding/offers as well as setup.
+        // Named, saved players must not be locked out by those offers.
+        if (fields.length < 30 || !fields[0].trim() || !Number.isInteger(Number(fields[1])) || Number(fields[1]) < 1) return json(res, 409, { error: 'Finish setting up your player first.' });
         let room = '';
         if (data.createRoom) { do { room = randomBytes(3).toString('hex').toUpperCase(); } while ([...queue.values()].some(q => q.room === room)); }
         else if (data.room) {

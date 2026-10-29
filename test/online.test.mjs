@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createGameServer } from '../server.mjs';
 
-test('local human matchmaking, private rooms, CPU fallback and authenticated relays', async () => {
+test('local human matchmaking before onboarding stage 8, private rooms, CPU fallback and authenticated relays', async () => {
   const dataDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dunkers-online-'));
   const server = createGameServer({ dataDir, botDelay: 120, log() {} });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -15,7 +15,7 @@ test('local human matchmaking, private rooms, CPU fallback and authenticated rel
     const login = await fetch(base + '/backend/SetEventData.php', { method: 'POST', body: new URLSearchParams({ eventIDPOST: '0' }) });
     const cookie = login.headers.get('set-cookie').split(';')[0];
     const id = JSON.parse(JSON.parse((await login.text()).split(';')[0]).Items[0]).UserId;
-    const fields = Array(30).fill('0'); fields[0] = name; fields[1] = '1'; fields[22] = '8';
+    const fields = Array(30).fill('0'); fields[0] = name; fields[1] = '1'; fields[22] = '7';
     await fetch(base + '/backend/SetEventData.php', { method: 'POST', headers: { cookie }, body: new URLSearchParams({ eventIDPOST: '2', userIDPOST: String(id), eventDataPOST: fields.join(',') }) });
     const state = async () => (await fetch(base + '/api/online/state', { headers: { cookie } })).json();
     const csrf = (await state()).csrf;

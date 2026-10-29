@@ -136,7 +136,8 @@ hand poses and face animation. The retained Unity APIs create textures/materials
 and account for packed-sprite trimming; custom assets survive scene cleanup.
 The compatibility map targets the hash-pinned WebAssembly build and is generated
 by `tools/map-native-runtime.py` after extracting the build and metadata.
-The locker uses native Unity card prefabs, fonts, portrait images and stat bars;
+Character loading waits for native player data and works before multiplayer onboarding
+is complete. The locker uses native Unity card prefabs, fonts, portrait images and stat bars;
 there is no separate HTML character picker. Selecting an ordinary native player
 turns the Ronaldo skin off. Native item IDs and inventory CSV remain compatible.
 This retains the existing host-simulated multiplayer trust model; it does not

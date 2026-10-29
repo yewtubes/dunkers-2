@@ -1,7 +1,9 @@
 'use strict';
 // Pinned Unity/IL2CPP v31 bridge. Invoke retained native APIs without build changes.
 (() => {
- const mapPromise=fetch(new URL('native-runtime-map.json',location.href)).then(r=>r.json());
+ // Keep method indices on the same cache version as the bridge scripts.
+ const mapURL=new URL('native-runtime-map.json',location.href);mapURL.search=new URL(document.currentScript.src).search;
+ const mapPromise=fetch(mapURL).then(r=>{if(!r.ok)throw Error('Native runtime map unavailable');return r.json()});
  let map,m,table;const typeCache=new Map(),fieldCache=new Map(),pins=new Map();
  const ptr=a=>Number.isInteger(a)&&a>=4096&&a%4===0&&a+4<=m.HEAPU8.length?m.HEAPU32[a>>>2]:0;
  const write=(a,v)=>{m.HEAPU32[a>>>2]=v};
