@@ -40,21 +40,20 @@ original proportions and the existing device-pixel-ratio cap.
 
 ## Online play
 
-Complete the native player setup, then use PLAY or ONLINE. Public matchmaking
-pairs waiting players from this server first. After 12 seconds with no waiting
-human opponent, it starts a clearly labeled CPU match. CPU opponents do not
-create fake accounts. A friend room provides a six-character code; the other
-player enters it on the same deployment. Private rooms wait for the friend and
-never automatically start a CPU match. Separate browser profiles/devices need
-separate local accounts; the same account cannot play itself.
+Use the game's original **PLAY** button. Matchmaking searches this server's
+waiting players first, then automatically starts a CPU match after 12 seconds
+if nobody joins. The existing Dunkers loading screen covers the wait; no online
+menus, friend-room prompts, countdowns, CPU notices, extra buttons, or match
+badges are added. CPU opponents do not create fake accounts. Separate browser
+profiles/devices need separate local accounts; the same account cannot play itself.
 
 Human matches use the original native court and physics on the first player's
 browser. Our Node server relays compressed court frames to the second player
 and their controls back to the host. The second player controls the opposing
 native player; its AI is disabled for that match. Keyboard controls are Left/A,
-Right/D and hold Space/Up/W to aim, release to shoot. Touch controls are shown
-on the guest's court. Keep both tabs visible while playing. Leaving or losing
-the connection ends the shared match. A server restart clears active rooms.
+Right/D and hold Space/Up/W to aim, release to shoot. On a touch screen the left quarter of the court moves left, the next quarter
+moves right, and the right half aims/shoots. There are no added touch buttons. Keep both tabs visible while playing. Escape cancels the queue or returns from a match to the native menu. Leaving or
+losing the connection ends the shared match. A server restart clears active rooms.
 
 This is host-simulated friendly multiplayer, not a reconstructed official
 multiplayer protocol or server-authoritative physics. Input/video latency and
@@ -113,8 +112,7 @@ binary requires updating this adapter. Gems and cash are the same shipped
 currency field. No browser save deletion or manual LOAD selection is required
 to apply a grant to an existing local player.
 
-The admin and online panels use the shipped Lilita One font and generated GUI
-buttons. The loader restores the blue Dunkers screen with its original logo,
+The admin panel uses the shipped Lilita One font and generated GUI buttons. The loader restores the blue Dunkers screen with its original logo,
 spinning basketball sprite, and Loading label. The favicon uses the original
 basketball sprite. Asset provenance is in `docs/ui-assets.md`.
 
@@ -122,11 +120,11 @@ basketball sprite. Asset provenance is in `docs/ui-assets.md`.
 
 Local user ID **1** owns Ronaldo automatically. Open the original **Locker Room** or **Ballers** menu and click the
 **RONALDO 07** card to equip him. The adjacent default-player card restores the
-normal character. The header **BALLERS** button opens the native Ballers menu.
+normal character. Use the original native Ballers menu; there is no added character shortcut.
 Selection persists and cannot change during a queue or match.
 
 His actual native motor has speed, jumping, handling, and shooting at **100**,
-plus a higher speed cap. Press **F** (or the slide button) during human/CPU matches
+plus a higher speed cap. Press **F** during human/CPU matches
 to slide toward the opponent, knock them back, release their ball and briefly
 stun them. The server authenticates ownership, routes the host/guest side, and
 enforces a **1.25-second cooldown**. Other accounts keep normal characters.

@@ -1,5 +1,1 @@
-#character-ui{font-family:Dunkers,sans-serif;color:#fff}#character-ui [hidden]{display:none!important}
-#character-open{position:fixed;top:12px;right:125px;z-index:4;font-size:18px;padding:8px 15px}
-#character-ui button:disabled{opacity:.6;cursor:default}
-#character-kick{position:fixed;right:18px;bottom:max(95px,env(safe-area-inset-bottom));z-index:12;font-size:19px;touch-action:none;user-select:none}
-@media(max-width:480px){#character-open{right:110px;font-size:14px;padding:9px}}
+/* Character selection lives entirely inside the native Unity locker. */

@@ -115,7 +115,6 @@
  }
  function hit(event){
   if(blocked||!ready||!owner||owner.id!==1||!live(menu)||event.target!==document.getElementById('game'))return null;
-  if(!document.getElementById('online-panel')?.hidden)return null;
   const canvas=document.getElementById('game'),bounds=canvas.getBoundingClientRect(),point=[(event.clientX-bounds.left)*canvas.width/bounds.width,(bounds.bottom-event.clientY)*canvas.height/bounds.height],camera=n.get(menu,'mainCamera');
   if(n.call(13150,menu))return null;
   return [...choices.values()].find(c=>shown(c.context)&&live(c.object)&&n.call(28355,c.object)&&n.floats(point,p=>n.call(36961,c.rect,p,camera)))||null;

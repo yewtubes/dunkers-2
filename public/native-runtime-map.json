@@ -191,6 +191,28 @@
     "function": 79282,
     "image": "Assembly-CSharp.dll"
   },
+  "12814": {
+    "type": ".TeamView",
+    "name": "DrawTeam",
+    "index": 12814,
+    "params": [],
+    "slot": 11381,
+    "function": 4054,
+    "image": "Assembly-CSharp.dll"
+  },
+  "13137": {
+    "type": ".EquipmentMenuController",
+    "name": "ChangePlayerItem",
+    "index": 13137,
+    "params": [
+      "playerIndex",
+      "item",
+      "itemType"
+    ],
+    "slot": 11704,
+    "function": 12002,
+    "image": "Assembly-CSharp.dll"
+  },
   "13138": {
     "type": ".EquipmentMenuController",
     "name": "SelectActiveItem",
@@ -223,6 +245,24 @@
     "slot": 11717,
     "function": 40498,
     "image": "Assembly-CSharp.dll"
+  },
+  "13153": {
+    "type": ".EquipmentMenuController",
+    "name": "CloseDetailPanels",
+    "index": 13153,
+    "params": [],
+    "slot": 11720,
+    "function": 79397,
+    "image": "Assembly-CSharp.dll"
+  },
+  "27282": {
+    "type": "UnityEngine.QualitySettings",
+    "name": "get_activeColorSpace",
+    "index": 27282,
+    "params": [],
+    "slot": 16321,
+    "function": 9423,
+    "image": "UnityEngine.CoreModule.dll"
   },
   "27296": {
     "type": "UnityEngine.MaterialPropertyBlock",
@@ -349,6 +389,15 @@
     "function": 684,
     "image": "UnityEngine.CoreModule.dll"
   },
+  "27363": {
+    "type": "UnityEngine.Material",
+    "name": "get_shader",
+    "index": 27363,
+    "params": [],
+    "slot": 16400,
+    "function": 9422,
+    "image": "UnityEngine.CoreModule.dll"
+  },
   "27364": {
     "type": "UnityEngine.Material",
     "name": "set_shader",
@@ -394,6 +443,18 @@
     ],
     "slot": 16453,
     "function": 34759,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "27420": {
+    "type": "UnityEngine.Material",
+    "name": "SetColorImpl_Injected",
+    "index": 27420,
+    "params": [
+      "name",
+      "value"
+    ],
+    "slot": 16456,
+    "function": 34765,
     "image": "UnityEngine.CoreModule.dll"
   },
   "27590": {
@@ -903,6 +964,17 @@
     "function": 34775,
     "image": "UnityEngine.Physics2DModule.dll"
   },
+  "36869": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "MoveRotation",
+    "index": 36869,
+    "params": [
+      "angle"
+    ],
+    "slot": 19555,
+    "function": 20693,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
   "36889": {
     "type": "UnityEngine.Rigidbody2D",
     "name": "get_position_Injected",
@@ -912,6 +984,17 @@
     ],
     "slot": 19575,
     "function": 64092,
+    "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36890": {
+    "type": "UnityEngine.Rigidbody2D",
+    "name": "set_position_Injected",
+    "index": 36890,
+    "params": [
+      "value"
+    ],
+    "slot": 19576,
+    "function": 20703,
     "image": "UnityEngine.Physics2DModule.dll"
   },
   "36891": {
@@ -985,36 +1068,5 @@
     "slot": 27153,
     "function": 2524,
     "image": "UnityEngine.UIModule.dll"
-  },
-  "12814": {
-    "type": ".TeamView",
-    "name": "DrawTeam",
-    "index": 12814,
-    "params": [],
-    "slot": 11381,
-    "function": 4054,
-    "image": "Assembly-CSharp.dll"
-  },
-  "13153": {
-    "type": ".EquipmentMenuController",
-    "name": "CloseDetailPanels",
-    "index": 13153,
-    "params": [],
-    "slot": 11720,
-    "function": 79397,
-    "image": "Assembly-CSharp.dll"
-  },
-  "13137": {
-    "type": ".EquipmentMenuController",
-    "name": "ChangePlayerItem",
-    "index": 13137,
-    "params": [
-      "playerIndex",
-      "item",
-      "itemType"
-    ],
-    "slot": 11704,
-    "function": 12002,
-    "image": "Assembly-CSharp.dll"
   }
 }

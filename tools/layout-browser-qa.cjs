@@ -32,28 +32,29 @@ for(let id=1;id<=2;id++){
  const p=await c.newPage();
  await p.route('**/Build/*loader.js',r=>r.fulfill({contentType:'text/javascript',body:'window.createUnityInstance=async()=>({Module:{}})'}));
  await p.route('**/online-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersOnlineNative={ready:true,input(){},start:async()=>{const delay=window.startDelay||0;await new Promise(r=>setTimeout(r,delay));if(delay)throw new Error(\"Cancelled old start\")},stop:async()=>{},info:()=>({gc:1})}'}));
+ await p.route('**/character-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersCharacterNative={setOwner:async()=>{},setMatch:async()=>{},clearMatch(){}}'}));
  if(id===1)await p.route('**/api/online/join',async r=>{const response=await r.fetch();await new Promise(resolve=>setTimeout(resolve,1000));await r.fulfill({response})});
- await p.goto(base);await p.locator('#online-open').click();clients.push({p,c});
+ await p.goto(base);await p.waitForFunction(()=>dunkersOnline.info().connected);clients.push({p,c});
 }
-await clients[0].p.locator('#online-play').click();
-await clients[0].p.waitForFunction(()=>document.getElementById('online-title').textContent==='FINDING A PLAYER');
-await clients[1].p.locator('#online-play').click();
-for(const {p} of clients)await p.waitForFunction(()=>!document.getElementById('online-match').hidden);
+await clients[0].p.evaluate(()=>window.dispatchEvent(new Event('dunkers-play')));
+await clients[0].p.waitForFunction(()=>dunkersOnline.info().state.status==='waiting');
+await clients[1].p.evaluate(()=>window.dispatchEvent(new Event('dunkers-play')));
+for(const {p} of clients)await p.waitForFunction(()=>dunkersOnline.info().state.status==='matched');
 await new Promise(resolve=>setTimeout(resolve,1300));
-for(const {p,c} of clients){assert.equal(await p.locator('#online-match').isHidden(),false);assert.equal((await (await c.request.get(base+'/api/online/state')).json()).status,'matched')}
-await clients[0].p.locator('#online-leave').click();for(const {p} of clients)await p.waitForFunction(()=>document.getElementById('online-match').hidden);
+for(const {p,c} of clients){assert.equal(await p.locator('button,input,dialog,#online-ui,#character-ui').count(),0);assert.equal((await (await c.request.get(base+'/api/online/state')).json()).status,'matched')}
+await clients[0].p.keyboard.press('Escape');for(const {p} of clients)await p.waitForFunction(()=>dunkersOnline.info().state.status==='idle');
 // An old, cancelled native startup cannot terminate a newer match.
 await clients[0].p.evaluate(()=>window.startDelay=1800);
-for(const {p} of clients)await p.locator('#online-play').click();
-await clients[1].p.waitForFunction(()=>!document.getElementById('online-match').hidden);
-await clients[1].p.locator('#online-cancel').click();
-for(const {p} of clients)await p.waitForFunction(()=>document.getElementById('online-title').textContent==='PLAY ONLINE');
+for(const {p} of clients)await p.evaluate(()=>window.dispatchEvent(new Event('dunkers-play')));
+await clients[1].p.waitForFunction(()=>dunkersOnline.info().state.status==='matched');
+await clients[1].p.keyboard.press('Escape');
+for(const {p} of clients)await p.waitForFunction(()=>dunkersOnline.info().state.status==='idle');
 await clients[0].p.evaluate(()=>window.startDelay=0);
-for(const {p} of clients)await p.locator('#online-play').click();
-for(const {p} of clients)await p.waitForFunction(()=>!document.getElementById('online-match').hidden);
+for(const {p} of clients)await p.evaluate(()=>window.dispatchEvent(new Event('dunkers-play')));
+for(const {p} of clients)await p.waitForFunction(()=>dunkersOnline.info().state.status==='matched');
 await new Promise(resolve=>setTimeout(resolve,2200));
-for(const {p,c} of clients){assert.equal(await p.locator('#online-match').isHidden(),false);assert.equal((await (await c.request.get(base+'/api/online/state')).json()).status,'matched')}
-await clients[0].p.locator('#online-leave').click();
+for(const {p,c} of clients){assert.equal(await p.locator('button,input,dialog,#online-ui,#character-ui').count(),0);assert.equal((await (await c.request.get(base+'/api/online/state')).json()).status,'matched')}
+await clients[0].p.keyboard.press('Escape');
 console.log('PASS simultaneous Play with delayed HTTP, SSE cancellation and stale native startup');
 }finally{await browser.close();server.closeAllConnections();await new Promise(r=>server.close(r));fs.rmSync(dataDir,{recursive:true})}
 })().catch(e=>{console.error(e);process.exit(1)});

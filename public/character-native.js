@@ -1,7 +1,7 @@
 'use strict';
 // Bind custom art to actual SpriteRenderers; keep native joints and animation.
 (() => {
- let n,manifest,atlas,texture,shader,block,mainID,ready=false,loading,owner,match,internal=false,lastError='',lastSeq=0,lastKick=null;
+ let n,manifest,atlas,texture,shader,block,mainID,tintID,tint,ready=false,loading,owner,match,internal=false,lastError='',lastSeq=0,lastKick=null;
  const bindings=new Map(),materials=new Map(),protectedMaterials=new Set(),stats=new Map(),hooks=new Set(),paths=new Map();
  let dash,stun,phase='';
  const errorText=e=>{if(typeof e!=='number'||!n)return String(e)+' ['+phase+']';let p=e;for(let i=0;i<3;i++){const f=n.fields(p);if(f._message!==undefined)return n.className(p)+': '+n.text(n.ptr(p+f._message))+' ['+phase+']';p=n.ptr(p);if(!p)break}return 'Native exception '+e+' ['+phase+']'};
@@ -27,7 +27,10 @@
    const pixels=n.call(2429,n.type('UnityEngine.Color32, UnityEngine.CoreModule'),canvas.width*canvas.height),handle=n.call(5491,pixels),rgba=ctx.getImageData(0,0,canvas.width,canvas.height).data,stride=canvas.width*4;
    for(let row=0;row<canvas.height;row++)n.module.HEAPU8.set(rgba.subarray(row*stride,(row+1)*stride),pixels+16+(canvas.height-1-row)*stride);
    n.call(27607,texture,pixels);n.call(27598,texture,0,1);n.call(5498,handle);
-   shader=retain(n.pin(n.call(27346,n.string('Unlit/Transparent'))));if(!shader||!isLive(shader))throw Error('Required native shader unavailable');
+   // This retained shader honors atlas UV transforms and renders both sides.
+   // Unlit/Transparent culled flipped heads and the entire away-side player.
+   shader=retain(n.pin(n.call(27346,n.string('Legacy Shaders/Particles/Alpha Blended'))));if(!shader||!isLive(shader))throw Error('Required native shader unavailable');
+   tintID=n.call(27348,n.string('_TintColor'));tint=n.call(27282)===1 ? 0.735356983 : 0.5;
    block=n.create('UnityEngine.MaterialPropertyBlock, UnityEngine.CoreModule',27296);mainID=n.call(27348,n.string('_MainTex'));n.call(27304,block,mainID,texture);
    const sample=n.create('UnityEngine.Material, UnityEngine.CoreModule',27360,shader);n.call(27364,sample,shader);
    ready=true;installHooks();tick();
@@ -52,11 +55,24 @@
   const xs=[],ys=[];for(let i=0;i<points.length;i+=2){xs.push(points[i]);ys.push(points[i+1])}
   const left=(Math.min(...xs)*ppu+pivot[0])/rect[2],bottom=(Math.min(...ys)*ppu+pivot[1])/rect[3],width=(Math.max(...xs)-Math.min(...xs))*ppu/rect[2],height=(Math.max(...ys)-Math.min(...ys))*ppu/rect[3];
   const mat=retain(n.create('UnityEngine.Material, UnityEngine.CoreModule',27360,shader)),sx=(target.w*width/2048)/du,sy=(target.h*height/1280)/dv,ox=(target.x+target.w*left)/2048-u*sx,oy=(1280-target.y-target.h+target.h*bottom)/1280-v*sy;
+  // The legacy particle shader multiplies its sRGB tint by two. Keep
+  // that factor neutral in both gamma and linear-color player builds.
+  n.floats([tint,tint,tint,.5],p=>n.call(27420,mat,tintID,p));
   n.call(27406,mat,n.string('_MainTex'),texture);n.floats([sx,sy],p=>n.call(27417,mat,n.string('_MainTex'),p));n.floats([ox,oy],p=>n.call(27415,mat,n.string('_MainTex'),p));materials.set(key,mat);protectedMaterials.add(mat);return mat;
  }
  function repaint(renderer,sprite){const b=bindings.get(renderer);if(!b||!isLive(renderer))return;
   internal=true;try{
-   if(b.role==='hide'){n.call(27323,renderer,0);return}if(!sprite)sprite=n.call(28712,renderer);if(!sprite)return;
+   if(b.role==='hide'){n.call(27323,renderer,0);return}
+   if(!sprite)sprite=n.call(28712,renderer);
+   // Native head-flip/impact animation can temporarily clear or disable the
+   // source face. Keep the last real face mesh for the modular custom head.
+   if(b.role==='head'||b.role==='head-mask'){
+    const size=sprite&&n.is(sprite,'Sprite')?n.readVec(28746,sprite,4):null;
+    if(size&&size[2]>=32&&size[3]>=32){if(b.lastSprite!==sprite){n.release(b.lastSprite);b.lastSprite=n.pin(sprite)}}
+    else if(b.lastSprite){sprite=b.lastSprite;n.call(28713,renderer,sprite)}
+    if(sprite&&b.role==='head')n.call(27323,renderer,1);
+   }
+   if(!sprite)return;
    let part=b.role;if(part==='head')part='head-'+expression(sprite);if(part==='head-mask')part='head-'+expression(sprite)+'-mask';
    if(part.startsWith('hand-')){const closed=name(sprite).toLowerCase().includes('closed');part=(closed?'hand-closed-':'hand-')+(part.endsWith('front')?'front':'back')}
    if(b.outline)part='outline-'+part;
@@ -69,14 +85,14 @@
   hook(4214668,(original,r,color)=>{if(!internal&&bindings.has(r))n.floats([1,1,1,1],p=>original(r,p));else original(r,color)});
   hook(4216524,(original,r,m)=>{const b=bindings.get(r);original(r,!internal&&b?.material?b.material:m)});
   hook(4216532,(original,r,b)=>{original(r,!internal&&bindings.has(r)&&bindings.get(r).role!=='hide'?block:b)});
-  hook(4216552,(original,r,enabled)=>original(r,!internal&&bindings.get(r)?.role==='hide'?0:enabled));
+  hook(4216552,(original,r,enabled)=>{const b=bindings.get(r);original(r,!internal&&b?.role==='hide'?0:!internal&&b?.lastSprite&&b.role==='head'?1:enabled)});
   hook(4216668,(original,mat,s)=>original(mat,protectedMaterials.has(mat)?shader:s));
  }
  function bind(renderer,role,outline=false){if(!isLive(renderer))return;const existing=bindings.get(renderer);if(existing){existing.role=role;existing.outline=outline;repaint(renderer);return}
   const savedBlock=n.create('UnityEngine.MaterialPropertyBlock, UnityEngine.CoreModule',27296);n.call(27320,renderer,savedBlock);
   const b={role,outline,original:n.pin(n.call(27342,renderer)),enabled:n.call(27322,renderer),color:n.readVec(28719,renderer,4),savedBlock};bindings.set(renderer,b);repaint(renderer);
  }
- function unbind(renderer){const b=bindings.get(renderer);if(!b)return;bindings.delete(renderer);if(!isLive(renderer)){n.call(27298,b.savedBlock);n.release(b.savedBlock);n.release(b.original);return}internal=true;try{n.call(27343,renderer,b.original);n.call(27318,renderer,b.savedBlock);n.call(27323,renderer,b.enabled);n.floats(b.color,p=>n.call(28720,renderer,p));n.call(27298,b.savedBlock);n.release(b.savedBlock);n.release(b.original)}finally{internal=false}}
+ function unbind(renderer){const b=bindings.get(renderer);if(!b)return;bindings.delete(renderer);n.release(b.lastSprite);if(!isLive(renderer)){n.call(27298,b.savedBlock);n.release(b.savedBlock);n.release(b.original);return}internal=true;try{n.call(27343,renderer,b.original);n.call(27318,renderer,b.savedBlock);n.call(27323,renderer,b.enabled);n.floats(b.color,p=>n.call(28720,renderer,p));n.call(27298,b.savedBlock);n.release(b.savedBlock);n.release(b.original)}finally{internal=false}}
  function paint(controller){const mapped=new Set();const group=(field,role,outline=false)=>{phase=field;for(const r of resolve(controller,field)){mapped.add(r);const side=pathOf(r).toLowerCase().includes('right')?'right':'left';bind(r,role.replace('$side',side),outline)}};
   group('faceRenderers','head');group('faceOutlineRenderers','head-mask');
   group('jerseyBaseRenderers','torso');group('jerseyBaseOutlineRenderers','torso',true);
@@ -118,8 +134,8 @@
   dash={motor,other,body,direction,until:performance.now()+450,hit:false,start:from,originalRotation:n.call(36866,body)};lastKick={seq:event.seq,side:event.side,hit:false,start:from};updateKick();return true;
  }
  function updateKick(){const time=performance.now();if(stun&&time>=stun.until){if(liveMotor(stun.motor)&&window.dunkersOnlineNative.info().state===2)n.call(12352,stun.motor,1);stun=null}
-  if(!dash)return;if(!liveMotor(dash.motor)||time>=dash.until){if(liveMotor(dash.motor))n.call(36867,dash.body,dash.originalRotation);dash=null;return}
-  const d=dash,current=n.readVec(36892,d.body);n.setVec(36893,d.body,[d.direction*28,Math.min(current[1],-1)]);n.call(36867,d.body,d.direction*65);
+  if(!dash)return;if(!liveMotor(dash.motor)||time>=dash.until){if(liveMotor(dash.motor))n.call(36869,dash.body,dash.originalRotation);dash=null;return}
+  const d=dash,current=n.readVec(36892,d.body);n.setVec(36893,d.body,[d.direction*28,Math.min(current[1],-1)]);n.call(36869,d.body,d.direction*65);
   if(!d.hit&&liveMotor(d.other)){const a=n.readVec(36889,d.body),b=n.readVec(36889,rb(d.other));if(Math.abs(a[0]-b[0])<2.2&&Math.abs(a[1]-b[1])<2.5){
     d.hit=true;lastKick.hit=true;lastKick.victim=d.other;lastKick.before=n.readVec(36892,rb(d.other));
     const f=n.fields(d.other);if(n.module.HEAPU8[d.other+f.hasBall]){n.call(12368,d.other);n.call(12369,d.other)}

@@ -21,29 +21,44 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
   await host.waitForFunction(()=>window.dunkersOnlineNative?.ready,null,{timeout:30000});
   async function shot(path){const cdp=await hc.newCDPSession(host),value=await cdp.send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path,Buffer.from(value.data,'base64'));await cdp.detach()}
   if(!guestOwner){
-   await host.locator('#character-open').waitFor({state:'visible',timeout:30000});await host.mouse.click(480,280);await host.waitForFunction(()=>dunkersLockerNative.info().cards.some(c=>c.context==='locker'));await host.mouse.click(315,510);
+   await host.waitForFunction(()=>dunkersLockerNative.info().ready);await host.evaluate(()=>unityGame.SendMessage('MainUI','ShowMenu','equipment'));await host.waitForFunction(()=>dunkersLockerNative.info().cards.some(c=>c.context==='locker'));await host.mouse.click(315,510);
    await host.waitForFunction(()=>dunkersCharacterNative.info().bindings===0);assert.equal((await(await hc.request.get(base+'/api/characters/state')).json()).selected,null);
    await host.mouse.click(195,510);await host.waitForFunction(()=>dunkersCharacterNative.info().bindings>20);await host.mouse.click(20,40);await host.waitForTimeout(1000);
    console.log('SELECTOR_PASS',await host.evaluate(()=>dunkersCharacterNative.info()));
-  }else assert.equal(await host.locator('#character-open').isVisible(),false);
-  await host.locator('#online-open').click();await host.locator('#online-create').click();await host.waitForFunction(()=>/^Room [A-F0-9]{6}/.test(document.getElementById('online-message').textContent));
-  const code=(await host.locator('#online-message').textContent()).match(/Room ([A-F0-9]{6})/)[1];
-  await guest.locator('#online-open').click();await guest.locator('#online-room').fill(code);await guest.locator('#online-room-form button').click();await host.bringToFront();console.log('MATCH_START',guestOwner?'guest owns Ronaldo':'host owns Ronaldo');
-  try{await host.waitForFunction(()=>dunkersOnlineNative.info().state===2,null,{timeout:100000})}catch(error){console.log('DIAG',await host.evaluate(()=>({native:dunkersOnlineNative.info(),character:dunkersCharacterNative.info(),message:document.getElementById('online-message').textContent})));throw error}
-  await guest.waitForFunction(()=>!document.getElementById('online-view').hidden&&document.getElementById('online-panel').hidden,null,{timeout:30000});
+  }else assert.equal(await host.locator('#character-ui').count(),0);
+  await Promise.all([host.waitForFunction(()=>dunkersOnline.info().connected),guest.waitForFunction(()=>dunkersOnline.info().connected)]);
+  await host.evaluate(()=>unityGame.SendMessage('MainUI','ShowMenu','gamemodemenu'));await host.waitForFunction(()=>dunkersOnline.info().state.status==='waiting');
+  await guest.evaluate(()=>window.dispatchEvent(new Event('dunkers-play')));await host.bringToFront();console.log('MATCH_START',guestOwner?'guest owns Ronaldo':'host owns Ronaldo');
+  try{await host.waitForFunction(()=>dunkersOnlineNative.info().state===2,null,{timeout:100000})}catch(error){console.log('DIAG',await host.evaluate(()=>({native:dunkersOnlineNative.info(),character:dunkersCharacterNative.info(),online:dunkersOnline.info()})));throw error}
+  await guest.waitForFunction(()=>!document.getElementById('online-view').hidden&&document.getElementById('loading-screen').hidden,null,{timeout:30000});
   await host.waitForTimeout(500);
   const live=await host.evaluate(g=>{const n=dunkersNativeRuntime,i=dunkersOnlineNative.info(),stats=p=>['Speed','Jumping','Handling','Shooting'].map(k=>n.get(p,k));return {character:dunkersCharacterNative.info(),owner:stats(i[g?'enemy':'own'].pointer),normal:stats(i[g?'own':'enemy'].pointer)}},guestOwner);
   assert(live.character.bindings>=50);assert.equal(live.character.error,'');assert.deepEqual(live.owner,[100,100,100,100]);assert.notDeepEqual(live.normal,[100,100,100,100]);console.log('NATIVE_STATS_PASS',JSON.stringify(live));
   const pixels=await guest.evaluate(()=>{const p=document.getElementById('online-view').getContext('2d').getImageData(0,0,960,600).data;let n=0;for(let i=0;i<p.length;i+=4)if(p[i]+p[i+1]+p[i+2]>80)n++;return n});assert(pixels>150000);console.log('REMOTE_FRAMES_PASS',pixels);
+  const kitPixels=await guest.evaluate(()=>{const source=document.getElementById('online-view'),c=document.createElement('canvas');c.width=960;c.height=600;const ctx=c.getContext('2d');ctx.drawImage(source,0,0,960,600);const p=ctx.getImageData(192,300,576,204).data;let count=0;for(let i=0;i<p.length;i+=4)if(p[i]>140&&p[i+1]<80&&p[i+2]>20&&p[i+2]<105)count++;return count});console.log('TWO_SIDED_KIT_PIXELS',kitPixels);assert(kitPixels>75,'Custom kit must render from both facing directions');
   await shot('/tmp/dunkers-ronaldo-'+(guestOwner?'guest':'host')+'-before.png');
-  await host.evaluate(g=>{const n=dunkersNativeRuntime,i=dunkersOnlineNative.info(),a=n.get(i[g?'enemy':'own'].pointer,'thisRB2D'),b=n.get(i[g?'own':'enemy'].pointer,'thisRB2D'),p=n.readVec(36889,b);n.setVec(36891,a,[p[0]-1.5,p[1]])},guestOwner);
-  const owner=guestOwner?guest:host;await owner.evaluate(()=>document.activeElement.blur());await owner.keyboard.press('f');await host.bringToFront();
-  await host.waitForFunction(()=>dunkersCharacterNative.info().lastKick?.hit,null,{timeout:7000});
+  async function faces(){return host.evaluate(g=>{const n=dunkersNativeRuntime,i=dunkersOnlineNative.info(),c=n.get(i[g?'enemy':'own'].pointer,'playerCharacterSpriteController');return n.array(n.get(c,'spriteRenderers')).filter(r=>r&&n.ptr(r+8)&&/face/i.test(n.text(n.call(28453,r)))).map(r=>({r,name:n.text(n.call(28453,r)),enabled:n.call(27322,r),sprite:n.call(28712,r)?n.text(n.call(28453,n.call(28712,r))):'',mat:n.call(27342,r)}))},guestOwner)}
+  assert((await faces()).some(face=>face.name==='Face'&&face.enabled&&face.sprite));
+  const owner=guestOwner?guest:host;
+  // Arrange both complete native ragdolls at contact distance when the actual
+  // authenticated F request is sent, keeping limbs and joints together.
+  await owner.route('**/api/online/ability',async route=>{await host.evaluate(g=>{const n=dunkersNativeRuntime,i=dunkersOnlineNative.info(),a=i[g?'enemy':'own'].pointer,b=i[g?'own':'enemy'].pointer,type=n.type('UnityEngine.Rigidbody2D, UnityEngine.Physics2DModule'),point=n.readVec(36889,n.get(b,'thisRB2D'));
+   for(const [motor,x]of [[b,point[0]],[a,point[0]-1]]){const origin=n.readVec(36889,n.get(motor,'thisRB2D')),bodies=n.array(n.call(28333,n.call(28273,motor),type,1,1,1,0,0));if(bodies.length<2)throw Error('Expected a complete native ragdoll');for(const rb of bodies){const p=n.readVec(36889,rb);n.setVec(36890,rb,[p[0]+x-origin[0],p[1]+point[1]-origin[1]]);n.setVec(36893,rb,[0,0])}}
+  },guestOwner);await route.continue()});
+  await owner.evaluate(()=>document.activeElement.blur());await owner.keyboard.press('f');await host.bringToFront();
+  assert((await faces()).some(face=>face.name==='Face'&&face.enabled&&face.sprite));await shot('/tmp/dunkers-tackle-'+(guestOwner?'guest':'host')+'-during.png');
+  try{await host.waitForFunction(()=>dunkersCharacterNative.info().lastKick?.hit,null,{timeout:7000})}catch(error){console.log('KICK_DIAG',await host.evaluate(()=>({native:dunkersOnlineNative.info(),character:dunkersCharacterNative.info()})),await guest.evaluate(()=>({online:dunkersOnline.info(),character:{id:dunkersCharacters.state?.id,selected:dunkersCharacters.state?.selected}})));throw error}
   const kick=await host.evaluate(()=>dunkersCharacterNative.info());assert.equal(kick.error,'');assert.equal(kick.lastKick.side,guestOwner?'guest':'host');assert(Math.abs(kick.lastKick.after[0])>=18);console.log('F_KICK_PASS',JSON.stringify(kick));
+  const head=await host.evaluate(g=>{const n=dunkersNativeRuntime,i=dunkersOnlineNative.info(),c=n.get(i[g?'enemy':'own'].pointer,'playerCharacterSpriteController'),r=n.array(n.get(c,'spriteRenderers')).find(r=>r&&n.ptr(r+8)&&n.text(n.call(28453,r))==='Face'),sprite=n.call(28712,r);n.call(28713,r,0);n.call(27323,r,0);return {enabled:n.call(27322,r),restored:n.call(28712,r)===sprite}},guestOwner);assert.deepEqual(head,{enabled:1,restored:true});console.log('HEAD_RECOVERY_PASS',head);
+  await host.waitForTimeout(1500);
+  for(let repeat=0;repeat<2;repeat++){
+   await host.waitForFunction(()=>dunkersOnlineNative.info().state===2,null,{timeout:15000});const before=await host.evaluate(()=>dunkersCharacterNative.info().lastKick.seq);await owner.keyboard.press('f');await host.bringToFront();await host.waitForFunction(seq=>dunkersCharacterNative.info().lastKick?.seq>seq,before,{timeout:5000});await host.waitForTimeout(500);assert((await faces()).some(face=>face.name==='Face'&&face.enabled&&face.sprite));await host.waitForTimeout(1000);
+  }
+  console.log('PASS head remains visible over repeated slide kicks');
   await host.waitForTimeout(1100);assert.equal(await host.evaluate(g=>dunkersOnlineNative.info()[g?'own':'enemy'].canMove,guestOwner),1);
   for(const [width,height]of [[1920,1080],[2560,1080],[800,1200]]){await host.setViewportSize({width,height});const r=await host.evaluate(()=>{const c=document.getElementById('game'),r=c.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height,ratio:c.width/c.height}});assert.deepEqual(r,{x:0,y:0,w:width,h:height,ratio:1.6})}
-  await host.setViewportSize({width:960,height:600});await guest.locator('#online-leave').click();await host.bringToFront();await host.waitForFunction(()=>!dunkersOnlineNative.info().gc,null,{timeout:30000});
-  await host.waitForTimeout(1000);assert.equal((await(await hc.request.get(base+'/api/online/state')).json()).status,'idle');assert.equal((await host.evaluate(()=>dunkersCharacterNative.info())).error,'');assert.deepEqual(errors,[]);
+  await host.setViewportSize({width:960,height:600});await guest.keyboard.press('Escape');await host.bringToFront();await host.waitForFunction(()=>!dunkersOnlineNative.info().gc,null,{timeout:30000});
+  await host.waitForTimeout(1000);assert.equal((await(await hc.request.get(base+'/api/online/state')).json()).status,'idle');assert.equal((await host.evaluate(()=>dunkersCharacterNative.info())).error,'');assert.deepEqual(errors,[]);assert.equal(await host.locator('button,input,dialog,#character-ui,#online-ui').count(),0);assert.equal(await guest.locator('button,input,dialog,#character-ui,#online-ui').count(),0);
   console.log('PASS native Ronaldo, selector, exclusive ownership, F contact, recovery, streamed match, viewport, leave');
  }finally{await browser.close();server.closeAllConnections();await new Promise(r=>server.close(r));fs.rmSync(dataDir,{recursive:true})}
 })().catch(error=>{console.error(error);process.exit(1)});

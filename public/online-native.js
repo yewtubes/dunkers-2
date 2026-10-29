@@ -121,7 +121,7 @@
         for (let i = 0; i < 100 && controller(); i++) await sleep(100);
       }
       check();
-      const name = keep(string(match.opponent.name));
+      let name = keep(string(match.opponent.name));
       put(d.offline + 72, name); // A managed field roots the string for the GC.
       const ownTeam = keep(ptr(d.offline + 64));
       const teamCSV = /^-?\d+(,-?\d+){13}$/.test(match.opponent.team || '') ? match.opponent.team : '30,-1,-1,23456,28282,5,6,0,5,0,5,0,5,1';
@@ -133,6 +133,11 @@
           table.get(10499)(d.offline, string(teamCSV), 0);
           peerTeam = keep(ptr(d.offline + 64)); put(d.offline + 64, ownTeam); put(d.offline + 68, peerTeam);
         } finally { put(d.offline + 64, ownTeam); }
+      }
+      if(match.opponent.isBot){
+        const player=native.get(native.get(peerTeam,'playerOne'),'player');
+        const labels=['FirstName','SecondName'].map(key=>native.text(native.get(player,key))).filter((value,index,values)=>value&&values.indexOf(value)===index);
+        name=keep(string(labels.join(' ')||'Baller'));put(d.offline+72,name);
       }
       internal = true;
       try { game.SendMessage('MainUI', 'ShowMenu', 'tiermenu'); } finally { internal = false; }
