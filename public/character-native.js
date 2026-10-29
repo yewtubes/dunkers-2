@@ -130,6 +130,7 @@
  async function setMatch(value){match=value;lastSeq=0;lastKick=null;if(value?.role==='host'&&[value.own,value.opponent].some(p=>p?.id===1&&p.character==='ronaldo-2007'))await prepare();tick()}
  function clearMatch(){match=null;dash=null;if(stun&&liveMotor(stun.motor))n.call(12352,stun.motor,1);stun=null;for(const r of [...bindings.keys()])unbind(r);stats.clear();paths.clear();tick()}
  window.dunkersCharacterNative={prepare,setOwner,setMatch,clearMatch,kick,
+  uiPart(part){const p=atlas.get(part);if(!p)throw Error('Unknown character part: '+part);return {texture,uv:[p.x/2048,(1280-p.y-p.h)/1280,p.w/2048,p.h/1280]}},
   info:()=>({ready,bindings:bindings.size,materials:materials.size,error:lastError,lastKick,dashing:!!dash,boosted:[...stats.keys()]})};
  setInterval(tick,80);setInterval(()=>{if(ready)updateKick()},16);
 })();

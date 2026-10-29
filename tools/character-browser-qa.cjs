@@ -15,14 +15,15 @@ const {chromium}=require('playwright'),fs=require('node:fs'),assert=require('nod
   await guest.route('**/Build/*loader.js',r=>r.fulfill({contentType:'text/javascript',body:'window.createUnityInstance=async()=>({Module:{}})'}));
   await guest.route('**/online-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersOnlineNative={ready:true,input(){},stop:async()=>{}}'}));
   await guest.route('**/character-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersCharacterNative={setOwner:async()=>{},setMatch:async()=>{},clearMatch(){},kick(){},info:()=>({})}'}));
+  await guest.route('**/locker-native.js*',r=>r.fulfill({contentType:'text/javascript',body:'window.dunkersLockerNative={setOwner:async()=>{},open(){},info:()=>({})}'}));
   await Promise.all([host.goto(base),guest.goto(base)]);await host.bringToFront();
   await host.waitForFunction(()=>window.unityGame,null,{timeout:120000});await host.waitForTimeout(12000);await host.mouse.click(375,385);
   await host.waitForFunction(()=>window.dunkersOnlineNative?.ready,null,{timeout:30000});
   async function shot(path){const cdp=await hc.newCDPSession(host),value=await cdp.send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path,Buffer.from(value.data,'base64'));await cdp.detach()}
   if(!guestOwner){
-   await host.locator('#character-open').waitFor({state:'visible',timeout:30000});await host.locator('#character-open').click();await host.locator('#character-default').click();
+   await host.locator('#character-open').waitFor({state:'visible',timeout:30000});await host.mouse.click(480,280);await host.waitForFunction(()=>dunkersLockerNative.info().cards.some(c=>c.context==='locker'));await host.mouse.click(315,510);
    await host.waitForFunction(()=>dunkersCharacterNative.info().bindings===0);assert.equal((await(await hc.request.get(base+'/api/characters/state')).json()).selected,null);
-   await host.locator('#character-ronaldo').click();await host.waitForFunction(()=>dunkersCharacterNative.info().bindings>20);await host.locator('#character-close').click();
+   await host.mouse.click(195,510);await host.waitForFunction(()=>dunkersCharacterNative.info().bindings>20);await host.mouse.click(20,40);await host.waitForTimeout(1000);
    console.log('SELECTOR_PASS',await host.evaluate(()=>dunkersCharacterNative.info()));
   }else assert.equal(await host.locator('#character-open').isVisible(),false);
   await host.locator('#online-open').click();await host.locator('#online-create').click();await host.waitForFunction(()=>/^Room [A-F0-9]{6}/.test(document.getElementById('online-message').textContent));

@@ -1,8 +1,8 @@
 # Cristiano Ronaldo — 2007 modular character art
 
-Playable by local **user ID 1** through **CHARACTERS** in the main menu.
+Playable by local **user ID 1** through the original **Locker Room** and **Ballers** card menus.
 His four native motor stats are 100. **F** triggers a slide kick with knockback,
-a short stun, and a server-enforced 1.25-second cooldown. Choose **DEFAULT** to
+a short stun, and a server-enforced 1.25-second cooldown. Click the adjacent default-player card to
 return to the original player. Other accounts cannot equip him.
 
 `public/character-native.js` binds these parts to real native SpriteRenderers,

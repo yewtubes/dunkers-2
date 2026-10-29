@@ -131,6 +131,99 @@
     "function": 79904,
     "image": "Assembly-CSharp.dll"
   },
+  "12752": {
+    "type": ".PlayerDetailCardController",
+    "name": "Draw",
+    "index": 12752,
+    "params": [],
+    "slot": 11320,
+    "function": 11997,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12782": {
+    "type": ".PlayerItemCardController",
+    "name": "Draw",
+    "index": 12782,
+    "params": [],
+    "slot": 11350,
+    "function": 79297,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12783": {
+    "type": ".PlayerItemCardController",
+    "name": "HighlightCard",
+    "index": 12783,
+    "params": [
+      "highlight"
+    ],
+    "slot": 2127,
+    "function": 8229,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12791": {
+    "type": ".StatBar",
+    "name": "SetRating",
+    "index": 12791,
+    "params": [
+      "value"
+    ],
+    "slot": 11358,
+    "function": 79310,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12809": {
+    "type": ".TeamStatController",
+    "name": "UpdateStats",
+    "index": 12809,
+    "params": [],
+    "slot": 11376,
+    "function": 15917,
+    "image": "Assembly-CSharp.dll"
+  },
+  "12811": {
+    "type": ".TeamStatController",
+    "name": "UpdateTeamRating",
+    "index": 12811,
+    "params": [
+      "value"
+    ],
+    "slot": 11378,
+    "function": 79282,
+    "image": "Assembly-CSharp.dll"
+  },
+  "13138": {
+    "type": ".EquipmentMenuController",
+    "name": "SelectActiveItem",
+    "index": 13138,
+    "params": [
+      "itemType",
+      "itemId",
+      "cardController"
+    ],
+    "slot": 11705,
+    "function": 8230,
+    "image": "Assembly-CSharp.dll"
+  },
+  "13143": {
+    "type": ".EquipmentMenuController",
+    "name": "HighlightActivePlayer",
+    "index": 13143,
+    "params": [
+      "index"
+    ],
+    "slot": 11710,
+    "function": 15923,
+    "image": "Assembly-CSharp.dll"
+  },
+  "13150": {
+    "type": ".EquipmentMenuController",
+    "name": "ShowingDetailPanel",
+    "index": 13150,
+    "params": [],
+    "slot": 11717,
+    "function": 40498,
+    "image": "Assembly-CSharp.dll"
+  },
   "27296": {
     "type": "UnityEngine.MaterialPropertyBlock",
     "name": ".ctor",
@@ -340,6 +433,26 @@
     "function": 20670,
     "image": "UnityEngine.CoreModule.dll"
   },
+  "28255": {
+    "type": "UnityEngine.Behaviour",
+    "name": "get_enabled",
+    "index": 28255,
+    "params": [],
+    "slot": 2146,
+    "function": 2244,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28256": {
+    "type": "UnityEngine.Behaviour",
+    "name": "set_enabled",
+    "index": 28256,
+    "params": [
+      "value"
+    ],
+    "slot": 1278,
+    "function": 1112,
+    "image": "UnityEngine.CoreModule.dll"
+  },
   "28272": {
     "type": "UnityEngine.Component",
     "name": "get_transform",
@@ -349,6 +462,103 @@
     "function": 511,
     "image": "UnityEngine.CoreModule.dll"
   },
+  "28273": {
+    "type": "UnityEngine.Component",
+    "name": "get_gameObject",
+    "index": 28273,
+    "params": [],
+    "slot": 1239,
+    "function": 469,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28284": {
+    "type": "UnityEngine.Component",
+    "name": "GetComponentInParent",
+    "index": 28284,
+    "params": [
+      "t",
+      "includeInactive"
+    ],
+    "slot": 17257,
+    "function": 19902,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28324": {
+    "type": "UnityEngine.GameObject",
+    "name": "GetComponent",
+    "index": 28324,
+    "params": [
+      "type"
+    ],
+    "slot": 17289,
+    "function": 11148,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28333": {
+    "type": "UnityEngine.GameObject",
+    "name": "GetComponentsInternal",
+    "index": 28333,
+    "params": [
+      "type",
+      "useSearchTypeAsArrayReturnType",
+      "recursive",
+      "includeInactive",
+      "reverse",
+      "resultList"
+    ],
+    "slot": 17293,
+    "function": 7854,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28348": {
+    "type": "UnityEngine.GameObject",
+    "name": "AddComponent",
+    "index": 28348,
+    "params": [
+      "componentType"
+    ],
+    "slot": 2300,
+    "function": 6183,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28350": {
+    "type": "UnityEngine.GameObject",
+    "name": "get_transform",
+    "index": 28350,
+    "params": [],
+    "slot": 1261,
+    "function": 633,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28353": {
+    "type": "UnityEngine.GameObject",
+    "name": "SetActive",
+    "index": 28353,
+    "params": [
+      "value"
+    ],
+    "slot": 1240,
+    "function": 512,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28354": {
+    "type": "UnityEngine.GameObject",
+    "name": "get_activeSelf",
+    "index": 28354,
+    "params": [],
+    "slot": 1503,
+    "function": 910,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28355": {
+    "type": "UnityEngine.GameObject",
+    "name": "get_activeInHierarchy",
+    "index": 28355,
+    "params": [],
+    "slot": 1471,
+    "function": 1419,
+    "image": "UnityEngine.CoreModule.dll"
+  },
   "28453": {
     "type": "UnityEngine.Object",
     "name": "get_name",
@@ -356,6 +566,42 @@
     "params": [],
     "slot": 1272,
     "function": 781,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28454": {
+    "type": "UnityEngine.Object",
+    "name": "set_name",
+    "index": 28454,
+    "params": [
+      "value"
+    ],
+    "slot": 17389,
+    "function": 1668,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28458": {
+    "type": "UnityEngine.Object",
+    "name": "Instantiate",
+    "index": 28458,
+    "params": [
+      "original",
+      "parent",
+      "instantiateInWorldSpace"
+    ],
+    "slot": 17393,
+    "function": 33161,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28466": {
+    "type": "UnityEngine.Object",
+    "name": "DestroyImmediate",
+    "index": 28466,
+    "params": [
+      "obj",
+      "allowDestroyingAssets"
+    ],
+    "slot": 17395,
+    "function": 19894,
     "image": "UnityEngine.CoreModule.dll"
   },
   "28468": {
@@ -380,6 +626,72 @@
     "function": 576,
     "image": "UnityEngine.CoreModule.dll"
   },
+  "28618": {
+    "type": "UnityEngine.RectTransform",
+    "name": "set_anchorMin_Injected",
+    "index": 28618,
+    "params": [
+      "value"
+    ],
+    "slot": 17533,
+    "function": 1850,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28620": {
+    "type": "UnityEngine.RectTransform",
+    "name": "set_anchorMax_Injected",
+    "index": 28620,
+    "params": [
+      "value"
+    ],
+    "slot": 17535,
+    "function": 1820,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28622": {
+    "type": "UnityEngine.RectTransform",
+    "name": "set_anchoredPosition_Injected",
+    "index": 28622,
+    "params": [
+      "value"
+    ],
+    "slot": 17537,
+    "function": 1061,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28624": {
+    "type": "UnityEngine.RectTransform",
+    "name": "set_sizeDelta_Injected",
+    "index": 28624,
+    "params": [
+      "value"
+    ],
+    "slot": 17539,
+    "function": 1335,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28625": {
+    "type": "UnityEngine.RectTransform",
+    "name": "get_pivot_Injected",
+    "index": 28625,
+    "params": [
+      "ret"
+    ],
+    "slot": 17540,
+    "function": 65658,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28626": {
+    "type": "UnityEngine.RectTransform",
+    "name": "set_pivot_Injected",
+    "index": 28626,
+    "params": [
+      "value"
+    ],
+    "slot": 17541,
+    "function": 2197,
+    "image": "UnityEngine.CoreModule.dll"
+  },
   "28648": {
     "type": "UnityEngine.Transform",
     "name": "get_parent",
@@ -387,6 +699,35 @@
     "params": [],
     "slot": 2116,
     "function": 854,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28678": {
+    "type": "UnityEngine.Transform",
+    "name": "SetAsFirstSibling",
+    "index": 28678,
+    "params": [],
+    "slot": 17583,
+    "function": 5252,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28680": {
+    "type": "UnityEngine.Transform",
+    "name": "SetSiblingIndex",
+    "index": 28680,
+    "params": [
+      "index"
+    ],
+    "slot": 17585,
+    "function": 7046,
+    "image": "UnityEngine.CoreModule.dll"
+  },
+  "28681": {
+    "type": "UnityEngine.Transform",
+    "name": "GetSiblingIndex",
+    "index": 28681,
+    "params": [],
+    "slot": 2265,
+    "function": 7045,
     "image": "UnityEngine.CoreModule.dll"
   },
   "28712": {
@@ -480,6 +821,68 @@
     "function": 65623,
     "image": "UnityEngine.CoreModule.dll"
   },
+  "30254": {
+    "type": "TMPro.TMP_Text",
+    "name": "get_text",
+    "index": 30254,
+    "params": [],
+    "slot": 34141,
+    "function": 42472,
+    "image": "Unity.TextMeshPro.dll"
+  },
+  "30255": {
+    "type": "TMPro.TMP_Text",
+    "name": "set_text",
+    "index": 30255,
+    "params": [
+      "value"
+    ],
+    "slot": 34142,
+    "function": 42471,
+    "image": "Unity.TextMeshPro.dll"
+  },
+  "30836": {
+    "type": "UnityEngine.UI.Graphic",
+    "name": "set_raycastTarget",
+    "index": 30836,
+    "params": [
+      "value"
+    ],
+    "slot": 27393,
+    "function": 56621,
+    "image": "UnityEngine.UI.dll"
+  },
+  "30920": {
+    "type": "UnityEngine.UI.Image",
+    "name": "get_sprite",
+    "index": 30920,
+    "params": [],
+    "slot": 27474,
+    "function": 6967,
+    "image": "UnityEngine.UI.dll"
+  },
+  "31478": {
+    "type": "UnityEngine.UI.RawImage",
+    "name": "set_texture",
+    "index": 31478,
+    "params": [
+      "value"
+    ],
+    "slot": 28010,
+    "function": 20189,
+    "image": "UnityEngine.UI.dll"
+  },
+  "31480": {
+    "type": "UnityEngine.UI.RawImage",
+    "name": "set_uvRect",
+    "index": 31480,
+    "params": [
+      "value"
+    ],
+    "slot": 28012,
+    "function": 20187,
+    "image": "UnityEngine.UI.dll"
+  },
   "36866": {
     "type": "UnityEngine.Rigidbody2D",
     "name": "get_rotation",
@@ -555,5 +958,50 @@
     "slot": 19580,
     "function": 11371,
     "image": "UnityEngine.Physics2DModule.dll"
+  },
+  "36961": {
+    "type": "UnityEngine.RectTransformUtility",
+    "name": "RectangleContainsScreenPoint",
+    "index": 36961,
+    "params": [
+      "rect",
+      "screenPoint",
+      "cam"
+    ],
+    "slot": 27150,
+    "function": 5241,
+    "image": "UnityEngine.UIModule.dll"
+  },
+  "36964": {
+    "type": "UnityEngine.RectTransformUtility",
+    "name": "ScreenPointToLocalPointInRectangle",
+    "index": 36964,
+    "params": [
+      "rect",
+      "screenPoint",
+      "cam",
+      "localPoint"
+    ],
+    "slot": 27153,
+    "function": 2524,
+    "image": "UnityEngine.UIModule.dll"
+  },
+  "12814": {
+    "type": ".TeamView",
+    "name": "DrawTeam",
+    "index": 12814,
+    "params": [],
+    "slot": 11381,
+    "function": 4054,
+    "image": "Assembly-CSharp.dll"
+  },
+  "13153": {
+    "type": ".EquipmentMenuController",
+    "name": "CloseDetailPanels",
+    "index": 13153,
+    "params": [],
+    "slot": 11720,
+    "function": 79397,
+    "image": "Assembly-CSharp.dll"
   }
 }

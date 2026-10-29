@@ -120,8 +120,9 @@ basketball sprite. Asset provenance is in `docs/ui-assets.md`.
 
 ## Ronaldo 2007 playable character
 
-Local user ID **1** owns Ronaldo automatically. Open **CHARACTERS** in the main
-menu to equip **RONALDO ’07**, or choose **DEFAULT** for the original player.
+Local user ID **1** owns Ronaldo automatically. Open the original **Locker Room** or **Ballers** menu and click the
+**RONALDO 07** card to equip him. The adjacent default-player card restores the
+normal character. The header **BALLERS** button opens the native Ballers menu.
 Selection persists and cannot change during a queue or match.
 
 His actual native motor has speed, jumping, handling, and shooting at **100**,
@@ -135,6 +136,9 @@ hand poses and face animation. The retained Unity APIs create textures/materials
 and account for packed-sprite trimming; custom assets survive scene cleanup.
 The compatibility map targets the hash-pinned WebAssembly build and is generated
 by `tools/map-native-runtime.py` after extracting the build and metadata.
+The locker uses native Unity card prefabs, fonts, portrait images and stat bars;
+there is no separate HTML character picker. Selecting an ordinary native player
+turns the Ronaldo skin off. Native item IDs and inventory CSV remain compatible.
 This retains the existing host-simulated multiplayer trust model; it does not
 provide authoritative server physics or anti-cheat.
 
@@ -160,6 +164,7 @@ node tools/layout-browser-qa.cjs
 node tools/online-browser-qa.cjs
 node tools/character-browser-qa.cjs
 node tools/character-browser-qa.cjs --guest-owner
+node tools/locker-browser-qa.cjs
 ```
 
 Set `CHROME_EXECUTABLE` to use an existing Chrome binary. Layout QA covers wide
